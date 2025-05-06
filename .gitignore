@@ -1,0 +1,8 @@
+# Build/output directories
+bin/
+obj/
+publish/
+
+# IDE/Editor files
+.vs/
+.vscode/
