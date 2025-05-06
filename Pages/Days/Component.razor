@@ -1,0 +1,61 @@
+﻿@page "/preparation/day5"
+@page "/preparation/day5/traditional"
+
+<PageTitle>Preparation - Day 5</PageTitle>
+
+<div class="prayer-page">
+    <h1>Day 5: [Title of Day 5]</h1>
+
+    <!-- Section 1 (With subtitle) -->
+    <div class="prayer-section">
+        <h3>First Meditation</h3>
+        @if (UseTraditional)
+        {
+            <p>Traditional text for the first paragraph...</p>
+        }
+        else
+        {
+            <p>Modern text for the first paragraph...</p>
+        }
+    </div>
+
+    <!-- Section 2 (With subtitle) -->
+    <div class="prayer-section">
+        <h3>Second Reflection</h3>
+        @if (UseTraditional)
+        {
+            <p>Traditional text for the second paragraph...</p>
+        }
+        else
+        {
+            <p>Modern text for the second paragraph...</p>
+        }
+    </div>
+
+    <!-- Section 3 (No subtitle) -->
+    <div class="prayer-section">
+        @if (UseTraditional)
+        {
+            <p>Traditional text for the third paragraph...</p>
+        }
+        else
+        {
+            <p>Modern text for the third paragraph...</p>
+        }
+    </div>
+
+    <!-- Navigation -->
+    <div class="day-nav">
+        <a href="/preparation/day4">← Previous Day</a>
+        <a href="/preparation/day6">Next Day →</a>
+    </div>
+
+    <!-- Theme/Language Toggles -->
+    <ThemeToggle />
+    <LanguageToggle @bind-UseTraditional="UseTraditional" />
+</div>
+
+@code {
+    [Parameter] public bool Traditional { get; set; }
+    private bool UseTraditional => Traditional;
+}

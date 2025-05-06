@@ -1,0 +1,35 @@
+﻿@inject IJSRuntime JSRuntime
+
+<div class="theme-toggle-container">
+    <button @onclick="ToggleTheme" class="btn btn-sm @buttonClass">
+        @ToggleText
+    </button>
+</div>
+
+@code {
+    private string currentTheme = "light";
+
+    private string buttonClass => currentTheme == "dark"
+        ? "btn-outline-light"
+        : "btn-outline-dark";
+
+    private string ToggleText => currentTheme == "dark"
+        ? "☀️ Enable Light Mode"
+        : "🌙 Enable Dark Mode";
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            currentTheme = await JSRuntime.InvokeAsync<string>(
+                "localStorage.getItem", "theme") ?? "light";
+            StateHasChanged();
+        }
+    }
+
+    private async Task ToggleTheme()
+    {
+        currentTheme = currentTheme == "light" ? "dark" : "light";
+        await JSRuntime.InvokeVoidAsync("setTheme", currentTheme);
+    }
+}

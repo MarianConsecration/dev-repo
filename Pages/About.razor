@@ -1,0 +1,15 @@
+﻿@page "/about"
+
+<PageTitle>About</PageTitle>
+
+<div class="page-content">
+    <h1 class="page-title">About This Consecration</h1>
+    <p>Information about the program will go here</p>
+    <ThemeToggle/>
+    <LanguageToggle @bind-UseTraditional="useTraditional" />
+
+</div>
+
+@code {
+    private bool useTraditional = false;
+}

@@ -1,0 +1,47 @@
+﻿@inject IJSRuntime JSRuntime
+
+<!--
+    Language toggle component
+    To change colors:
+    - Modify the btn-outline-primary class to any Bootstrap outline variant
+    - Or add custom CSS to .language-toggle-container button
+-->
+<div class="language-toggle-container">
+    <button @onclick="ToggleLanguage" class="btn btn-sm btn-outline-primary">
+        @(UseTraditional ? "Traditional" : "Modern") Language
+    </button>
+</div>
+
+@code {
+    [Parameter]
+    public bool UseTraditional { get; set; } = false;
+
+    [Parameter]
+    public EventCallback<bool> UseTraditionalChanged { get; set; }
+
+    // Check for saved language preference when component loads
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            var langPref = await JSRuntime.InvokeAsync<string>("localStorage.getItem", "languagePreference");
+            if (langPref != null)
+            {
+                UseTraditional = langPref == "traditional";
+                await UseTraditionalChanged.InvokeAsync(UseTraditional);
+                StateHasChanged();
+            }
+        }
+    }
+
+    // Toggle between languages and save preference
+    private async Task ToggleLanguage()
+    {
+        UseTraditional = !UseTraditional;
+        await UseTraditionalChanged.InvokeAsync(UseTraditional);
+
+        // Persist language preference across page refreshes
+        await JSRuntime.InvokeVoidAsync("localStorage.setItem", "languagePreference",
+                                     UseTraditional ? "traditional" : "modern");
+    }
+}

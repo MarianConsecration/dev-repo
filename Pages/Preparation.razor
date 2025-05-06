@@ -1,0 +1,26 @@
+﻿@page "/preparation"
+
+<PageTitle>12 Day Preparation</PageTitle>
+
+<div class="page-content">
+    <h1 class="page-title">12 Day Preparation</h1>
+    <p>Content will go here</p>
+
+    @if (useTraditional)
+    {
+        <div class="traditional-version">
+            <!-- Traditional language content -->
+        </div>
+    }
+    else
+    {
+        <div class="modern-version">
+            <!-- Modern language content -->
+        </div>
+    }
+</div>
+
+
+@code {
+    private bool useTraditional = false;
+}

@@ -1,0 +1,293 @@
+/* ==================== */
+/* Theme Variables */
+/* ==================== */
+:root {
+    /* Light Theme - Blue */
+    --bg-color: #ffffff;
+    --text-color: #0a2240;
+    --nav-bar-bg: #e3f2fd; /* Light blue bar */
+    --nav-menu-bg: #f5fbff; /* Slightly lighter blue */
+    --nav-text-color: #0a2240; /* Dark blue text */
+    --nav-text-active: #0a2240;
+    --nav-icon-color: #1565c0; /* Medium blue icons */
+    --nav-icon-hover-bg: rgba(21, 101, 192, 0.1);
+    --nav-item-hover-bg: rgba(21, 101, 192, 0.08);
+    --nav-item-active-bg: rgba(21, 101, 192, 0.15);
+    --nav-border-color: #bbdefb;
+    --card-bg: #ffffff;
+    --border-color: #dee2e6;
+    --page-title-color: #0a2240;
+    --h1-color: #0a2240; /* Deep blue */
+}
+
+[data-theme="dark"] {
+    /* Dark Theme - Navy Blue */
+    --bg-color: #121212;
+    --text-color: #e1f5fe;
+    --nav-bar-bg: #0a1a35; /* Dark navy blue bar */
+    --nav-menu-bg: #0e2342; /* Slightly lighter navy */
+    --nav-text-color: #e1f5fe; /* Light blue text */
+    --nav-text-active: #ffffff;
+    --nav-icon-color: #4fc3f7; /* Bright blue icons */
+    --nav-icon-hover-bg: rgba(79, 195, 247, 0.1);
+    --nav-item-hover-bg: rgba(79, 195, 247, 0.08);
+    --nav-item-active-bg: rgba(79, 195, 247, 0.2);
+    --nav-border-color: #1a237e;
+    --card-bg: #1e1e1e;
+    --border-color: #333;
+    --page-title-color: #4fc3f7;
+    --h1-color: #4fc3f7;
+}
+
+* ==================== */
+/* Typography */
+/* ==================== */
+h1 {
+    color: var(--h1-color);
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin: 0 0 1.5rem 0;
+    transition: color 0.3s ease;
+}
+
+.page-title {
+    color: var(--h1-color);
+    font-size: 2rem;
+    border-bottom: 2px solid var(--nav-icon-color);
+    padding-bottom: 0.5rem;
+    margin-bottom: 2rem;
+    display: inline-block;
+}
+
+/* Radzen Switch Styling */
+.rz-switch {
+    --rz-switch-on-bg: var(--accent-fill-rest);
+    --rz-switch-off-bg: var(--neutral-fill-rest);
+    --rz-switch-knob-bg: white;
+}
+
+.rz-switch-text {
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+/* ==================== */
+/* Base Styles */
+/* ==================== */
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: all 0.3s ease;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* ==================== */
+/* Navigation System */
+/* ==================== */
+.nav-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 64px;
+    height: 100vh;
+    background: var(--nav-bar-bg);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    padding-top: 1rem;
+    border-right: 1px solid var(--nav-border-color);
+}
+
+.nav-toggle {
+    background: transparent;
+    border: none;
+    color: var(--nav-icon-color);
+    width: 40px;
+    height: 40px;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+    .nav-toggle:hover {
+        background: var(--nav-icon-hover-bg);
+    }
+
+.rz-card.nav-menu {
+    position: fixed;
+    top: 0;
+    left: -256px;
+    width: 256px;
+    height: 100vh;
+    margin: 0;
+    border-radius: 0;
+    border-left: none;
+    z-index: 900;
+    transition: left 0.3s ease;
+    margin-left: 64px;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+    padding: 0;
+    overflow-y: auto;
+    background: var(--nav-menu-bg);
+    border-right: 1px solid var(--nav-border-color);
+}
+
+    .rz-card.nav-menu.open {
+        left: 0;
+    }
+
+.nav-items-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1rem 0;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1.5rem;
+    color: var(--nav-text-color);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin: 0 0.5rem;
+    border-radius: 4px;
+}
+
+    .nav-item:hover {
+        background: var(--nav-item-hover-bg);
+    }
+
+    .nav-item.active {
+        background: var(--nav-item-active-bg);
+        color: var(--nav-text-active);
+    }
+
+.nav-icon {
+    font-size: 1.25rem;
+    color: var(--nav-icon-color);
+    min-width: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 12px;
+}
+
+.nav-text {
+    white-space: nowrap;
+    font-size: 0.95rem;
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+/* ==================== */
+/* Layout */
+/* ==================== */
+.main-content {
+    margin-left: 64px;
+    transition: margin-left 0.3s ease;
+    padding: 2rem;
+}
+
+.nav-menu.open ~ .main-content {
+    margin-left: 320px; /* 64 + 256 */
+}
+
+.page-title {
+    color: var(--page-title-color);
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+
+
+/* ==================== */
+/* Responsive */
+/* ==================== */
+@media (max-width: 768px) {
+    .nav-bar {
+        width: 56px;
+    }
+
+    .rz-card.nav-menu {
+        width: 240px;
+        left: -240px;
+        margin-left: 56px;
+    }
+
+    .main-content {
+        margin-left: 56px;
+        padding: 1.5rem;
+    }
+
+    .nav-menu.open ~ .main-content {
+        margin-left: 296px; /* 56 + 240 */
+    }
+
+    .page-title {
+        font-size: 1.5rem;
+    }
+}
+
+/* Loading Overlay Styles */
+#loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.92); /* Bright white */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    color: #2d3748; /* Dark text */
+}
+
+/* Dark Mode Adaptation - Uses your existing theme */
+[data-theme="dark"] #loading-overlay {
+    background-color: rgba(17, 24, 39, 0.95); /* Dark blue-gray */
+    color: #f7fafc; /* Light text */
+}
+
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    border-top-color: #3b82f6; /* Nice blue that works in both modes */
+    animation: spin 1s ease-in-out infinite;
+    margin-bottom: 20px;
+}
+
+[data-theme="dark"] .spinner {
+    border-color: rgba(255, 255, 255, 0.1);
+    border-top-color: #60a5fa; /* Lighter blue for dark mode */
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.loading-text {
+    font-size: 1.25rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+
+/* Hide when Blazor is loaded */
+.loaded #loading-overlay {
+    display: none;
+}
+
