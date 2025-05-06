@@ -9,7 +9,7 @@
     <!-- Section 1 (With subtitle) -->
     <div class="prayer-section">
         <h3>First Meditation</h3>
-        @if (UseTraditional)
+        @if (useTraditional)
         {
             <p>Traditional text for the first paragraph...</p>
         }
@@ -22,7 +22,7 @@
     <!-- Section 2 (With subtitle) -->
     <div class="prayer-section">
         <h3>Second Reflection</h3>
-        @if (UseTraditional)
+        @if (useTraditional)
         {
             <p>Traditional text for the second paragraph...</p>
         }
@@ -34,7 +34,7 @@
 
     <!-- Section 3 (No subtitle) -->
     <div class="prayer-section">
-        @if (UseTraditional)
+        @if (useTraditional)
         {
             <p>Traditional text for the third paragraph...</p>
         }
@@ -52,10 +52,9 @@
 
     <!-- Theme/Language Toggles -->
     <ThemeToggle />
-    <LanguageToggle @bind-UseTraditional="UseTraditional" />
+    <LanguageToggle @bind-UseTraditional="useTraditional" />
 </div>
 
 @code {
-    [Parameter] public bool Traditional { get; set; }
-    private bool UseTraditional => Traditional;
+    [Parameter] public bool useTraditional { get; set; }
 }
