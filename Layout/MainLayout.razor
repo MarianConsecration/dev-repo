@@ -1,9 +1,69 @@
-﻿@inherits LayoutComponentBase
+﻿@inject IJSRuntime JS
+@inject NavigationManager NavigationManager
+@inherits LayoutComponentBase
 
-<div class="page">
-    <NavMenu />
-    
-    <main class="main-content">
-        @Body
-    </main>
+@* Radzen components are no longer used here directly, but keep if used elsewhere or by child components like toggles *@
+@* @using Radzen *@
+@* @using Radzen.Blazor *@
+
+@* Overlay and Side Drawer are removed *@
+
+<header class="top-bar">
+    <button class="home-button" @onclick="NavigateToHome" title="Home Page">
+        <RadzenIcon Icon="home" />
+    </button>
+    <div class="header-title">Marian Consecration</div>
+    <div class="header-controls">
+        <button class="settings-button" @onclick="NavigateToAbout" title="About & Settings">
+            <RadzenIcon Icon="settings" />
+        </button>
+    </div>
+</header>
+
+<div class="floating-controls">
+    <button class="home-button" @onclick="NavigateToHome" title="Home Page">
+        <RadzenIcon Icon="home" />
+    </button>
+    <button class="settings-button" @onclick="NavigateToAbout" title="About & Settings">
+        <RadzenIcon Icon="settings" />
+    </button>
 </div>
+
+<div class="main-content" data-hand="@handPreference">
+    @* handPreference still useful for conditional content padding via CSS *@
+    @Body
+</div>
+
+@code {
+    private string handPreference = "standard"; // "standard" or "one-handed"
+    // _menuOpen and related methods are removed
+    // UseTraditional is removed as LanguageToggle is now only on About page and manages its own state for display
+
+    protected override async Task OnInitializedAsync()
+    {
+        handPreference = (await JS.InvokeAsync<string>("localStorage.getItem", "hand")) ?? "standard";
+        // No need to load language preference here as it's not directly used by MainLayout anymore
+    }
+
+    private void NavigateToHome()
+    {
+        NavigationManager.NavigateTo("/");
+    }
+
+    private void NavigateToAbout()
+    {
+        NavigationManager.NavigateTo("/about");
+    }
+
+    // HandleLanguageChanged is removed as LanguageToggle is self-contained on About page
+    // UpdateHandPreference might not be needed if HandToggle only sets global data-hand attribute
+    // However, if other logic in MainLayout depends on handPreference C# variable being in sync:
+    public void RefreshHandPreference(string newHandPreference)
+    {
+        if (handPreference != newHandPreference)
+        {
+            handPreference = newHandPreference;
+            StateHasChanged(); // Re-render MainLayout if its structure/attributes depend on handPreference
+        }
+    }
+}

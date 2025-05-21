@@ -1,14 +1,9 @@
 ﻿@inject IJSRuntime JSRuntime
+@using Radzen.Blazor
 
-<!--
-    Language toggle component
-    To change colors:
-    - Modify the btn-outline-primary class to any Bootstrap outline variant
-    - Or add custom CSS to .language-toggle-container button
--->
 <div class="language-toggle-container">
-    <button @onclick="ToggleLanguage" class="btn btn-sm btn-outline-primary">
-        @(UseTraditional ? "Traditional" : "Modern") Language
+    <button @onclick="ToggleLanguage" class="btn btn-sm btn-outline-primary" title="@TitleText">
+        <RadzenIcon Icon="@(UseTraditional ? "sports_bar" : "local_cafe")" Style="margin-right: 0.5em;" /> @(UseTraditional ? "Traditional" : "Modern")
     </button>
 </div>
 
@@ -19,29 +14,28 @@
     [Parameter]
     public EventCallback<bool> UseTraditionalChanged { get; set; }
 
-    // Check for saved language preference when component loads
-    protected override async Task OnAfterRenderAsync(bool firstRender)
+    private string TitleText => UseTraditional ? "Switch to Modern Language" : "Switch to Traditional Language";
+
+    protected override async Task OnInitializedAsync() // Changed to OnInitializedAsync
     {
-        if (firstRender)
+        // It's often better for the parent component (About.razor) to pass the initial UseTraditional value
+        // if it's also loaded from localStorage there.
+        // However, if this component is solely responsible for its initial load:
+        var langPref = await JSRuntime.InvokeAsync<string>("localStorage.getItem", "language"); // Use "language" key
+        if (langPref != null && (langPref == "traditional") != UseTraditional)
         {
-            var langPref = await JSRuntime.InvokeAsync<string>("localStorage.getItem", "languagePreference");
-            if (langPref != null)
-            {
-                UseTraditional = langPref == "traditional";
-                await UseTraditionalChanged.InvokeAsync(UseTraditional);
-                StateHasChanged();
-            }
+            UseTraditional = langPref == "traditional";
+            await UseTraditionalChanged.InvokeAsync(UseTraditional); // Notify parent of initial state
+            // StateHasChanged(); // If parent re-renders this component, this might not be needed.
         }
     }
 
-    // Toggle between languages and save preference
     private async Task ToggleLanguage()
     {
         UseTraditional = !UseTraditional;
         await UseTraditionalChanged.InvokeAsync(UseTraditional);
 
-        // Persist language preference across page refreshes
-        await JSRuntime.InvokeVoidAsync("localStorage.setItem", "languagePreference",
-                                     UseTraditional ? "traditional" : "modern");
+        await JSRuntime.InvokeVoidAsync("localStorage.setItem", "language", // Use "language" key
+                                         UseTraditional ? "traditional" : "modern");
     }
 }

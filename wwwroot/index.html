@@ -9,20 +9,27 @@
     <title>MarianConsecration</title>
 
     <!-- Dynamically set the base href based on environment -->
-    <base href="/" />
+    <base href="https://localhost:7083/" />
+    <!--<base href="https://marianconsecration.github.io/" />-->
+
 
     <!-- Add this script FIRST -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const savedTheme = localStorage.getItem('theme') || 'light';
             const savedLang = localStorage.getItem('language') || 'modern';
+            const savedHand = localStorage.getItem('hand') || 'standard';
 
             document.documentElement.setAttribute('data-theme', savedTheme);
+            document.documentElement.setAttribute('data-hand', savedHand);
             window.setTheme = (theme) => {
                 document.documentElement.setAttribute('data-theme', theme);
                 localStorage.setItem('theme', theme);
             };
-
+            window.setHand = (hand) => {
+                document.documentElement.setAttribute('data-hand', hand);
+                localStorage.setItem('hand', hand); 
+            };
             window.language = savedLang;
         });
     </script>

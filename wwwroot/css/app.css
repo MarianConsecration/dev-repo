@@ -2,68 +2,300 @@
 /* Theme Variables */
 /* ==================== */
 :root {
-    /* Light Theme - Blue */
-    --bg-color: #ffffff;
-    --text-color: #0a2240;
-    --nav-bar-bg: #e3f2fd; /* Light blue bar */
-    --nav-menu-bg: #f5fbff; /* Slightly lighter blue */
-    --nav-text-color: #0a2240; /* Dark blue text */
-    --nav-text-active: #0a2240;
-    --nav-icon-color: #1565c0; /* Medium blue icons */
-    --nav-icon-hover-bg: rgba(21, 101, 192, 0.1);
-    --nav-item-hover-bg: rgba(21, 101, 192, 0.08);
-    --nav-item-active-bg: rgba(21, 101, 192, 0.15);
-    --nav-border-color: #bbdefb;
-    --card-bg: #ffffff;
-    --border-color: #dee2e6;
-    --page-title-color: #0a2240;
-    --h1-color: #0a2240; /* Deep blue */
+    /* Light Theme - Default (Blueish) */
+    --bg-color: #ffffff; /* Page background */
+    --text-color: #212529; /* Main text color */
+    --primary-color: #0d6efd; /* Primary color for buttons, links, icons */
+    --secondary-color: #6c757d; /* Secondary text/elements */
+    --border-color: #dee2e6; /* Borders, dividers */
+    --card-bg: #ffffff; /* Card backgrounds */
+    --header-bg: #f8f9fa; /* Header/top-bar background */
+    --header-text-color: #0a2240;
+    --button-outline-primary-text: var(--primary-color);
+    --button-outline-primary-border: var(--primary-color);
+    --button-outline-primary-hover-bg: var(--primary-color);
+    --button-outline-primary-hover-text: #ffffff;
+    --rz-switch-on-bg: var(--primary-color);
+    --rz-switch-off-bg: #ced4da;
+    --rz-switch-knob-bg: #ffffff;
+    --loading-bg: rgba(255, 255, 255, 0.92);
+    --loading-spinner-border: rgba(0, 0, 0, 0.1);
+    --loading-spinner-top: var(--primary-color);
+    --loading-text-color: #2d3748;
+    --nav-icon-color: var(--primary-color);
+    --page-title-color: var(--primary-color);
+    --h1-color: #1e3a5f;
 }
 
 [data-theme="dark"] {
-    /* Dark Theme - Navy Blue */
     --bg-color: #121212;
-    --text-color: #e1f5fe;
-    --nav-bar-bg: #0a1a35; /* Dark navy blue bar */
-    --nav-menu-bg: #0e2342; /* Slightly lighter navy */
-    --nav-text-color: #e1f5fe; /* Light blue text */
-    --nav-text-active: #ffffff;
-    --nav-icon-color: #4fc3f7; /* Bright blue icons */
-    --nav-icon-hover-bg: rgba(79, 195, 247, 0.1);
-    --nav-item-hover-bg: rgba(79, 195, 247, 0.08);
-    --nav-item-active-bg: rgba(79, 195, 247, 0.2);
-    --nav-border-color: #1a237e;
+    --text-color: #e0e0e0;
+    --primary-color: #4dabf7;
+    --secondary-color: #a0a0a0;
+    --border-color: #3a3a3a;
     --card-bg: #1e1e1e;
-    --border-color: #333;
-    --page-title-color: #4fc3f7;
-    --h1-color: #4fc3f7;
+    --header-bg: #1c1c1c;
+    --header-text-color: #e0e0e0;
+    --button-outline-primary-text: var(--primary-color);
+    --button-outline-primary-border: var(--primary-color);
+    --button-outline-primary-hover-bg: var(--primary-color);
+    --button-outline-primary-hover-text: #121212;
+    --rz-switch-on-bg: var(--primary-color);
+    --rz-switch-off-bg: #555555;
+    --rz-switch-knob-bg: #121212;
+    --loading-bg: rgba(18, 18, 18, 0.95);
+    --loading-spinner-border: rgba(255, 255, 255, 0.1);
+    --loading-spinner-top: var(--primary-color);
+    --loading-text-color: #f7fafc;
+    --nav-icon-color: var(--primary-color);
+    --page-title-color: var(--primary-color);
+    --h1-color: var(--primary-color);
 }
 
-* ==================== */
+/* ==================== */
+/* Base & Body */
+/* ==================== */
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+#app {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ==================== */
+/* Layout styles - Bar Visibility */
+/* ==================== */
+html[data-hand="standard"] .top-bar {
+    display: flex !important;
+}
+
+html[data-hand="standard"] .floating-controls {
+    display: none !important;
+}
+
+html[data-hand="standard"] .main-content {
+    margin-top: 60px;
+    margin-bottom: 2rem;
+}
+
+html[data-hand="one-handed"] .top-bar {
+    display: none !important;
+}
+
+html[data-hand="one-handed"] .floating-controls {
+    display: flex !important;
+}
+
+html[data-hand="one-handed"] .main-content {
+    margin-top: 2rem;
+    margin-bottom: calc(60px + 20vh + 2rem);
+}
+
+.top-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background-color: var(--header-bg);
+    color: var(--header-text-color);
+    align-items: center;
+    padding: 0 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.header-title {
+    flex-grow: 1;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.header-controls {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.floating-controls {
+    position: fixed;
+    left: 50%;
+    bottom: 20vh;
+    transform: translateX(-50%);
+    height: auto;
+    padding: 0.85rem 1.75rem;
+    background-color: var(--header-bg);
+    border-radius: 40px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+    gap: 1.25rem;
+    z-index: 1000;
+    align-items: center;
+    min-width: 160px;
+}
+
+.home-button, .settings-button {
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    color: var(--nav-icon-color);
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+}
+
+    .home-button:hover, .settings-button:hover {
+        background-color: rgba(0,0,0,0.05);
+    }
+
+[data-theme="dark"] .home-button:hover,
+[data-theme="dark"] .settings-button:hover {
+    background-color: rgba(255,255,255,0.1);
+}
+
+/* Main content styles */
+.main-content {
+    padding: 2rem;
+    flex-grow: 1;
+    transition: margin-top 0.3s ease, margin-bottom 0.3s ease;
+}
+
+.page-content {
+    background-color: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 2px 8px rgba(0,0,0,0.05);
+    margin-bottom: 2rem;
+}
+
+/* ==================== */
 /* Typography */
 /* ==================== */
-h1 {
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
     color: var(--h1-color);
-    font-size: 1.75rem;
+    margin-top: 0;
+    margin-bottom: 0.75rem;
     font-weight: 600;
-    margin: 0 0 1.5rem 0;
-    transition: color 0.3s ease;
 }
 
 .page-title {
-    color: var(--h1-color);
-    font-size: 2rem;
-    border-bottom: 2px solid var(--nav-icon-color);
+    color: var(--page-title-color);
+    font-size: 1.75rem;
+    border-bottom: 2px solid var(--primary-color);
     padding-bottom: 0.5rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     display: inline-block;
 }
 
+p {
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+/* New Style for Page Settings Title on About Page */
+.page-settings-title {
+    font-size: 1.1rem; /* Or h5 default size if preferred */
+    font-weight: 600;
+    color: var(--secondary-color); /* Using secondary color for a sub-heading feel */
+    margin-top: 1.5rem; /* Space above it */
+    margin-bottom: 1rem; /* Space below it before the toggles */
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5rem;
+}
+
+[data-theme="dark"] .page-settings-title {
+    color: var(--secondary-color); /* Ensure it's distinct in dark mode too */
+}
+
+
+/* ==================== */
+/* Toggle Button Styling (Bootstrap Overrides & Theme Integration) */
+/* ==================== */
+.theme-toggle-container button,
+.language-toggle-container button,
+.hand-toggle-container button {
+    min-width: 160px; /* Adjusted min-width for potentially longer text + icon */
+    text-align: left;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    display: inline-flex;
+    align-items: center; /* Key for vertical alignment */
+    justify-content: flex-start;
+    line-height: 1.5; /* Ensure consistent line height for button text */
+}
+    /* Specific alignment for RadzenIcon within these buttons */
+    .theme-toggle-container button .rz-icon,
+    .language-toggle-container button .rz-icon,
+    .hand-toggle-container button .rz-icon {
+        font-size: 1.2em; /* Make icon slightly larger than button text */
+        /* vertical-align: middle; /* Already handled by button's align-items: center */
+        /* position: relative; */ /* Avoid relative positioning unless necessary */
+        /* top: -1px; */ /* Avoid pixel nudging if flex alignment works */
+    }
+
+
+.btn-outline-dark {
+    --bs-btn-color: var(--text-color);
+    --bs-btn-border-color: var(--text-color);
+    --bs-btn-hover-color: var(--bg-color);
+    --bs-btn-hover-bg: var(--text-color);
+    --bs-btn-active-color: var(--bg-color);
+    --bs-btn-active-bg: var(--text-color);
+    --bs-btn-active-border-color: var(--text-color);
+}
+
+[data-theme="dark"] .btn-outline-light {
+    --bs-btn-color: var(--text-color);
+    --bs-btn-border-color: var(--text-color);
+    --bs-btn-hover-color: var(--bg-color);
+    --bs-btn-hover-bg: var(--text-color);
+    --bs-btn-active-color: var(--bg-color);
+    --bs-btn-active-bg: var(--text-color);
+    --bs-btn-active-border-color: var(--text-color);
+}
+
+.btn-outline-primary {
+    --bs-btn-color: var(--button-outline-primary-text);
+    --bs-btn-border-color: var(--button-outline-primary-border);
+    --bs-btn-hover-bg: var(--button-outline-primary-hover-bg);
+    --bs-btn-hover-border-color: var(--button-outline-primary-hover-bg);
+    --bs-btn-hover-color: var(--button-outline-primary-hover-text);
+    --bs-btn-active-bg: var(--button-outline-primary-hover-bg);
+    --bs-btn-active-border-color: var(--button-outline-primary-hover-bg);
+    --bs-btn-active-color: var(--button-outline-primary-hover-text);
+}
+
+.toggle-group {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+}
+
+    .toggle-group label {
+        font-weight: 500;
+        min-width: 90px;
+    }
+
 /* Radzen Switch Styling */
 .rz-switch {
-    --rz-switch-on-bg: var(--accent-fill-rest);
-    --rz-switch-off-bg: var(--neutral-fill-rest);
-    --rz-switch-knob-bg: white;
+    --rz-switch-on-bg: var(--rz-switch-on-bg);
+    --rz-switch-off-bg: var(--rz-switch-off-bg);
+    --rz-switch-knob-bg: var(--rz-switch-knob-bg);
 }
 
 .rz-switch-text {
@@ -71,206 +303,30 @@ h1 {
     font-weight: 500;
 }
 
-/* ==================== */
-/* Base Styles */
-/* ==================== */
-body {
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    transition: all 0.3s ease;
-    margin: 0;
-    padding: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-}
-
-/* ==================== */
-/* Navigation System */
-/* ==================== */
-.nav-bar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 64px;
-    height: 100vh;
-    background: var(--nav-bar-bg);
-    z-index: 1000;
-    display: flex;
-    justify-content: center;
-    padding-top: 1rem;
-    border-right: 1px solid var(--nav-border-color);
-}
-
-.nav-toggle {
-    background: transparent;
-    border: none;
-    color: var(--nav-icon-color);
-    width: 40px;
-    height: 40px;
-    display: grid;
-    place-items: center;
-    cursor: pointer;
-    border-radius: 4px;
-    transition: all 0.2s ease;
-}
-
-    .nav-toggle:hover {
-        background: var(--nav-icon-hover-bg);
-    }
-
-.rz-card.nav-menu {
-    position: fixed;
-    top: 0;
-    left: -256px;
-    width: 256px;
-    height: 100vh;
-    margin: 0;
-    border-radius: 0;
-    border-left: none;
-    z-index: 900;
-    transition: left 0.3s ease;
-    margin-left: 64px;
-    box-shadow: 2px 0 10px rgba(0,0,0,0.1);
-    padding: 0;
-    overflow-y: auto;
-    background: var(--nav-menu-bg);
-    border-right: 1px solid var(--nav-border-color);
-}
-
-    .rz-card.nav-menu.open {
-        left: 0;
-    }
-
-.nav-items-container {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    padding: 1rem 0;
-}
-
-.nav-item {
-    display: flex;
-    align-items: center;
-    padding: 0.75rem 1.5rem;
-    color: var(--nav-text-color);
-    cursor: pointer;
-    transition: all 0.2s ease;
-    margin: 0 0.5rem;
-    border-radius: 4px;
-}
-
-    .nav-item:hover {
-        background: var(--nav-item-hover-bg);
-    }
-
-    .nav-item.active {
-        background: var(--nav-item-active-bg);
-        color: var(--nav-text-active);
-    }
-
-.nav-icon {
-    font-size: 1.25rem;
-    color: var(--nav-icon-color);
-    min-width: 24px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: 12px;
-}
-
-.nav-text {
-    white-space: nowrap;
-    font-size: 0.95rem;
-    font-weight: 500;
-    line-height: 1.2;
-}
-
-/* ==================== */
-/* Layout */
-/* ==================== */
-.main-content {
-    margin-left: 64px;
-    transition: margin-left 0.3s ease;
-    padding: 2rem;
-}
-
-.nav-menu.open ~ .main-content {
-    margin-left: 320px; /* 64 + 256 */
-}
-
-.page-title {
-    color: var(--page-title-color);
-    font-size: 1.75rem;
-    font-weight: 600;
-    margin-bottom: 1.5rem;
-    transition: color 0.3s ease;
-}
-
-
-
-/* ==================== */
-/* Responsive */
-/* ==================== */
-@media (max-width: 768px) {
-    .nav-bar {
-        width: 56px;
-    }
-
-    .rz-card.nav-menu {
-        width: 240px;
-        left: -240px;
-        margin-left: 56px;
-    }
-
-    .main-content {
-        margin-left: 56px;
-        padding: 1.5rem;
-    }
-
-    .nav-menu.open ~ .main-content {
-        margin-left: 296px; /* 56 + 240 */
-    }
-
-    .page-title {
-        font-size: 1.5rem;
-    }
-}
-
-/* Loading Overlay Styles */
+/* Loading Overlay */
 #loading-overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(255, 255, 255, 0.92); /* Bright white */
+    background-color: var(--loading-bg);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     z-index: 9999;
-    color: #2d3748; /* Dark text */
+    color: var(--loading-text-color);
 }
-
-/* Dark Mode Adaptation - Uses your existing theme */
-[data-theme="dark"] #loading-overlay {
-    background-color: rgba(17, 24, 39, 0.95); /* Dark blue-gray */
-    color: #f7fafc; /* Light text */
-}
-
 
 .spinner {
     width: 50px;
     height: 50px;
-    border: 5px solid rgba(0, 0, 0, 0.1);
+    border: 5px solid var(--loading-spinner-border);
     border-radius: 50%;
-    border-top-color: #3b82f6; /* Nice blue that works in both modes */
+    border-top-color: var(--loading-spinner-top);
     animation: spin 1s ease-in-out infinite;
     margin-bottom: 20px;
-}
-
-[data-theme="dark"] .spinner {
-    border-color: rgba(255, 255, 255, 0.1);
-    border-top-color: #60a5fa; /* Lighter blue for dark mode */
 }
 
 @keyframes spin {
@@ -285,9 +341,94 @@ body {
     text-align: center;
 }
 
-
-/* Hide when Blazor is loaded */
-.loaded #loading-overlay {
+body.loaded #loading-overlay {
     display: none;
 }
 
+/* ==================== */
+/* Responsive */
+/* ==================== */
+@media (max-width: 768px) {
+    .main-content {
+        padding: 1rem;
+    }
+
+    html[data-hand="one-handed"] .main-content {
+        margin-bottom: calc(50px + 20vh + 1rem);
+    }
+
+    html[data-hand="one-handed"] .floating-controls {
+        padding: 0.6rem 1.2rem;
+        gap: 1rem;
+        bottom: 15vh;
+        min-width: 140px;
+    }
+
+    .home-button, .settings-button {
+        width: 42px;
+        height: 42px;
+        font-size: 1.6rem;
+    }
+
+    .page-title {
+        font-size: 1.5rem;
+    }
+
+    .page-content {
+        padding: 1rem;
+    }
+
+    .page-settings-title {
+        font-size: 1rem;
+        margin-top: 1rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .toggle-group {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+        .toggle-group label {
+            margin-bottom: 0.25rem;
+        }
+
+    .theme-toggle-container button,
+    .language-toggle-container button,
+    .hand-toggle-container button {
+        width: 100%;
+        min-width: unset;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-title {
+        font-size: 1rem;
+    }
+
+    html[data-hand="one-handed"] .floating-controls {
+        bottom: 12vh;
+        padding: 0.6rem 1rem;
+        gap: 0.75rem;
+        min-width: auto;
+    }
+
+    .home-button, .settings-button {
+        width: 40px;
+        height: 40px;
+        font-size: 1.5rem;
+    }
+
+    .theme-toggle-container button,
+    .language-toggle-container button,
+    .hand-toggle-container button {
+        font-size: 0.9rem;
+    }
+
+        .theme-toggle-container button .rz-icon,
+        .language-toggle-container button .rz-icon,
+        .hand-toggle-container button .rz-icon {
+            margin-right: 0.3em !important;
+            font-size: 1.1em; /* Ensure icon scales with button font size */
+        }
+}

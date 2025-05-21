@@ -1,35 +1,36 @@
 ﻿@inject IJSRuntime JSRuntime
+@using Radzen.Blazor
 
 <div class="theme-toggle-container">
-    <button @onclick="ToggleTheme" class="btn btn-sm @buttonClass">
-        @ToggleText
+    <button @onclick="ToggleTheme" class="btn btn-sm @buttonClass" title="@TitleText">
+        <RadzenIcon Icon="@IconName" Style="margin-right: 0.5em; vertical-align: middle;" /> @ButtonText
     </button>
 </div>
 
 @code {
     private string currentTheme = "light";
 
+    // Icon and Text now reflect the CURRENT state
+    private string IconName => currentTheme == "dark" ? "dark_mode" : "light_mode"; // Moon for dark, Sun for light
+    private string ButtonText => currentTheme == "dark" ? "Dark Mode" : "Light Mode";
+
+    // Title text describes the ACTION to be taken
+    private string TitleText => currentTheme == "dark" ? "Switch to Light Mode" : "Switch to Dark Mode";
+
+    // Button class is for styling the button itself based on the current theme
     private string buttonClass => currentTheme == "dark"
         ? "btn-outline-light"
         : "btn-outline-dark";
 
-    private string ToggleText => currentTheme == "dark"
-        ? "☀️ Enable Light Mode"
-        : "🌙 Enable Dark Mode";
-
-    protected override async Task OnAfterRenderAsync(bool firstRender)
+    protected override async Task OnInitializedAsync()
     {
-        if (firstRender)
-        {
-            currentTheme = await JSRuntime.InvokeAsync<string>(
-                "localStorage.getItem", "theme") ?? "light";
-            StateHasChanged();
-        }
+        currentTheme = await JSRuntime.InvokeAsync<string>("localStorage.getItem", "theme") ?? "light";
     }
 
     private async Task ToggleTheme()
     {
         currentTheme = currentTheme == "light" ? "dark" : "light";
         await JSRuntime.InvokeVoidAsync("setTheme", currentTheme);
+        // StateHasChanged(); // Let Blazor re-render the component
     }
 }

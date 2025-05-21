@@ -1,0 +1,60 @@
+﻿@inject IJSRuntime JSRuntime
+@using Radzen.Blazor
+
+<div class="hand-toggle-container">
+    <button @onclick="ToggleHand" class="btn btn-sm @ButtonClass" title="@TitleText">
+        <RadzenIcon Icon="@IconName" Style="margin-right: 0.5em; vertical-align: middle;" /> @ButtonText
+    </button>
+</div>
+
+@code {
+    private string currentHand = "standard"; // "standard", "one-handed"
+
+    private string ButtonClass => "btn-outline-primary";
+
+    // Icon and Text now reflect the CURRENT state
+    private string IconName => currentHand == "standard" ? "arrow_upward" : "pan_tool"; // Arrow up for standard, Hand for one-handed
+    private string ButtonText => currentHand == "standard" ? "Standard View" : "One-Handed";
+
+    // Title text describes the ACTION to be taken
+    private string TitleText => currentHand == "standard" ? "Switch to One-Handed Mode" : "Switch to Standard View";
+
+    [Parameter] public EventCallback<string> HandPreferenceChanged { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        currentHand = await JSRuntime.InvokeAsync<string>("localStorage.getItem", "hand") ?? "standard";
+        // No need to call setHand here if index.html already sets the initial data-hand attribute
+        // and this component just syncs its internal state.
+        // However, if this component is the source of truth for the initial JS call after load:
+        // await JSRuntime.InvokeVoidAsync("setHand", currentHand);
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            var initialHand = await JSRuntime.InvokeAsync<string>("localStorage.getItem", "hand") ?? "standard";
+            if (this.currentHand != initialHand)
+            {
+                this.currentHand = initialHand;
+                StateHasChanged();
+            }
+            // Ensure the JS side (html data-attribute) is synced if it wasn't from index.html
+            // or if this component's state is the master.
+            await JSRuntime.InvokeVoidAsync("setHand", currentHand);
+        }
+    }
+
+    private async Task ToggleHand()
+    {
+        currentHand = currentHand == "standard" ? "one-handed" : "standard";
+        await JSRuntime.InvokeVoidAsync("setHand", currentHand);
+
+        if (HandPreferenceChanged.HasDelegate)
+        {
+            await HandPreferenceChanged.InvokeAsync(currentHand);
+        }
+        // StateHasChanged(); // Let Blazor re-render the component
+    }
+}
