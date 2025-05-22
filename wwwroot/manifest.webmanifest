@@ -3,7 +3,7 @@
     "short_name": "MarianConsecration",
     "id": "./",
     "start_url": "./",
-    "theme_color": "#ffffff",
+    "theme_color": "#000000",
     "background_color": "#91b8ff",
     "display": "standalone",
     "prefer_related_applications": false,
