@@ -171,6 +171,7 @@ html[data-hand="one-handed"] .main-content {
 .main-content {
     padding: 2rem;
     flex-grow: 1;
+    padding-bottom: 20vh;
     transition: margin-top 0.3s ease, margin-bottom 0.3s ease;
 }
 
@@ -179,8 +180,11 @@ html[data-hand="one-handed"] .main-content {
     padding: 1.5rem;
     border-radius: 8px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 2px 8px rgba(0,0,0,0.05);
-    margin-bottom: 2rem;
+    margin: 0 auto 2rem auto;
+    max-width: 1000px;
+    width: 100%;
 }
+
 
 /* ==================== */
 /* Typography */
@@ -354,7 +358,7 @@ body.loaded #loading-overlay {
     }
 
     html[data-hand="one-handed"] .main-content {
-        margin-bottom: calc(50px + 20vh + 1rem);
+        margin-bottom: calc(60px + 20vh + 5rem);
     }
 
     html[data-hand="one-handed"] .floating-controls {

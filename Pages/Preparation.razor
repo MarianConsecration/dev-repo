@@ -1,46 +1,55 @@
 ﻿@page "/preparation"
+@inject NavigationManager NavigationManager
+@using Radzen
+@using Radzen.Blazor
 
-<PageTitle>12 Day Preparation</PageTitle>
+<PageTitle>Preparation for Consecration</PageTitle>
 
 <div class="page-content">
-    <h1 class="page-title">12 Day Preparation</h1>
+    <h1 class="page-title">Preparation for Consecration</h1>
 
-    @if (useTraditional)
-    {
-        <div class="traditional-version">
-            <p>Thees and thous and whatnots and wherefore art gallery furniture.</p>
-        </div>
-    }
-    else
-    {
-        <div class="modern-version">
-            <p>
-                Now begins the 33-day period of exercises. St. Louis-Marie breaks these days into sections of days, each section having its own prayers, and each particular day having its own brief readings with which to fill the mind for that day (the readings come from Sacred Scripture, "The Imitation of Christ," and "True Devotion to the Blessed Virgin Mary"). Don't just read the readings, internalize them; don't let your lips just mouth the prayers, truly pray them.
+    <p>
+        Now begins the 33-day period of exercises. St. Louis-Marie breaks these days into sections of days,
+        each section having its own prayers, and each particular day having its own brief readings with which
+        to fill the mind for that day (the readings come from Sacred Scripture, "The Imitation of Christ,"
+        and "True Devotion to the Blessed Virgin Mary"). Don't just read the readings, internalize them;
+        don't let your lips just mouth the prayers, truly pray them.
+    </p>
 
-                First comes a 12-day preparation period that consists of emptying oneself of the spirit of the world in penance and mortification. For those 12 days, we pray the Veni Creator, the Ave Maris Stella, the Magnificat, and the Glory Be. Then follow 3 weeks, each week having a specific focus.
+    <p>
+        First comes a 12-day preparation period that consists of emptying oneself of the spirit of the world
+        in penance and mortification. For those 12 days, we pray the Veni Creator, the Ave Maris Stella,
+        the Magnificat, and the Glory Be. Then follow 3 weeks, each week having a specific focus.
+    </p>
 
-                The first week focuses on offering up our prayers and devotions for the purpose of coming to understand ourselves and our sins; humility is the key, and the prayers the Litany of the Holy Ghost, the Litany of Loreto, and the Ave Maris Stella help us.
+    <p>
+        The first week focuses on offering up our prayers and devotions for the purpose of coming to
+        understand ourselves and our sins; humility is the key, and the prayers the Litany of the Holy Ghost,
+        the Litany of Loreto, and the Ave Maris Stella help us.
+    </p>
 
-                During the second week, we ask the Holy Ghost to help us better understand the Blessed Virgin; we pray the Litany of the Holy Ghost, the Litany of Loreto, the Ave Maris Stella, the prayer to Mary by St. Louis-Marie, and 5 decades of the Holy Rosary each day for assistance.
+    <p>
+        During the second week, we ask the Holy Ghost to help us better understand the Blessed Virgin;
+        we pray the Litany of the Holy Ghost, the Litany of Loreto, the Ave Maris Stella,
+        the prayer to Mary by St. Louis-Marie, and 5 decades of the Holy Rosary each day for assistance.
+    </p>
 
-                During the third week, we seek to better understand Christ through meditation and the Litany of the Holy Ghost,the Ave Maris Stella, and the Litany of the Holy Name of Jesus, Montfort's prayer to Jesus, and the prayer O Jesus Living in Mary.
-            </p>
-
-            <h3>12 Day Preparation Reflection</h3>
-
-            <p>
-                Examine your conscience, pray, practice renouncement of your own will; mortification, purity of heart. This purity is the indispensable condition for contemplating God in heaven, to see Him on earth and to know Him by the light of faith. The first part of the preparation should be employed in casting off the spirit of the world which is contrary to that of Jesus Christ. The spirit of the world consists essentially in the denial of the supreme dominion of God; a denial which is manifested in practice by sin and disobedience; thus it is principally opposed to the spirit of Christ, which is also that of Mary.
-
-                It manifests itself by the concupiscence of the flesh, by the concupiscence of the eyes and by the pride of life, and by disobedience to God's laws and the abuse of created things. Its works are: sin in all forms, then all else by which the devil leads to sin; works which bring error and darkness to the mind, and seduction and corruption to the will. Its pomps are the splendor and the charms employed by the devil to render sin alluring in persons, places and things.
-
-            </p>
-
-
-        </div>
-    }
+    <p>
+        During the third week, we seek to better understand Christ through meditation and the Litany of
+        the Holy Ghost,the Ave Maris Stella, and the Litany of the Holy Name of Jesus,
+        Montfort's prayer to Jesus, and the prayer O Jesus Living in Mary.
+    </p>
+    <div class="text-center mt-4 mb-3">
+        <RadzenButton Text="Begin Day 1" Click="@(() => NavigateTo("/day1"))" ButtonStyle="ButtonStyle.Primary" Icon="arrow_forward" Size="ButtonSize.Large" />
+    </div>
 </div>
 
-
 @code {
-    private bool useTraditional = false;
+    private void NavigateTo(string? route)
+    {
+        if (!string.IsNullOrEmpty(route))
+        {
+            NavigationManager.NavigateTo(route);
+        }
+    }
 }

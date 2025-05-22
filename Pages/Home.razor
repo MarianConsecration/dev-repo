@@ -1,16 +1,164 @@
 ﻿@page "/"
+@inject NavigationManager NavigationManager
+@using System.Globalization
+@using Radzen
+@using Radzen.Blazor
 
-<PageTitle>Home</PageTitle>
+<PageTitle>Home - Marian Consecration</PageTitle>
 
 <h1 class="page-title">Marian Consecration</h1>
 
-<!-- Your home page content here -->
-
-<div class="prayer-content">
-<p>Welcome to the 2025 Marian Consecration that ends on the Solemnity of the Assumption of the Blessed Virgin Mary</p>
-<p>I'm so glad that you could join us, Michael DeMoor</p>
-
-	<img src="pephep.jpg" alt="Blessed Virgin Mary" class="img-fluid" />
-
+<div class="prayer-content text-center mb-4">
+    <p>Welcome to the 2025 Marian Consecration that ends on the Solemnity of the Assumption of the Blessed Virgin Mary.</p>
+    <p>I'm so glad that you could join us</p>
+    <img src="pephep.jpg" alt="Image related to Marian Consecration" class="img-fluid rounded shadow-sm mb-3" style="max-height: 300px; width: auto;" />
 </div>
 
+<div class="text-center mb-4 preparation-button-container">
+    <RadzenButton Text="Preparation for Consecration" Click="@(() => NavigateTo("/preparation"))" ButtonStyle="ButtonStyle.Primary" Icon="developer_guide" Size="ButtonSize.Large" />
+</div>
+
+<div class="calendar-scroll-container">
+    <div class="calendar-months-wrapper">
+        <div class="month-calendar-container">
+            <h2 class="text-center month-title">July 2025</h2>
+            <table class="prayer-calendar-manual-table">
+                <thead>
+                    <tr>
+                        <th><span class="day-header">Su</span></th>
+                        <th><span class="day-header">Mo</span></th>
+                        <th><span class="day-header">Tu</span></th>
+                        <th><span class="day-header">We</span></th>
+                        <th><span class="day-header">Th</span></th>
+                        <th><span class="day-header">Fr</span></th>
+                        <th><span class="day-header">Sa</span></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="calendar-day-number"></span></td>
+                        <td><span class="calendar-day-number"></span></td>
+                        <td><span class="calendar-day-number">1</span></td>
+                        <td><span class="calendar-day-number">2</span></td>
+                        <td><span class="calendar-day-number">3</span></td>
+                        <td><span class="calendar-day-number">4</span></td>
+                        <td><span class="calendar-day-number">5</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="calendar-day-number">6</span></td>
+                        <td><span class="calendar-day-number">7</span></td>
+                        <td><span class="calendar-day-number">8</span></td>
+                        <td><span class="calendar-day-number">9</span></td>
+                        <td><span class="calendar-day-number">10</span></td>
+                        <td><span class="calendar-day-number">11</span></td>
+                        <td><span class="calendar-day-number">12</span></td>
+                    </tr>
+                    <tr>
+                        <td><RadzenButton Text="13" Click="@(() => NavigateTo("/day1"))" ButtonStyle="ButtonStyle.Primary" class="calendar-day-button" title="Day 1: July 13" Size="ButtonSize.Small" /></td>
+                        <td><RadzenButton Text="14" Click="@(() => NavigateTo("/day2"))" ButtonStyle="ButtonStyle.Primary" class="calendar-day-button" title="Day 2: July 14" Size="ButtonSize.Small" /></td>
+                        <td><RadzenButton Text="15" Click="@(() => NavigateTo("/day3"))" ButtonStyle="ButtonStyle.Primary" class="calendar-day-button" title="Day 3: July 15" Size="ButtonSize.Small" /></td>
+                        <td><RadzenButton Text="16" Click="@(() => NavigateTo("/day4"))" ButtonStyle="ButtonStyle.Primary" class="calendar-day-button" title="Day 4: July 16" Size="ButtonSize.Small" /></td>
+                        <td><RadzenButton Text="17" Click="@(() => NavigateTo("/day5"))" ButtonStyle="ButtonStyle.Primary" class="calendar-day-button" title="Day 5: July 17" Size="ButtonSize.Small" /></td>
+                        <td><RadzenButton Text="18" Click="@(() => NavigateTo("/day6"))" ButtonStyle="ButtonStyle.Primary" class="calendar-day-button" title="Day 6: July 18" Size="ButtonSize.Small" /></td>
+                        <td><RadzenButton Text="19" Click="@(() => NavigateTo("/day7"))" ButtonStyle="ButtonStyle.Primary" class="calendar-day-button" title="Day 7: July 19" Size="ButtonSize.Small" /></td>
+                    </tr>
+                    <tr>
+                        <td><RadzenButton Text="20" Click="@(() => NavigateTo("/day8"))" ButtonStyle="ButtonStyle.Primary" class="calendar-day-button" title="Day 8: July 20" Size="ButtonSize.Small" /></td>
+                        <td><RadzenButton Text="21" Click="@(() => NavigateTo("/day9"))" ButtonStyle="ButtonStyle.Primary" class="calendar-day-button" title="Day 9: July 21" Size="ButtonSize.Small" /></td>
+                        <td><RadzenButton Text="22" Click="@(() => NavigateTo("/day10"))" ButtonStyle="ButtonStyle.Primary" class="calendar-day-button" title="Day 10: July 22" Size="ButtonSize.Small" /></td>
+                        <td><RadzenButton Text="23" Click="@(() => NavigateTo("/day11"))" ButtonStyle="ButtonStyle.Primary" class="calendar-day-button" title="Day 11: July 23" Size="ButtonSize.Small" /></td>
+                        <td><RadzenButton Text="24" Click="@(() => NavigateTo("/day12"))" ButtonStyle="ButtonStyle.Primary" class="calendar-day-button" title="Day 12: July 24" Size="ButtonSize.Small" /></td>
+                        <td><RadzenButton Text="25" Click="@(() => NavigateTo("/day13"))" ButtonStyle="ButtonStyle.Primary" class="calendar-day-button" title="Day 13: July 25" Size="ButtonSize.Small" /></td>
+                        <td><RadzenButton Text="26" Click="@(() => NavigateTo("/day14"))" ButtonStyle="ButtonStyle.Primary" class="calendar-day-button" title="Day 14: July 26" Size="ButtonSize.Small" /></td>
+                    </tr>
+                    <tr>
+                        <td><RadzenButton Text="27" Click="@(() => NavigateTo("/day15"))" ButtonStyle="ButtonStyle.Primary" class="calendar-day-button" title="Day 15: July 27" Size="ButtonSize.Small" /></td>
+                        <td><RadzenButton Text="28" Click="@(() => NavigateTo("/day16"))" ButtonStyle="ButtonStyle.Primary" class="calendar-day-button" title="Day 16: July 28" Size="ButtonSize.Small" /></td>
+                        <td><RadzenButton Text="29" Click="@(() => NavigateTo("/day17"))" ButtonStyle="ButtonStyle.Primary" class="calendar-day-button" title="Day 17: July 29" Size="ButtonSize.Small" /></td>
+                        <td><RadzenButton Text="30" Click="@(() => NavigateTo("/day18"))" ButtonStyle="ButtonStyle.Primary" class="calendar-day-button" title="Day 18: July 30" Size="ButtonSize.Small" /></td>
+                        <td><RadzenButton Text="31" Click="@(() => NavigateTo("/day19"))" ButtonStyle="ButtonStyle.Primary" class="calendar-day-button" title="Day 19: July 31" Size="ButtonSize.Small" /></td>
+                        <td><span class="calendar-day-number text-muted"></span></td>
+                        <td><span class="calendar-day-number text-muted"></span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="month-calendar-container">
+            <h2 class="text-center month-title">August 2025</h2>
+            <table class="prayer-calendar-manual-table">
+                <thead>
+                    <tr>
+                        <th><span class="day-header">Su</span></th>
+                        <th><span class="day-header">Mo</span></th>
+                        <th><span class="day-header">Tu</span></th>
+                        <th><span class="day-header">We</span></th>
+                        <th><span class="day-header">Th</span></th>
+                        <th><span class="day-header">Fr</span></th>
+                        <th><span class="day-header">Sa</span></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="calendar-day-number text-muted"></span></td>
+                        <td><span class="calendar-day-number text-muted"></span></td>
+                        <td><span class="calendar-day-number text-muted"></span></td>
+                        <td><span class="calendar-day-number text-muted"></span></td>
+                        <td><span class="calendar-day-number text-muted"></span></td>
+                        <td><RadzenButton Text="1" Click="@(() => NavigateTo("/day20"))" ButtonStyle="ButtonStyle.Primary" class="calendar-day-button" title="Day 20: Aug 1" Size="ButtonSize.Small" /></td>
+                        <td><RadzenButton Text="2" Click="@(() => NavigateTo("/day21"))" ButtonStyle="ButtonStyle.Primary" class="calendar-day-button" title="Day 21: Aug 2" Size="ButtonSize.Small" /></td>
+                    </tr>
+                    <tr>
+                        <td><RadzenButton Text="3" Click="@(() => NavigateTo("/day22"))" ButtonStyle="ButtonStyle.Primary" class="calendar-day-button" title="Day 22: Aug 3" Size="ButtonSize.Small" /></td>
+                        <td><RadzenButton Text="4" Click="@(() => NavigateTo("/day23"))" ButtonStyle="ButtonStyle.Primary" class="calendar-day-button" title="Day 23: Aug 4" Size="ButtonSize.Small" /></td>
+                        <td><RadzenButton Text="5" Click="@(() => NavigateTo("/day24"))" ButtonStyle="ButtonStyle.Primary" class="calendar-day-button" title="Day 24: Aug 5" Size="ButtonSize.Small" /></td>
+                        <td><RadzenButton Text="6" Click="@(() => NavigateTo("/day25"))" ButtonStyle="ButtonStyle.Primary" class="calendar-day-button" title="Day 25: Aug 6" Size="ButtonSize.Small" /></td>
+                        <td><RadzenButton Text="7" Click="@(() => NavigateTo("/day26"))" ButtonStyle="ButtonStyle.Primary" class="calendar-day-button" title="Day 26: Aug 7" Size="ButtonSize.Small" /></td>
+                        <td><RadzenButton Text="8" Click="@(() => NavigateTo("/day27"))" ButtonStyle="ButtonStyle.Primary" class="calendar-day-button" title="Day 27: Aug 8" Size="ButtonSize.Small" /></td>
+                        <td><RadzenButton Text="9" Click="@(() => NavigateTo("/day28"))" ButtonStyle="ButtonStyle.Primary" class="calendar-day-button" title="Day 28: Aug 9" Size="ButtonSize.Small" /></td>
+                    </tr>
+                    <tr>
+                        <td><RadzenButton Text="10" Click="@(() => NavigateTo("/day29"))" ButtonStyle="ButtonStyle.Primary" class="calendar-day-button" title="Day 29: Aug 10" Size="ButtonSize.Small" /></td>
+                        <td><RadzenButton Text="11" Click="@(() => NavigateTo("/day30"))" ButtonStyle="ButtonStyle.Primary" class="calendar-day-button" title="Day 30: Aug 11" Size="ButtonSize.Small" /></td>
+                        <td><RadzenButton Text="12" Click="@(() => NavigateTo("/day31"))" ButtonStyle="ButtonStyle.Primary" class="calendar-day-button" title="Day 31: Aug 12" Size="ButtonSize.Small" /></td>
+                        <td><RadzenButton Text="13" Click="@(() => NavigateTo("/day32"))" ButtonStyle="ButtonStyle.Primary" class="calendar-day-button" title="Day 32: Aug 13" Size="ButtonSize.Small" /></td>
+                        <td><RadzenButton Text="14" Click="@(() => NavigateTo("/day33"))" ButtonStyle="ButtonStyle.Primary" class="calendar-day-button" title="Day 33: Aug 14" Size="ButtonSize.Small" /></td>
+                        <td><RadzenButton Text="15" Click="@(() => NavigateTo("/consecration-day"))" ButtonStyle="ButtonStyle.Success" class="calendar-day-button" title="CONSECRATION DAY: Aug 15" Size="ButtonSize.Small" /></td>
+                        <td><span class="calendar-day-number">16</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="calendar-day-number">17</span></td>
+                        <td><span class="calendar-day-number">18</span></td>
+                        <td><span class="calendar-day-number">19</span></td>
+                        <td><span class="calendar-day-number">20</span></td>
+                        <td><span class="calendar-day-number">21</span></td>
+                        <td><span class="calendar-day-number">22</span></td>
+                        <td><span class="calendar-day-number">23</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="calendar-day-number">24</span></td>
+                        <td><span class="calendar-day-number">25</span></td>
+                        <td><span class="calendar-day-number">26</span></td>
+                        <td><span class="calendar-day-number">27</span></td>
+                        <td><span class="calendar-day-number">28</span></td>
+                        <td><span class="calendar-day-number">29</span></td>
+                        <td><span class="calendar-day-number">30</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+@code {
+    // No more CalendarDay, CalendarWeek classes or GenerateCalendarData needed here for this manual approach.
+
+    private void NavigateTo(string? route)
+    {
+        if (!string.IsNullOrEmpty(route))
+        {
+            NavigationManager.NavigateTo(route);
+        }
+    }
+}

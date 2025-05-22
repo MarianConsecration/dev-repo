@@ -1,0 +1,39 @@
+﻿@page "/day4"
+@* Assuming PrepPrayers is in a shared folder like Shared/PrayerModules *@
+@* If not already in _Imports.razor, you might need: *@
+@* @using YourProjectName.Shared.PrayerModules *@
+
+<PageTitle>Day 4 - Marian Consecration</PageTitle>
+
+<div class="page-content">
+    <h1 class="page-title">Day 4 of 33</h1>
+
+    <article class="scripture-reading my-4">
+        <h2 class="scripture-reference h4 mb-3" style="color: var(--primary-color);">Reading: Imitation of Christ, Book 3, Chapters 7, 40</h2>
+
+        <section class="reading-section mb-3">
+            <h3 class="reading-subtitle h5 mb-2" style="color: var(--text-color); font-style: italic;">That man has no good of himself, and that he cannot glory in anything</h3>
+            <div class="scripture-text">
+                <p>Lord, what is man, that you are mindful of him; or the son of man, that you visit him? What has man deserved that you should give him grace? Lord, what cause have I to complain, if you forsake me, or what can I justly allege, if what I petition you shall not grant? This most assuredly, I may truly think and say: Lord I am nothing, I can do nothing of myself, that is good, but I am in all things defective and ever tend to nothing. And unless I am assisted and interiorly instructed by you, I become wholly tepid and relaxed, but you, O Lord, are always the same, and endure unto eternity, ever good, just and holy, doing all things well, justly and holily and disposing them in wisdom.</p>
+                <p>But I who am more inclined to go back, than to go forward, continue not always in one state, for I am changed, seven different times. But it quickly becomes better when it pleases You, and You stretch out Your helping hand: for You alone, without man's aid can assist me and so strengthen me, that my countenance shall be more diversely changed: but my heart be converted and find its rest in You alone.</p>
+            </div>
+        </section>
+
+        <section class="reading-section">
+            @* Chapter 40 title from the book is usually something like "That we ought not to be too secure, nor to be dejected in temptations" - user didn't provide it, so I'm omitting a specific subtitle for this part for now unless requested. *@
+            <div class="scripture-text">
+                <p>He who would be too secure in time of peace will often be found too much dejected in time of war. If you could always continue to be humble and little in your own eyes, and keep your spirit in due order and subjection, you would not fall so easily into danger and offense. It is good counsel that, when you have conceived the spirit of fervor, you should meditate how it will be when that light shall be withdrawn.</p>
+            </div>
+        </section>
+    </article>
+
+    <hr class="my-4">
+
+    @* This includes the prayers for the first 12 days *@
+    <PrepPrayers />
+
+</div>
+
+@code {
+    // No specific C# code needed for this page yet.
+}

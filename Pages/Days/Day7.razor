@@ -1,0 +1,34 @@
+﻿@page "/day7"
+@* Assuming PrepPrayers is in a shared folder like Shared/PrayerModules *@
+@* If not already in _Imports.razor, you might need: *@
+@* @using YourProjectName.Shared.PrayerModules *@
+
+<PageTitle>Day 7 - Marian Consecration</PageTitle>
+
+<div class="page-content">
+    <h1 class="page-title">Day 7 of 33</h1>
+
+    <article class="scripture-reading my-4">
+        <h2 class="scripture-reference h4 mb-3" style="color: var(--primary-color);">Reading: Imitation of Christ, Book 1, Chapter 18, cont.</h2>
+
+        <section class="reading-section">
+            @* The previous day ended with "On the examples of the holy Fathers." This is a continuation of that chapter. *@
+            @* No distinct subtitle was provided for this continuation, so I'm omitting one for now. *@
+            <div class="scripture-text">
+                <p>Outwardly they suffered want, but within they were refreshed with grace and Divine consolation. They were aliens to the world; they seemed as nothing and the world despised them; but they were precious and beloved in the sight of God. They persevered in true humility, they lived in simple obedience, they walked in charity and patience, and so every day they advanced in spirit and gained great favor with God.</p>
+                <p>They were given for example to all religious, and ought more to excite us to advance in good, than the number of lukewarm to induce us to grow remiss. Oh! how great was the fervor of all religious in the beginning of their holy institute! Oh, how great was their devotion in prayer, how great was their zeal for virtue! How vigorous the discipline that was kept up, what reverence and obedience, under the rule of the superior, flourished in all! Their traces that remain still bear witness, that they were truly holy and perfect men who did battle so stoutly, and trampled the world under their feet.</p>
+                <p>Now, he is thought great who is not a transgressor; and who can, with patience, endure what he has undertaken. Ah, the lukewarmness and negligence of our state! that we soon fall away from our first fervor, and are even now tired with life, from slothfulness and tepidity. Oh that advancement in virtue be not quite asleep in you, who has so often seen the manifold examples of the devout!</p>
+            </div>
+        </section>
+    </article>
+
+    <hr class="my-4">
+
+    @* This includes the prayers for the first 12 days *@
+    <PrepPrayers />
+
+</div>
+
+@code {
+    // No specific C# code needed for this page yet.
+}

@@ -1,0 +1,180 @@
+﻿/* Styles for Home.razor - Manual Prayer Calendar Table */
+
+::deep h1.page-title {
+    display: block;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.prayer-content {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+    .prayer-content img {
+        max-height: 300px;
+        width: auto;
+        border-radius: 0.25rem;
+        box-shadow: 0 .125rem .25rem rgba(0,0,0,.075);
+        margin-bottom: 1rem;
+    }
+
+.preparation-button-container {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+    .preparation-button-container ::deep .rz-button {
+        font-size: 1.1rem !important;
+        padding: 0.75rem 1.5rem !important;
+    }
+
+
+.calendar-scroll-container {
+    overflow-x: auto;
+    width: 100%;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.calendar-months-wrapper {
+    display: flex;
+    flex-direction: row;
+    width: fit-content;
+}
+
+.month-calendar-container {
+    flex-shrink: 0;
+    padding: 0 1rem;
+    width: 430px; /* INCREASED: Approximate width for 7 columns * ~60px */
+}
+
+    .month-calendar-container:first-child {
+        padding-left: 0.5rem;
+    }
+
+    .month-calendar-container:last-child {
+        padding-right: 0.5rem;
+    }
+
+.month-title {
+    color: var(--primary-color);
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    font-size: 1.45rem; /* INCREASED month title size */
+    text-align: center;
+}
+
+.prayer-calendar-manual-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+    .prayer-calendar-manual-table th,
+    .prayer-calendar-manual-table td {
+        border: 1px solid var(--border-color);
+        width: calc(100% / 7);
+        height: 60px; /* INCREASED & SQUARE: Set height to match new approximate width */
+        padding: 4px !important; /* INCREASED PADDING: This creates the space around the button content */
+        vertical-align: middle;
+        text-align: center;
+        box-sizing: border-box;
+    }
+
+        .prayer-calendar-manual-table th .day-header {
+            color: var(--header-text-color);
+            font-weight: bold;
+            font-size: 0.9rem; /* INCREASED day header size */
+        }
+
+.calendar-day-button.rz-button {
+    width: 100%;
+    height: 100%;
+    min-height: unset !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 !important; /* Button itself has no padding; relies on TD padding */
+    border-radius: 4px;
+    font-size: 1.15rem; /* INCREASED button text size */
+    line-height: 1;
+    box-sizing: border-box; /* Ensure padding/border are included in width/height */
+}
+
+.calendar-day-number {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.15rem; /* INCREASED day number size */
+    color: var(--text-color);
+    box-sizing: border-box;
+}
+
+    .calendar-day-number.text-muted {
+        opacity: 0.5;
+        color: var(--secondary-color);
+    }
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .month-calendar-container {
+        width: 370px; /* Adjust width for smaller screens */
+    }
+
+    .prayer-calendar-manual-table td,
+    .prayer-calendar-manual-table th {
+        height: 52px; /* Adjust for smaller width */
+        padding: 3px !important;
+    }
+
+    .calendar-day-button.rz-button,
+    .calendar-day-number {
+        font-size: 1.05rem; /* Adjusted for this breakpoint */
+    }
+
+    .month-title {
+        font-size: 1.35rem;
+    }
+
+    .preparation-button-container ::deep .rz-button {
+        font-size: 1rem !important;
+        padding: 0.6rem 1.2rem !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .month-calendar-container {
+        width: 315px; /* Further adjust width */
+    }
+
+    .prayer-calendar-manual-table td,
+    .prayer-calendar-manual-table th {
+        height: 45px; /* Adjust for smaller width */
+        font-size: 0.85rem; /* For day headers */
+        padding: 2px !important;
+    }
+
+    .calendar-day-button.rz-button,
+    .calendar-day-number {
+        font-size: 0.95rem; /* Adjusted for this breakpoint */
+    }
+
+    .month-title {
+        font-size: 1.25rem;
+    }
+
+    .preparation-button-container ::deep .rz-button {
+        font-size: 0.9rem !important;
+        padding: 0.5rem 1rem !important;
+    }
+}

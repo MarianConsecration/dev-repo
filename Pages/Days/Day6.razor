@@ -1,0 +1,33 @@
+﻿@page "/day6"
+@* Assuming PrepPrayers is in a shared folder like Shared/PrayerModules *@
+@* If not already in _Imports.razor, you might need: *@
+@* @using YourProjectName.Shared.PrayerModules *@
+
+<PageTitle>Day 6 - Marian Consecration</PageTitle>
+
+<div class="page-content">
+    <h1 class="page-title">Day 6 of 33</h1>
+
+    <article class="scripture-reading my-4">
+        <h2 class="scripture-reference h4 mb-3" style="color: var(--primary-color);">Reading: Imitation of Christ, Book 1, Chapter 18</h2>
+
+        <section class="reading-section">
+            <h3 class="reading-subtitle h5 mb-2" style="color: var(--text-color); font-style: italic;">On the examples of the holy Fathers.</h3>
+            <div class="scripture-text">
+                <p>Look upon the lively examples of the holy Fathers in whom shone real perfection and the religious life, and you will see how little it is, and almost nothing that we do. Alas, what is our life when we compare it with theirs? Saints and friends of Christ, they served our Lord in hunger and in thirst, in cold, in nakedness, in labor and in weariness, in watching, in fasting, prayers and holy meditations, and in frequent persecutions and reproaches.</p>
+                <p>Oh, how many grievous tribulations did the Apostles suffer and the Martyrs and Confessors and Virgins, and all the rest who resolved to follow the steps of Christ! For they hated their lives in this world, that they might keep them in life everlasting. Oh what a strict and self-renouncing life the holy Fathers of the desert led! What long and grievous temptations did they bear! How often were they harassed by the enemy, what frequent and fervent prayers did they offer up to God, what rigorous abstinence did they practice!</p>
+                <p>What a valiant contest waged they to subdue their imperfections! What purity and straightforwardness of purpose kept they towards God! By day they labored, and much of the night they spent in prayer; though while they labored, they were far from leaving off mental prayer. They spent all their time profitably. Every hour seemed short to spend with God; and even their necessary bodily refreshment was forgotten in the great sweetness of contemplation. They renounced all riches, dignities, honors and kindred; they hardly took what was necessary for life. It grieved them to serve the body even in its necessity. Accordingly, they were poor in earthly things, but very rich in grace and virtues.</p>
+            </div>
+        </section>
+    </article>
+
+    <hr class="my-4">
+
+    @* This includes the prayers for the first 12 days *@
+    <PrepPrayers />
+
+</div>
+
+@code {
+    // No specific C# code needed for this page yet.
+}

@@ -1,0 +1,33 @@
+﻿@page "/day11"
+@* Assuming PrepPrayers is in a shared folder like Shared/PrayerModules *@
+@* If not already in _Imports.razor, you might need: *@
+@* @using YourProjectName.Shared.PrayerModules *@
+
+<PageTitle>Day 11 - Marian Consecration</PageTitle>
+
+<div class="page-content">
+    <h1 class="page-title">Day 11 of 33</h1>
+
+    <article class="scripture-reading my-4">
+        <h2 class="scripture-reference h4 mb-3" style="color: var(--primary-color);">Reading: Imitation of Christ, Book 1, Chapter 25</h2>
+
+        <section class="reading-section">
+            <h3 class="reading-subtitle h5 mb-2" style="color: var(--text-color); font-style: italic;">On the Fervent Amendment of our Whole Life</h3>
+            <div class="scripture-text">
+                <p>When a certain anxious person, who often times wavered between hope and fear, once overcome with sadness, threw himself upon the ground in prayer, before one of the altars in the Church and thinking these things in his mind, said "Oh, if I only knew how to persevere," that very instant he heard within him, this heavenly answer: "And if You did know this, what would You do? Do now what you would do, and You shall be perfectly secure." And immediately being consoled, and comforted, he committed himself to the Divine Will, and his anxious thoughts ceased. He no longer wished for curious things; searching to find out what would happen to him, but studied rather to learn what was the acceptable and perfect will of God for the beginning and the perfection of every good work.</p>
+                <p>"Hope in the Lord," said the Prophet, "And do all good, and inhabit the land, and You shall be fed of the riches thereof." There is one thing that keeps many back from spiritual progress, and from fervor in amendment namely: the labor that is necessary for the struggle. And assuredly they especially advance beyond others in virtues, who strive the most manfully to overcome the very things which are the hardest and most contrary to them. For there a man does profit more and merit more abundant grace, when he does most to overcome himself and mortify his spirit.</p>
+                <p>All, indeed, have not equal difficulties to overcome and mortify, but a diligent and zealous person will make a greater progress though he has more passions than another, who is well regulated but less fervent in the pursuit of virtues.</p>
+            </div>
+        </section>
+    </article>
+
+    <hr class="my-4">
+
+    @* This includes the prayers for the first 12 days *@
+    <PrepPrayers />
+
+</div>
+
+@code {
+    // No specific C# code needed for this page yet.
+}
