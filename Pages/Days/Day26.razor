@@ -1,5 +1,54 @@
-﻿<h3>Component1</h3>
+﻿@page "/day26"
+@inject LanguageHelper LangHelper
+
+<PageTitle>Day 26 - Marian Consecration</PageTitle>
+
+@if (useTraditional)
+{
+    @* This entire block is displayed for the TRADITIONAL language setting *@
+    <div class="page-content">
+        <h1 class="page-title">Day 26 of 33</h1>
+
+        <article class="scripture-reading my-4">
+            <h2 class="scripture-reference h4 mb-3" style="color: var(--primary-color);">From True Devotion To the Blessed Virgin Mary, Nos. 12-38</h2>
+            <div class="scripture-text">
+                <p>"If you wish to understand the Mother," says a saint, "then understand the Son. She is a worthy Mother of God." Hic taceat omnis lingua : Here let every tongue be silent. My heart has dictated with special joy all that I have written to show that Mary has been unknown up till now, and that that is one of the reasons why Jesus Christ is not known as he should be. If then, as is certain, the knowledge and the kingdom of Jesus Christ must come into the world, it can only be as a necessary consequence of the knowledge and reign of Mary. She who first gave him to the world will establish his kingdom in the world.</p>
+                <p>With the whole Church I acknowledge that Mary, being a mere creature fashioned by the hands of God is, compared to his infinite majesty, less than an atom, or rather is simply nothing, since he alone can say, "I am he who is". Consequently, this great Lord, who is ever independent and self-sufficient, never had and does not now have any absolute need of the Blessed Virgin for the accomplishment of his will and the manifestation of his glory. To do all things he has only to will them. However, I declare that, considering things as they are, because God has decided to begin and accomplish his greatest works through the Blessed Virgin ever since he created her, we can safely believe that he will not change his plan in the time to come, for he is God and therefore does not change in his thoughts or his way of acting.</p>
+                <p>Mary is the Queen of heaven and earth by grace as Jesus is king by nature and by conquest. But as the kingdom of Jesus Christ exists primarily in the heart or interior of man, according to the words of the Gospel, "The kingdom of God is within you", so the kingdom of the Blessed Virgin is principally in the interior of man, that is, in his soul. It is principally in souls that she is glorified with her Son more than in any visible creature. So we may call her, as the saints do, Queen of our hearts.</p>
+            </div>
+        </article>
+
+        <hr class="my-4">
+
+        <WeekTwoPrayers UseTraditional="true" />
+    </div>
+}
+else
+{
+    @* This entire block is displayed for the MODERN language setting *@
+    <div class="page-content">
+        <h1 class="page-title">Day 26 of 33</h1>
+
+        <article class="scripture-reading my-4">
+            <h2 class="scripture-reference h4 mb-3" style="color: var(--primary-color);">From True Devotion To the Blessed Virgin Mary, Nos. 12-38</h2>
+            <div class="scripture-text">
+                <p>"If you wish to understand the Mother," says a saint, "then understand the Son. She is a worthy Mother of God." Hic taceat omnis lingua : Here let every tongue be silent. My heart has dictated with special joy all that I have written to show that Mary has been unknown up till now, and that that is one of the reasons why Jesus Christ is not known as he should be. If then, as is certain, the knowledge and the kingdom of Jesus Christ must come into the world, it can only be as a necessary consequence of the knowledge and reign of Mary. She who first gave him to the world will establish his kingdom in the world.</p>
+                <p>With the whole Church I acknowledge that Mary, being a mere creature fashioned by the hands of God is, compared to his infinite majesty, less than an atom, or rather is simply nothing, since he alone can say, "I am He who is". Consequently, this great Lord, who is ever independent and self-sufficient, never had and does not now have any absolute need of the Blessed Virgin for the accomplishment of His will and the manifestation of his glory. To do all things He has only to will them. However, I declare that, considering things as they are, because God has decided to begin and accomplish His greatest works through the Blessed Virgin ever since He created her, we can safely believe that He will not change his plan in the time to come, for He is God and therefore does not change in His thoughts or his way of acting.</p>
+                <p>Mary is the Queen of heaven and earth by grace as Jesus is king by nature and by conquest. But as the kingdom of Jesus Christ exists primarily in the heart or interior of man, according to the words of the Gospel, "The kingdom of God is within you", so the kingdom of the Blessed Virgin is principally in the interior of man, that is, in his soul. It is principally in souls that she is glorified with her Son more than in any visible creature. So we may call her, as the saints do, Queen of our hearts.</p>
+            </div>
+        </article>
+
+        <hr class="my-4">
+
+        <WeekTwoPrayers UseTraditional="false" />
+    </div>
+}
 
 @code {
+    private bool useTraditional;
 
+    protected override async Task OnInitializedAsync()
+    {
+        useTraditional = await LangHelper.GetIsTraditional();
+    }
 }

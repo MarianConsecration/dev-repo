@@ -1,5 +1,54 @@
-﻿<h3>Component1</h3>
+﻿@page "/day28"
+@inject LanguageHelper LangHelper
+
+<PageTitle>Day 28 - Marian Consecration</PageTitle>
+
+@if (useTraditional)
+{
+    @* This entire block is displayed for the TRADITIONAL language setting *@
+    <div class="page-content">
+        <h1 class="page-title">Day 28 of 33</h1>
+
+        <article class="scripture-reading my-4">
+            <h2 class="scripture-reference h4 mb-3" style="color: var(--primary-color);">Matthew 26:1, 26-29, 36-46</h2>
+            <div class="scripture-text">
+                <p>And it came to pass, when Jesus had ended all these words, he said to his disciples: You know that after two days shall be the pasch, and the son of man shall be delivered up to be crucified.</p>
+                <p>And whilst they were at supper, Jesus took bread, and blessed, and broke: and gave to his disciples, and said: Take ye, and eat. This is my body. And taking the chalice, he gave thanks, and gave to them, saying: Drink ye all of this. For this is my blood of the new testament, which shall be shed for many unto remission of sins. And I say to you, I will not drink from henceforth of this fruit of the vine, until that day when I shall drink it with you new in the kingdom of my Father.</p>
+                <p>Then Jesus came with them into a country place which is called Gethsemani; and he said to his disciples: Sit you here, till I go yonder and pray. And taking with him Peter and the two sons of Zebedee, he began to grow sorrowful and to be sad. Then he saith to them: My soul is sorrowful even unto death: stay you here, and watch with me. And going a little further, he fell upon his face, praying, and saying: My Father, if it be possible, let this chalice pass from me. Nevertheless not as I will, but as thou wilt. And he cometh to his disciples, and findeth them asleep, and he saith to Peter: What? Could you not watch one hour with me? Watch ye, and pray that ye enter not into temptation. The spirit indeed is willing, but the flesh weak. Again the second time, he went and prayed, saying: My Father, if this chalice may not pass away, but I must drink it, thy will be done. And he cometh again and findeth them sleeping: for their eyes were heavy. And leaving them, he went again: and he prayed the third time, saying the selfsame word. Then he cometh to his disciples, and saith to them: Sleep ye now and take your rest; behold the hour is at hand, and the Son of man shall be betrayed into the hands of sinners. Rise, let us go: behold he is at hand that will betray me.</p>
+            </div>
+        </article>
+
+        <hr class="my-4">
+
+        <WeekThreePrayers UseTraditional="true" />
+    </div>
+}
+else
+{
+    @* This entire block is displayed for the MODERN language setting *@
+    <div class="page-content">
+        <h1 class="page-title">Day 28 of 33</h1>
+
+        <article class="scripture-reading my-4">
+            <h2 class="scripture-reference h4 mb-3" style="color: var(--primary-color);">Matthew 26:1, 26-29, 36-46</h2>
+            <div class="scripture-text">
+                <p>And it came to pass, when Jesus had ended all these words, he said to his disciples: You know that after two days shall be the pasch, and the son of man shall be delivered up to be crucified.</p>
+                <p>While they were eating, Jesus took bread, said the blessing, broke it, and giving it to his disciples said, “Take and eat; this is my body.” Then he took a cup, gave thanks, and gave it to them, saying, “Drink from it, all of you, for this is my blood of the covenant, which will be shed on behalf of many for the forgiveness of sins. I tell you, from now on I shall not drink this fruit of the vine until the day when I drink it with you new in the kingdom of my Father.”</p>
+                <p>Then Jesus came with them to a place called Gethsemane, and he said to his disciples, “Sit here while I go over there and pray.” He took along Peter and the two sons of Zebedee and began to feel sorrow and distress. Then he said to them, “My soul is sorrowful even to death. Remain here and keep watch with me.” He advanced a little and fell prostrate in prayer, saying, “My Father, if it is possible, let this cup pass from me; yet, not as I will, but as you will.”When he returned to his disciples, he found them asleep. He said to Peter, “So you could not keep watch with me for one hour? Watch and pray that you may not undergo the test. The spirit is willing, but the flesh is weak.” Withdrawing a second time, he prayed again, “My Father, if it is not possible that this cup pass without my drinking it, your will be done!” Then he returned once more and found them asleep, for they could not keep their eyes open. He left them and withdrew again and prayed a third time, saying the same thing again. Then he returned to his disciples and said to them, “Are you still sleeping and taking your rest? Behold, the hour is at hand when the Son of Man is to be handed over to sinners. Get up, let us go. Look, my betrayer is at hand.”</p>
+            </div>
+        </article>
+
+        <hr class="my-4">
+
+        <WeekThreePrayers UseTraditional="false" />
+    </div>
+}
 
 @code {
+    private bool useTraditional;
 
+    protected override async Task OnInitializedAsync()
+    {
+        useTraditional = await LangHelper.GetIsTraditional();
+    }
 }

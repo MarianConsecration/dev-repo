@@ -1,5 +1,69 @@
-﻿<h3>Component1</h3>
+﻿@page "/day19"
+@inject LanguageHelper LangHelper
+
+<PageTitle>Day 19 - Marian Consecration</PageTitle>
+
+@if (useTraditional)
+{
+    @* This entire block is displayed for the TRADITIONAL language setting *@
+    <div class="page-content">
+        <h1 class="page-title">Day 19 of 33</h1>
+
+        <article class="scripture-reading my-4">
+            <h2 class="scripture-reference h4 mb-3" style="color: var(--primary-color);">Luke 18:15-30</h2>
+            <div class="scripture-text">
+                <h3 class="reading-subtitle h5 mb-2" style="color: var(--text-color); font-style: italic;">Jesus and the Children</h3>
+                <p>And they brought unto him also infants, that he might touch them. Which when the disciples saw, they rebuked them. But Jesus, calling them together, said: Suffer children to come to me, and forbid them not: for of such is the kingdom of God. Amen, I say to you: Whosoever shall not receive the kingdom of God as a child, shall not enter into it.</p>
+
+                <h3 class="reading-subtitle h5 mt-3 mb-2" style="color: var(--text-color); font-style: italic;">The Rich Aristocrat</h3>
+                <p>And a certain ruler asked him, saying: Good master, what shall I do to possess everlasting life? And Jesus said to him: Why dost thou call me good? None is good but God alone. Thou knowest the commandments: Thou shalt not kill: Thou shalt not commit adultery: Thou shalt not steal: Thou shalt not bear false witness: Honour thy father and mother. Who said: All these things have I kept from my youth. Which when Jesus had heard, he said to him: Yet one thing is wanting to thee: sell all whatever thou hast, and give to the poor, and thou shalt have treasure in heaven: and come, follow me. He having heard these things, became sorrowful; for he was very rich.</p>
+
+                <h3 class="reading-subtitle h5 mt-3 mb-2" style="color: var(--text-color); font-style: italic;">The Danger of Riches</h3>
+                <p>And Jesus seeing him become sorrowful, said: How hardly shall they that have riches enter into the kingdom of God. For it is easier for a camel to pass through the eye of a needle, than for a rich man to enter into the kingdom of God. And they that heard it, said: Who then can be saved? He said to them: The things that are impossible with men, are possible with God.</p>
+
+                <h3 class="reading-subtitle h5 mt-3 mb-2" style="color: var(--text-color); font-style: italic;">The Reward of Renunciation</h3>
+                <p>Then Peter said: Behold, we have left all things, and have followed thee. Who said to them: Amen, I say to you, there is no man that hath left house, or parents, or brethren, or wife, or children, for the kingdom of God's sake, Who shall not receive much more in this present time, and in the world to come life everlasting.</p>
+            </div>
+        </article>
+
+        <hr class="my-4">
+
+        <WeekOnePrayers UseTraditional="true" />
+    </div>
+}
+else
+{
+    @* This entire block is displayed for the MODERN language setting *@
+    <div class="page-content">
+        <h1 class="page-title">Day 19 of 33</h1>
+
+        <article class="scripture-reading my-4">
+            <h2 class="scripture-reference h4 mb-3" style="color: var(--primary-color);">Luke 18:15-30</h2>
+            <div class="scripture-text">
+                <h3 class="reading-subtitle h5 mb-2" style="color: var(--text-color); font-style: italic;">Jesus and the Children</h3>
+                <p>People were bringing even infants to him that he might touch them, and when the disciples saw this, they rebuked them. Jesus, however, called the children to himself and said, “Let the children come to me and do not prevent them; for the kingdom of God belongs to such as these. Amen, I say to you, whoever does not accept the kingdom of God like a child will not enter it.”</p>
+                
+                <h3 class="reading-subtitle h5 mt-3 mb-2" style="color: var(--text-color); font-style: italic;">The Rich Aristocrat</h3>
+                <p>An official asked him this question, “Good teacher, what must I do to inherit eternal life?” Jesus answered him, “Why do you call me good? No one is good but God alone. You know the commandments: ‘You shall not commit adultery; you shall not kill; you shall not steal; you shall not bear false witness; honor your father and your mother.’” And he replied, “All of these I have observed from my youth.” When Jesus heard this, he said to him, “There is still one thing left for you: sell all that you have and distribute it to the poor, and you will have a treasure in heaven. Then come, follow me.” But when he heard this he became quite sad, for he was very rich.</p>
+                
+                <h3 class="reading-subtitle h5 mt-3 mb-2" style="color: var(--text-color); font-style: italic;">The Danger of Riches</h3>
+                <p>Jesus looked at him and said, “How hard it is for those who have wealth to enter the kingdom of God! For it is easier for a camel to pass through the eye of a needle than for a rich person to enter the kingdom of God.” Those who heard this said, “Then who can be saved?” And he said, “What is impossible for human beings is possible for God.”</p>
+                
+                <h3 class="reading-subtitle h5 mt-3 mb-2" style="color: var(--text-color); font-style: italic;">The Reward of Renunciation</h3>
+                <p>Then Peter said, “We have given up our possessions and followed you.” He said to them, “Amen, I say to you, there is no one who has given up house or wife or brothers or parents or children for the sake of the kingdom of God who will not receive back an overabundant return in this present age and eternal life in the age to come.”</p>
+            </div>
+        </article>
+
+        <hr class="my-4">
+        <WeekOnePrayers UseTraditional="false" />
+    </div>
+}
 
 @code {
+    private bool useTraditional;
 
+    protected override async Task OnInitializedAsync()
+    {
+        useTraditional = await LangHelper.GetIsTraditional();
+    }
 }

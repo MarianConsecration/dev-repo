@@ -1,5 +1,78 @@
-﻿<h3>Component1</h3>
+﻿@page "/day31"
+@inject LanguageHelper LangHelper
+
+<PageTitle>Day 31 - Marian Consecration</PageTitle>
+
+@if (useTraditional)
+{
+    @* This entire block is displayed for the TRADITIONAL language setting *@
+    <div class="page-content">
+        <h1 class="page-title">Day 31 of 33</h1>
+
+        <article class="scripture-reading my-4">
+            <h2 class="scripture-reference h4 mb-3" style="color: var(--primary-color);">Imitation of Christ, by Thomas á Kempis: Book 4, Chapter 2</h2>
+            <h3 class="reading-subtitle h5 mb-2" style="color: var(--text-color); font-style: italic;">That the Great Goodness and Love of God Is Exhibited to Man in This Sacrament</h3>
+            <div class="scripture-text">
+                <p>In confidence of Thy goodness and great mercy, O Lord, I draw near, sick to the Healer, hungry and thirsty to the Fountain of life, needy to the King of Heaven, a servant to his Lord, a creature to the Creator, desolate to my own tender Comforter. "But whence is this to me," that Thou comest unto me (Luke 1:43)? What am I, that Thou shouldest grant me Thine own self? how dare a sinner appear before Thee?</p>
+                <p>And how is it that Thou dost vouchsafe to come unto a sinner? Thou knowest Thy servant, and art well aware that he hath in him no good thing, for which Thou shouldest grant him this. I confess therefore mine own vileness, I acknowledge Thy goodness, I praise Thy tender mercy, and give Thee thanks for Thy transcendent love.</p>
+            </div>
+        </article>
+
+        <hr class="my-4">
+
+        <article class="scripture-reading my-4">
+            <h2 class="scripture-reference h4 mb-3" style="color: var(--primary-color);">From True Devotion To the Blessed Virgin Mary, Nos. 243-254</h2>
+            <div class="scripture-text">
+                <p>243. Loving slaves of Jesus in Mary should hold in high esteem devotion to Jesus, the Word of God, in the great mystery of the Incarnation, March 25th, which is the mystery proper to this devotion, because it was inspired by the Holy Spirit for the following reasons: a) That we might honour and imitate the wondrous dependence which God the Son chose to have on Mary, for the glory of his Father and for the redemption of man. This dependence is revealed especially in this mystery where Jesus becomes a captive and slave in the womb of his Blessed Mother, depending on her for everything. b) That we might thank God for the incomparable graces he has conferred upon Mary and especially that of choosing her to be his most worthy Mother. This choice was made in the mystery of the incarnation. These are the two principal ends of the slavery of Jesus in Mary.</p>
+                <p>245. a) Since we live in an age of pride when a great number of haughty scholars, with proud and critical minds, find fault even with long-established and sound devotions, it is better to speak of "slavery of Jesus in Mary" and to call oneself "slave of Jesus" rather than "slave of Mary". We then avoid giving any pretext for criticism. In this way, we name this devotion after its ultimate end which is Jesus, rather than after the way and the means to arrive there, which is Mary. However, we can very well use either term without any scruple, as I myself do.</p>
+                <p>246. b) Since the principal mystery celebrated and honoured in this devotion is the mystery of the Incarnation where we find Jesus only in Mary, having become incarnate in her womb, it is appropriate for us to say, "slavery of Jesus in Mary", of Jesus dwelling enthroned in Mary, according to the beautiful prayer, recited by so many great souls, "O Jesus living in Mary".</p>
+                <p>249. Those who accept this devotion should have a great love for the Hail Mary, or, as it is called, the Angelic Salutation. Few Christians, however enlightened, understand the value, merit, excellence and necessity of the Hail Mary. Our Blessed Lady herself had to appear on several occasions to men of great holiness and insight, such as St. Dominic, St. John Capistran and Blessed Alan de Rupe, to convince them of the richness of this prayer.</p>
+            </div>
+        </article>
+
+        <hr class="my-4">
+
+        <WeekThreePrayers UseTraditional="true" />
+    </div>
+}
+else
+{
+    @* This entire block is displayed for the MODERN language setting *@
+    <div class="page-content">
+        <h1 class="page-title">Day 31 of 33</h1>
+
+        <article class="scripture-reading my-4">
+            <h2 class="scripture-reference h4 mb-3" style="color: var(--primary-color);">Imitation of Christ, by Thomas á Kempis: Book 4, Chapter 2</h2>
+            <h3 class="reading-subtitle h5 mb-2" style="color: var(--text-color); font-style: italic;">That the Great Goodness and Love of God Is Exhibited to Man in This Sacrament</h3>
+            <div class="scripture-text">
+                <p>In confidence of your goodness and great mercy, O Lord, I draw near, sick to the Healer, hungry and thirsty to the Fountain of life, needy to the King of Heaven, a servant to his Lord, a creature to the Creator, desolate to my own tender Comforter. But how is this to me, that you should come to me (Luke 1:43)? What am I, that you should grant me Your own self? How dare a sinner appear before You?</p>
+                <p>And how is it that You do grant to come unto a sinner? You know Your servant, and are well aware that he has in him no good thing, for which You should grant him this. I confess therefore my own vileness, I acknowledge Your goodness, I praise Your tender mercy, and give You thanks for Your transcendent love.</p>
+            </div>
+        </article>
+
+        <hr class="my-4">
+
+        <article class="scripture-reading my-4">
+            <h2 class="scripture-reference h4 mb-3" style="color: var(--primary-color);">From True Devotion To the Blessed Virgin Mary, Nos. 243-254</h2>
+            <div class="scripture-text">
+                <p>243. Loving slaves of Jesus in Mary should hold in high esteem devotion to Jesus, the Word of God, in the great mystery of the Incarnation, March 25th, which is the mystery proper to this devotion, because it was inspired by the Holy Spirit for the following reasons: a) That we might honor and imitate the wondrous dependence which God the Son chose to have on Mary, for the glory of his Father and for the redemption of man. This dependence is revealed especially in this mystery where Jesus becomes a captive and slave in the womb of his Blessed Mother, depending on her for everything. b) That we might thank God for the incomparable graces he has conferred upon Mary and especially that of choosing her to be his most worthy Mother. This choice was made in the mystery of the incarnation. These are the two principal ends of the slavery of Jesus in Mary.</p>
+                <p>245. a) Since we live in an age of pride when a great number of haughty scholars, with proud and critical minds, find fault even with long-established and sound devotions, it is better to speak of "slavery of Jesus in Mary" and to call oneself "slave of Jesus" rather than "slave of Mary". We then avoid giving any pretext for criticism. In this way, we name this devotion after its ultimate end, which is Jesus, rather than after the way and the means to arrive there, which is Mary. However, we can very well use either term without any scruple, as I myself do.</p>
+                <p>246. b) Since the principal mystery celebrated and honored in this devotion is the mystery of the Incarnation where we find Jesus only in Mary, having become incarnate in her womb, it is appropriate for us to say, "slavery of Jesus in Mary", of Jesus dwelling enthroned in Mary, according to the beautiful prayer, recited by so many great souls, "O Jesus living in Mary".</p>
+                <p>249. Those who accept this devotion should have a great love for the Hail Mary, or, as it is called, the Angelic Salutation. Few Christians, however enlightened, understand the value, merit, excellence and necessity of the Hail Mary. Our Blessed Lady herself had to appear on several occasions to men of great holiness and insight, such as St. Dominic, St. John Capistran and Blessed Alan de Rupe, to convince them of the richness of this prayer.</p>
+            </div>
+        </article>
+
+        <hr class="my-4">
+
+        <WeekThreePrayers UseTraditional="false" />
+    </div>
+}
 
 @code {
+    private bool useTraditional;
 
+    protected override async Task OnInitializedAsync()
+    {
+        useTraditional = await LangHelper.GetIsTraditional();
+    }
 }

@@ -1,43 +1,80 @@
 ﻿@page "/day2"
-@* Assuming PrepPrayers is in a shared folder like Shared/PrayerModules *@
-@* If not already in _Imports.razor, you might need: *@
-@* @using YourProjectName.Shared.PrayerModules *@
+@inject LanguageHelper LangHelper
 
 <PageTitle>Day 2 - Marian Consecration</PageTitle>
 
-<div class="page-content">
-    <h1 class="page-title">Day 2 of 33</h1>
+@if (useTraditional)
+{
+    @* This entire block is displayed for the TRADITIONAL language setting *@
+    <div class="page-content">
+        <h1 class="page-title">Day 2 of 33</h1>
 
-    <article class="scripture-reading my-4">
-        <h2 class="scripture-reference h4 mb-3" style="color: var(--primary-color);">Reading: Matthew 5:48, 6:1-15</h2>
-        <div class="scripture-text">
-            <p>So be perfect, just as your heavenly Father is perfect…</p>
-            <p>“Take care not to perform righteous deeds in order that people may see them; otherwise, you will have no recompense from your heavenly Father. When you give alms, do not blow a trumpet before you, as the hypocrites do in the synagogues and in the streets to win the praise of others. Amen, I say to you, they have received their reward. But when you give alms, do not let your left hand know what your right is doing, so that your almsgiving may be secret. And your Father who sees in secret will repay you.</p>
-            <p>“When you pray, do not be like the hypocrites, who love to stand and pray in the synagogues and on street corners so that others may see them. Amen, I say to you, they have received their reward. But when you pray, go to your inner room, close the door, and pray to your Father in secret. And your Father who sees in secret will repay you. In praying, do not babble like the pagans, who think that they will be heard because of their many words. Do not be like them. Your Father knows what you need before you ask him.</p>
-            <p>
-                “This is how you are to pray:<br>
-                Our Father in heaven,<br>
-                hallowed be your name,<br>
-                your kingdom come,<br>
-                your will be done,<br>
-                on earth as in heaven.<br>
-                Give us today our daily bread;<br>
-                and forgive us our debts,<br>
-                as we forgive our debtors;<br>
-                and do not subject us to the final test,<br>
-                but deliver us from the evil one.
-            </p>
-            <p>If you forgive others their transgressions, your heavenly Father will forgive you. But if you do not forgive others, neither will your Father forgive your transgressions.”</p>
-        </div>
-    </article>
+        <article class="scripture-reading my-4">
+            <h2 class="scripture-reference h4 mb-3" style="color: var(--primary-color);">Matthew 5:48, 6:1-15</h2>
+            <div class="scripture-text">
+                <p>Be you therefore perfect, as also your heavenly Father is perfect...</p>
+                <p>Take heed that you do not your justice before men, to be seen by them: otherwise you shall not have a reward of your Father who is in heaven. Therefore when thou dost an almsdeed, sound not a trumpet before thee, as the hypocrites do in the synagogues and in the streets, that they may be honoured by men. Amen I say to you, they have received their reward. But when thou dost alms, let not thy left hand know what thy right hand doth. That thy alms may be in secret, and thy Father who seeth in secret will repay thee.</p>
+                <p>And when ye pray, you shall not be as the hypocrites, that love to stand and pray in the synagogues and corners of the streets, that they may be seen by men: Amen I say to you, they have received their reward. But thou when thou shalt pray, enter into thy chamber, and having shut the door, pray to thy Father in secret: and thy Father who seeth in secret will repay thee. And when you are praying, speak not much, as the heathens. For they think that in their much speaking they may be heard. Be not you therefore like to them, for your Father knoweth what is needful for you, before you ask him.</p>
+                <p>
+                    Thus therefore shall you pray:<br>
+                    Our Father who art in heaven,<br>
+                    hallowed be thy name.<br>
+                    Thy kingdom come.<br>
+                    Thy will be done on earth as it is in heaven.<br>
+                    Give us this day our supersubstantial bread.<br>
+                    And forgive us our debts, as we also forgive our debtors.<br>
+                    And lead us not into temptation.<br>
+                    But deliver us from evil. Amen.
+                </p>
+                <p>For if you will forgive men their offences, your heavenly Father will forgive you also your offences. But if you will not forgive men, neither will your Father forgive you your offences.</p>
+            </div>
+        </article>
 
-    <hr class="my-4">
+        <hr class="my-4">
 
-    @* This includes the prayers for the first 12 days *@
-    <PrepPrayers />
+        <PrepPrayers UseTraditional="true" />
+    </div>
+}
+else
+{
+    @* This entire block is displayed for the MODERN language setting *@
+    <div class="page-content">
+        <h1 class="page-title">Day 2 of 33</h1>
 
-</div>
+        <article class="scripture-reading my-4">
+            <h2 class="scripture-reference h4 mb-3" style="color: var(--primary-color);">Matthew 5:48, 6:1-15</h2>
+            <div class="scripture-text">
+                <p>So be perfect, just as your heavenly Father is perfect…</p>
+                <p>“Take care not to perform righteous deeds in order that people may see them; otherwise, you will have no recompense from your heavenly Father. When you give alms, do not blow a trumpet before you, as the hypocrites do in the synagogues and in the streets to win the praise of others. Amen, I say to you, they have received their reward. But when you give alms, do not let your left hand know what your right is doing, so that your almsgiving may be secret. And your Father who sees in secret will repay you.</p>
+                <p>“When you pray, do not be like the hypocrites, who love to stand and pray in the synagogues and on street corners so that others may see them. Amen, I say to you, they have received their reward. But when you pray, go to your inner room, close the door, and pray to your Father in secret. And your Father who sees in secret will repay you. In praying, do not babble like the pagans, who think that they will be heard because of their many words. Do not be like them. Your Father knows what you need before you ask him.</p>
+                <p>
+                    “This is how you are to pray:<br>
+                    Our Father in heaven,<br>
+                    hallowed be your name,<br>
+                    your kingdom come,<br>
+                    your will be done,<br>
+                    on earth as in heaven.<br>
+                    Give us today our daily bread;<br>
+                    and forgive us our debts,<br>
+                    as we forgive our debtors;<br>
+                    and do not subject us to the final test,<br>
+                    but deliver us from the evil one.
+                </p>
+                <p>If you forgive others their transgressions, your heavenly Father will forgive you. But if you do not forgive others, neither will your Father forgive your transgressions.”</p>
+            </div>
+        </article>
+
+        <hr class="my-4">
+
+        <PrepPrayers UseTraditional="false" />
+    </div>
+}
 
 @code {
-    // No specific C# code needed for this page yet.
+    private bool useTraditional;
+
+    protected override async Task OnInitializedAsync()
+    {
+        useTraditional = await LangHelper.GetIsTraditional();
+    }
 }

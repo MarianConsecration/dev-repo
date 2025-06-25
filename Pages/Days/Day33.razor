@@ -1,5 +1,78 @@
-﻿<h3>Component1</h3>
+﻿@page "/day33"
+@inject LanguageHelper LangHelper
+
+<PageTitle>Day 33 - Marian Consecration</PageTitle>
+
+@if (useTraditional)
+{
+    @* This entire block is displayed for the TRADITIONAL language setting *@
+    <div class="page-content">
+        <h1 class="page-title">Day 33 of 33</h1>
+
+        <article class="scripture-reading my-4">
+            <h2 class="scripture-reference h4 mb-3" style="color: var(--primary-color);">Imitation of Christ, by Thomas á Kempis: Book 4, Chapter 11</h2>
+            <h3 class="reading-subtitle h5 mb-2" style="color: var(--text-color); font-style: italic;">That the Blood of Christ and the Holy Scriptures Are Most Necessary unto a Faithful Soul</h3>
+            <div class="scripture-text">
+                <p>O most sweet Lord Jesus, how great is the pleasure of the devout soul that feasteth with Thee in Thy banquet; where there is set for her no other food to be eaten but Thyself, her only Beloved, and most to be desired above all the desires of her heart! To me also it would be indeed sweet, in Thy presence to pour forth tears from the very bottom of my heart, and with the grateful Magdalene to wash Thy feet with tears (Luke 7:38). But where is that devotion? Where that bountiful flowing of holy tears? Surely in the sight of Thee and Thy holy Angels, my whole heart ought to burn, and to weep for joy. For in this Sacrament I have Thee mystically present, hidden under another shape. For to look upon Thee in Thine own Divine brightness, mine eyes would not be able to endure; nor could even the whole world stand in the splendor of the glory of Thy majesty. Herein then Thou hast regard to my weakness, that Thou dost hide Thyself under this Sacrament.</p>
+            </div>
+        </article>
+
+        <hr class="my-4">
+
+        <article class="scripture-reading my-4">
+            <h2 class="scripture-reference h4 mb-3" style="color: var(--primary-color);">From True Devotion To the Blessed Virgin Mary, Nos. 261-265</h2>
+            <div class="scripture-text">
+                <h4 class="reading-subtitle h6 mt-3 mb-2" style="color: var(--text-color); font-style: italic;">In Mary</h4>
+                <p>261. We must do everything in Mary. To understand this we must realise that the Blessed Virgin is the true earthly paradise of the new Adam and that the ancient paradise was only a symbol of her. There are in this earthly paradise untold riches, beauties, rarities and delights, which the new Adam, Jesus Christ, has left there. It is in this paradise that he "took his delights" for nine months, worked his wonders and displayed his riches with the magnificence of God himself.In this earthly paradise grows the real Tree of Life which bore our Lord, the fruit of Life, the tree of knowledge of good and evil, which bore the Light of the world. In this divine place there are trees planted by the hand of God and watered by his divine unction which have borne and continue to bear fruit that is pleasing to him. Only the Holy Spirit can teach us the truths that these material objects symbolise.</p>
+                <p>262. The Holy Spirit speaking through the Fathers of the Church, also calls our Lady the Eastern Gate, through which the High Priest, Jesus Christ, enters and goes out into the world. Through this gate he entered the world the first time and through this same gate he will come the second time.</p>
+                <h4 class="reading-subtitle h6 mt-3 mb-2" style="color: var(--text-color); font-style: italic;">For Mary</h4>
+                <p>265. Finally, we must do everything for Mary. We take Mary for our proximate end, our mysterious intermediary and the easiest way of reaching him. Relying on her protection, we should undertake and carry out great things for our noble Queen. We must defend her privileges when they are questioned and uphold her good name when it is under attack. We must attract everyone, if possible, to her service and to this true and sound devotion. As a reward for these little services, we should expect nothing in return save the honour of belonging to such a lovable Queen and the joy of being united through her to Jesus, her Son, by a bond that is indissoluble in time and in eternity.</p>
+            </div>
+        </article>
+
+        <hr class="my-4">
+
+        <WeekThreePrayers UseTraditional="true" />
+    </div>
+}
+else
+{
+    @* This entire block is displayed for the MODERN language setting *@
+    <div class="page-content">
+        <h1 class="page-title">Day 33 of 33</h1>
+
+        <article class="scripture-reading my-4">
+            <h2 class="scripture-reference h4 mb-3" style="color: var(--primary-color);">Imitation of Christ, by Thomas á Kempis: Book 4, Chapter 11</h2>
+            <h3 class="reading-subtitle h5 mb-2" style="color: var(--text-color); font-style: italic;">That the Blood of Christ and the Holy Scriptures Are Most Necessary unto a Faithful Soul</h3>
+            <div class="scripture-text">
+                <p>O most sweet Lord Jesus, how great is the pleasure of the devout soul that feast with You in Your banquet; where there is set for her no other food to be eaten but Yourself, her only Beloved, and most to be desired above all the desires of her heart! To me also it would be indeed sweet, in Your presence to pour forth tears from the very bottom of my heart, and with the grateful Magdalene to wash Your feet with tears (Luke 7:38). But where is that devotion? Where is that bountiful flowing of holy tears? Surely in the sight of You and Your holy Angels, my whole heart ought to burn, and to weep for joy. For in this Sacrament I have You mystically present, hidden under another form. For to look upon You in Your own Divine brightness, my eyes would not be able to endure; nor could even the whole world stand in the splendor of the glory of Your majesty. Herein then You have regard to my weakness, that You do hide Yourself under this Sacrament.</p>
+            </div>
+        </article>
+
+        <hr class="my-4">
+
+        <article class="scripture-reading my-4">
+            <h2 class="scripture-reference h4 mb-3" style="color: var(--primary-color);">From True Devotion To the Blessed Virgin Mary, Nos. 261-265</h2>
+            <div class="scripture-text">
+                <h4 class="reading-subtitle h6 mt-3 mb-2" style="color: var(--text-color); font-style: italic;">In Mary</h4>
+                <p>261. We must do everything in Mary. To understand this we must realize that the Blessed Virgin is the true earthly paradise of the new Adam and that the ancient paradise was only a symbol of her. There are in this earthly paradise untold riches, beauties, rarities and delights, which the new Adam, Jesus Christ, has left there. It is in this paradise that he "took his delights" for nine months, worked his wonders and displayed his riches with the magnificence of God himself. In this earthly paradise grows the real Tree of Life which bore our Lord, the fruit of Life, the tree of knowledge of good and evil, which bore the Light of the world. In this divine place there are trees planted by the hand of God and watered by his divine unction which have borne and continue to bear fruit that is pleasing to him. Only the Holy Spirit can teach us the truths that these material objects symbolize.</p>
+                <p>262. The Holy Spirit speaking through the Fathers of the Church, also calls our Lady the Eastern Gate, through which the High Priest, Jesus Christ, enters and goes out into the world. Through this gate he entered the world the first time and through this same gate he will come the second time.</p>
+                <h4 class="reading-subtitle h6 mt-3 mb-2" style="color: var(--text-color); font-style: italic;">For Mary</h4>
+                <p>265. Finally, we must do everything for Mary. We take Mary for our proximate end, our mysterious intermediary and the easiest way of reaching him. Relying on her protection, we should undertake and carry out great things for our noble Queen. We must defend her privileges when they are questioned and uphold her good name when it is under attack. We must attract everyone, if possible, to her service and to this true and sound devotion. As a reward for these little services, we should expect nothing in return save the honor of belonging to such a lovable Queen and the joy of being united through her to Jesus, her Son, by a bond that is indissoluble in time and in eternity.</p>
+            </div>
+        </article>
+
+        <hr class="my-4">
+
+        <WeekThreePrayers UseTraditional="false" />
+    </div>
+}
 
 @code {
+    private bool useTraditional;
 
+    protected override async Task OnInitializedAsync()
+    {
+        useTraditional = await LangHelper.GetIsTraditional();
+    }
 }

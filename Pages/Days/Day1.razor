@@ -1,40 +1,76 @@
 ﻿@page "/day1"
-@* Assuming PrepPrayers is in a shared folder like Shared/PrayerModules *@
-@* If not already in _Imports.razor, you might need: *@
-@* @using YourProjectName.Shared.PrayerModules *@
+@inject LanguageHelper LangHelper
 
 <PageTitle>Day 1 - Marian Consecration</PageTitle>
 
-<div class="page-content">
-    <h1 class="page-title">Day 1 of 33</h1>
+@if (useTraditional)
+{
+    @* This entire block is displayed for the TRADITIONAL language setting *@
+    <div class="page-content">
+        <h1 class="page-title">Day 1 of 33</h1>
 
-    <article class="scripture-reading my-4">
-        <h2 class="scripture-reference h4 mb-3" style="color: var(--primary-color);">Reading: Matthew 5:1-19</h2>
-        <div class="scripture-text">
-            <p>When he saw the crowds, he went up the mountain, and after he had sat down, his disciples came to him. He began to teach them, saying:</p>
-            <p>
-                “Blessed are the poor in spirit, for theirs is the kingdom of heaven.<br>
-                Blessed are they who mourn, for they will be comforted.<br>
-                Blessed are the meek, for they will inherit the land.<br>
-                Blessed are they who hunger and thirst for righteousness, for they will be satisfied.<br>
-                Blessed are the merciful, for they will be shown mercy.<br>
-                Blessed are the clean of heart, for they will see God.<br>
-                Blessed are the peacemakers, for they will be called children of God.<br>
-                Blessed are they who are persecuted for the sake of righteousness, for theirs is the kingdom of heaven.
-            </p>
-            <p>Blessed are you when they insult you and persecute you and utter every kind of evil against you falsely because of me. Rejoice and be glad, for your reward will be great in heaven. Thus they persecuted the prophets who were before you.</p>
-            <p>“You are the salt of the earth. But if salt loses its taste, with what can it be seasoned? It is no longer good for anything but to be thrown out and trampled underfoot. You are the light of the world. A city set on a mountain cannot be hidden. Nor do they light a lamp and then put it under a bushel basket; it is set on a lampstand, where it gives light to all in the house. Just so, your light must shine before others, that they may see your good deeds and glorify your heavenly Father.</p>
-            <p>“Do not think that I have come to abolish the law or the prophets. I have come not to abolish but to fulfill. Amen, I say to you, until heaven and earth pass away, not the smallest letter or the smallest part of a letter will pass from the law, until all things have taken place. Therefore, whoever breaks one of the least of these commandments and teaches others to do so will be called least in the kingdom of heaven. But whoever obeys and teaches these commandments will be called greatest in the kingdom of heaven.”</p>
-        </div>
-    </article>
+        <article class="scripture-reading my-4">
+            <h2 class="scripture-reference h4 mb-3" style="color: var(--primary-color);">Matthew 5:1-19</h2>
+            <div class="scripture-text">
+                <p>And seeing the multitudes, he went up into a mountain, and when he was set down, his disciples came unto him. And opening his mouth, he taught them, saying:</p>
+                <p>
+                    Blessed are the poor in spirit: for theirs is the kingdom of heaven.<br>
+                    Blessed are the meek: for they shall possess the land.<br>
+                    Blessed are they that mourn: for they shall be comforted.<br>
+                    Blessed are they that hunger and thirst after justice: for they shall have their fill.<br>
+                    Blessed are the merciful: for they shall obtain mercy.<br>
+                    Blessed are the clean of heart: for they shall see God.<br>
+                    Blessed are the peacemakers: for they shall be called the children of God.<br>
+                    Blessed are they that suffer persecution for justice' sake: for theirs is the kingdom of heaven.
+                </p>
+                <p>Blessed are ye when they shall revile you, and persecute you, and speak all that is evil against you, untruly, for my sake: Be glad and rejoice, for your reward is very great in heaven. For so they persecuted the prophets that were before you.</p>
+                <p>You are the salt of the earth. But if the salt lose its savour, wherewith shall it be salted? It is good for nothing any more but to be cast out, and to be trodden on by men. You are the light of the world. A city seated on a mountain cannot be hid. Neither do men light a candle and put it under a bushel, but upon a candlestick, that it may shine to all that are in the house. So let your light shine before men, that they may see your good works, and glorify your Father who is in heaven.</p>
+                <p>Do not think that I am come to destroy the law, or the prophets. I am not come to destroy, but to fulfill. For amen I say unto you, till heaven and earth pass, one jot, or one tittle shall not pass of the law, till all be fulfilled. He therefore that shall break one of these least commandments, and shall so teach men, shall be called the least in the kingdom of heaven. But he that shall do and teach, he shall be called great in the kingdom of heaven.</p>
+            </div>
+        </article>
 
-    <hr class="my-4">
+        <hr class="my-4">
 
-    @* This includes the prayers for the first 12 days *@
-    <PrepPrayers />
+        <PrepPrayers UseTraditional="true" />
+    </div>
+}
+else
+{
+    @* This entire block is displayed for the MODERN language setting *@
+    <div class="page-content">
+        <h1 class="page-title">Day 1 of 33</h1>
 
-</div>
+        <article class="scripture-reading my-4">
+            <h2 class="scripture-reference h4 mb-3" style="color: var(--primary-color);">Matthew 5:1-19</h2>
+            <div class="scripture-text">
+                <p>When he saw the crowds, he went up the mountain, and after he had sat down, his disciples came to him. He began to teach them, saying:</p>
+                <p>
+                    “Blessed are the poor in spirit, for theirs is the kingdom of heaven.<br>
+                    Blessed are they who mourn, for they will be comforted.<br>
+                    Blessed are the meek, for they will inherit the land.<br>
+                    Blessed are they who hunger and thirst for righteousness, for they will be satisfied.<br>
+                    Blessed are the merciful, for they will be shown mercy.<br>
+                    Blessed are the clean of heart, for they will see God.<br>
+                    Blessed are the peacemakers, for they will be called children of God.<br>
+                    Blessed are they who are persecuted for the sake of righteousness, for theirs is the kingdom of heaven.”
+                </p>
+                <p>Blessed are you when they insult you and persecute you and utter every kind of evil against you falsely because of me. Rejoice and be glad, for your reward will be great in heaven. Thus they persecuted the prophets who were before you.</p>
+                <p>“You are the salt of the earth. But if salt loses its taste, with what can it be seasoned? It is no longer good for anything but to be thrown out and trampled underfoot. You are the light of the world. A city set on a mountain cannot be hidden. Nor do they light a lamp and then put it under a bushel basket; it is set on a lampstand, where it gives light to all in the house. Just so, your light must shine before others, that they may see your good deeds and glorify your heavenly Father.</p>
+                <p>“Do not think that I have come to abolish the law or the prophets. I have come not to abolish but to fulfill. Amen, I say to you, until heaven and earth pass away, not the smallest letter or the smallest part of a letter will pass from the law, until all things have taken place. Therefore, whoever breaks one of the least of these commandments and teaches others to do so will be called least in the kingdom of heaven. But whoever obeys and teaches these commandments will be called greatest in the kingdom of heaven.”</p>
+            </div>
+        </article>
+
+        <hr class="my-4">
+
+        <PrepPrayers UseTraditional="false" />
+    </div>
+}
 
 @code {
-    // No specific C# code needed for this page yet, unless adding more complex features.
+    private bool useTraditional;
+
+    protected override async Task OnInitializedAsync()
+    {
+        useTraditional = await LangHelper.GetIsTraditional();
+    }
 }

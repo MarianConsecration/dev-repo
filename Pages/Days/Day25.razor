@@ -1,5 +1,80 @@
-﻿<h3>Component1</h3>
+﻿@page "/day25"
+@inject LanguageHelper LangHelper
+
+<PageTitle>Day 25 - Marian Consecration</PageTitle>
+
+@if (useTraditional)
+{
+    @* This entire block is displayed for the TRADITIONAL language setting *@
+    <div class="page-content">
+        <h1 class="page-title">Day 25 of 33</h1>
+
+        <article class="scripture-reading my-4">
+            <h2 class="scripture-reference h4 mb-3" style="color: var(--primary-color);">From True Devotion To the Blessed Virgin Mary, Nos. 213-225</h2>
+            <h3 class="reading-subtitle h5 mb-2" style="color: var(--text-color); font-style: italic;">Wonderful Effects of this Devotion</h3>
+            <div class="scripture-text">
+                <p>213. My dear friend, be sure that if you remain faithful to the interior and exterior practices of this devotion which I will point out, the following effects will be produced in your soul:</p>
+                <p><b>1. Knowledge of our unworthiness:</b><br>
+                By the light which the Holy Spirit will give you through Mary, his faithful spouse, you will perceive the evil inclinations of your fallen nature and how incapable you are of any good. Finally, the humble Virgin Mary will share her humility with you so that, although you regard yourself with distaste and desire to be disregarded by others, you will not look down slightingly upon anyone.</p>
+                <p><b>2. A share in Mary's faith</b><br>
+                214. Mary will share her faith with you. Her faith on earth was stronger than that of all the patriarchs, prophets, apostles and saints.</p>
+                <p><b>3. The gift of pure love</b><br>
+                215. The Mother of fair love will rid your heart of all scruples and inordinate servile fear.</p>
+                <p><b>4. Great confidence in God and in Mary</b><br>
+                216. Our Blessed Lady will fill you with unbounded confidence in God and in herself: 1) Because you will no longer approach Jesus by yourself but always through Mary, your loving Mother.</p>
+                <p><b>5. Communication of the spirit of Mary</b><br>
+                217. The soul of Mary will be communicated to you to glorify the Lord. Her spirit will take the place of yours to rejoice in God, her Saviour, but only if you are faithful to the practices of this devotion.</p>
+                <p><b>6. Transformation into the likeness of Jesus</b><br>
+                218. If Mary, the Tree of Life, is well cultivated in our soul by fidelity to this devotion, she will in due time bring forth her fruit which is none other than Jesus.</p>
+                <p><b>7. The greater glory of Christ</b><br>
+                222. If you live this devotion sincerely, you will give more glory to Jesus in a month than in many years of a more demanding devotion.</p>
+            </div>
+        </article>
+
+        <hr class="my-4">
+
+        <WeekTwoPrayers UseTraditional="true" />
+    </div>
+}
+else
+{
+    @* This entire block is displayed for the MODERN language setting *@
+    <div class="page-content">
+        <h1 class="page-title">Day 25 of 33</h1>
+
+        <article class="scripture-reading my-4">
+            <h2 class="scripture-reference h4 mb-3" style="color: var(--primary-color);">From True Devotion To the Blessed Virgin Mary, Nos. 213-225</h2>
+            <h3 class="reading-subtitle h5 mb-2" style="color: var(--text-color); font-style: italic;">Wonderful Effects of this Devotion</h3>
+            <div class="scripture-text">
+                <p>213. My dear friend, be sure that if you remain faithful to the interior and exterior practices of this devotion which I will point out, the following effects will be produced in your soul:</p>
+                <p><b>1. Knowledge of our unworthiness:</b><br>
+                By the light which the Holy Spirit will give you through Mary, his faithful spouse, you will perceive the evil inclinations of your fallen nature and how incapable you are of any good. Finally, the humble Virgin Mary will share her humility with you so that, although you regard yourself with distaste and desire to be disregarded by others, you will not look down slightingly upon anyone.</p>
+                <p><b>2. A share in Mary's faith</b><br>
+                214. Mary will share her faith with you. Her faith on earth was stronger than that of all the patriarchs, prophets, apostles and saints.</p>
+                <p><b>3. The gift of pure love</b><br>
+                215. The Mother of fair love will rid your heart of all scruples and inordinate servile fear.</p>
+                <p><b>4. Great confidence in God and in Mary</b><br>
+                216. Our Blessed Lady will fill you with unbounded confidence in God and in herself: 1) Because you will no longer approach Jesus by yourself but always through Mary, your loving Mother.</p>
+                <p><b>5. Communication of the spirit of Mary</b><br>
+                217. The soul of Mary will be communicated to you to glorify the Lord. Her spirit will take the place of yours to rejoice in God, her Saviour, but only if you are faithful to the practices of this devotion.</p>
+                <p><b>6. Transformation into the likeness of Jesus</b><br>
+                218. If Mary, the Tree of Life, is well cultivated in our soul by fidelity to this devotion, she will in due time bring forth her fruit which is none other than Jesus.</p>
+                <p><b>7. The greater glory of Christ</b><br>
+                222. If you live this devotion sincerely, you will give more glory to Jesus in a month than in many years of a more demanding devotion.</p>
+            </div>
+        </article>
+
+        <hr class="my-4">
+
+        <WeekTwoPrayers UseTraditional="false" />
+    </div>
+}
 
 @code {
+    private bool useTraditional;
 
+    protected override async Task OnInitializedAsync()
+    {
+        useTraditional = await LangHelper.GetIsTraditional();
+    }
 }

@@ -1,5 +1,68 @@
-﻿<h3>Component1</h3>
+﻿@page "/day23"
+@inject LanguageHelper LangHelper
+
+<PageTitle>Day 23 - Marian Consecration</PageTitle>
+
+@if (useTraditional)
+{
+    @* This entire block is displayed for the TRADITIONAL language setting *@
+    <div class="page-content">
+        <h1 class="page-title">Day 23 of 33</h1>
+
+        <article class="scripture-reading my-4">
+            <h2 class="scripture-reference h4 mb-3" style="color: var(--primary-color);">From True Devotion To the Blessed Virgin Mary, Nos. 120-121</h2>
+            <h3 class="reading-subtitle h5 mb-2" style="color: var(--text-color); font-style: italic;">Nature of perfect devotion to the Blessed Virgin or perfect consecration to Jesus Christ</h3>
+            <div class="scripture-text">
+                <p>120. As all perfection consists in our being conformed, united and consecrated to Jesus it naturally follows that the most perfect of all devotions is that which conforms, unites, and consecrates us most completely to Jesus. Now of all God's creatures Mary is the most conformed to Jesus. It therefore follows that, of all devotions, devotion to her makes for the most effective consecration and conformity to him. The more one is consecrated to Mary, the more one is consecrated to Jesus. That is why perfect consecration to Jesus is but a perfect and complete consecration of oneself to the Blessed Virgin, which is the devotion I teach; or in other words, it is the perfect renewal of the vows and promises of holy baptism.</p>
+                <p>
+                    121. This devotion consists in giving oneself entirely to Mary in order to belong entirely to Jesus through her. It requires us to give:<br>
+                    (1) Our body with its senses and members;<br>
+                    (2) Our soul with its faculties;<br>
+                    (3) Our present material possessions and all we shall acquire in the future;<br>
+                    (4) Our interior and spiritual possessions, that is, our merits, virtues and good actions of the past, the present and the future.
+                </p>
+                <p>In other words, we give her all that we possess both in our natural life and in our spiritual life as well as everything we shall acquire in the future in the order of nature, of grace, and of glory in heaven. This we do without any reservation, not even of a penny, a hair, or the smallest good deed. And we give for all eternity without claiming or expecting, in return for our offering and our service, any other reward than the honour of belonging to our Lord through Mary and in Mary, even though our Mother were not - as in fact she always is - the most generous and appreciative of all God's creatures.</p>
+            </div>
+        </article>
+
+        <hr class="my-4">
+
+        <WeekTwoPrayers UseTraditional="true" />
+    </div>
+}
+else
+{
+    @* This entire block is displayed for the MODERN language setting *@
+    <div class="page-content">
+        <h1 class="page-title">Day 23 of 33</h1>
+
+        <article class="scripture-reading my-4">
+            <h2 class="scripture-reference h4 mb-3" style="color: var(--primary-color);">From True Devotion To the Blessed Virgin Mary, Nos. 120-121</h2>
+            <h3 class="reading-subtitle h5 mb-2" style="color: var(--text-color); font-style: italic;">Nature of perfect devotion to the Blessed Virgin or perfect consecration to Jesus Christ</h3>
+            <div class="scripture-text">
+                <p>120. As all perfection consists in our being conformed, united and consecrated to Jesus it naturally follows that the most perfect of all devotions is that which conforms, unites, and consecrates us most completely to Jesus. Now of all God's creatures Mary is the most conformed to Jesus. It therefore follows that, of all devotions, devotion to her makes for the most effective consecration and conformity to him. The more one is consecrated to Mary, the more one is consecrated to Jesus. That is why perfect consecration to Jesus is but a perfect and complete consecration of oneself to the Blessed Virgin, which is the devotion I teach; or in other words, it is the perfect renewal of the vows and promises of holy baptism.</p>
+                <p>
+                    121. This devotion consists in giving oneself entirely to Mary in order to belong entirely to Jesus through her. It requires us to give:<br>
+                    (1) Our body with its senses and members;<br>
+                    (2) Our soul with its faculties;<br>
+                    (3) Our present material possessions and all we shall acquire in the future;<br>
+                    (4) Our interior and spiritual possessions, that is, our merits, virtues and good actions of the past, the present and the future.
+                </p>
+                <p>In other words, we give her all that we possess both in our natural life and in our spiritual life as well as everything we shall acquire in the future in the order of nature, of grace, and of glory in heaven. This we do without any reservation, not even of a penny, a hair, or the smallest good deed. And we give for all eternity without claiming or expecting, in return for our offering and our service, any other reward than the honor of belonging to our Lord through Mary and in Mary, even though our Mother were not - as in fact she always is - the most generous and appreciative of all God's creatures.</p>
+            </div>
+        </article>
+
+        <hr class="my-4">
+
+        <WeekTwoPrayers UseTraditional="false" />
+    </div>
+}
 
 @code {
+    private bool useTraditional;
 
+    protected override async Task OnInitializedAsync()
+    {
+        useTraditional = await LangHelper.GetIsTraditional();
+    }
 }

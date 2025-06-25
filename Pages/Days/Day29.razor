@@ -1,5 +1,58 @@
-﻿<h3>Component1</h3>
+﻿@page "/day29"
+@inject LanguageHelper LangHelper
+
+<PageTitle>Day 29 - Marian Consecration</PageTitle>
+
+@if (useTraditional)
+{
+    @* This entire block is displayed for the TRADITIONAL language setting *@
+    <div class="page-content">
+        <h1 class="page-title">Day 29 of 33</h1>
+
+        <article class="scripture-reading my-4">
+            <h2 class="scripture-reference h4 mb-3" style="color: var(--primary-color);">Imitation of Christ, by Thomas á Kempis: Book 1, Chapter 1</h2>
+            <h3 class="reading-subtitle h5 mb-2" style="color: var(--text-color); font-style: italic;">Of the Imitation of Christ, and Contempt of all the Vanities of the World</h3>
+            <div class="scripture-text">
+                <p>He that followeth Me, walketh not in darkness (John 8:12), saith the Lord. These are the words of Christ, by which we are admonished, how we ought to imitate His life and manners, if we would truly be enlightened, and delivered from all blindness of heart. Let therefore our chiefest endeavour be, to meditate upon the life of Jesus Christ.</p>
+                <p>The doctrine of Christ exceedeth all the doctrine of holy men.; and he that hath the Spirit will find therein the hidden manna (Apocalypse. 2:17). But it falleth out that many who often hear the Gospel of Christ, feel little desire after it, because they have not the Spirit of Christ (Rom. 8:9). But Whosoever will fully and with relish understand the words of Christ, must endeavor to conform his life wholly to the life of Christ.</p>
+                <p>2. What doth it avail thee to discourse profoundly of the Trinity, if thou be void of humility, and art thereby displeasing to the Trinity? Surely profound words do not make a man holy and just; but a virtuous life maketh him dear to God. I had rather feel contrition, than know the definition thereof. If thou didst know the whole Bible by heart, and the sayings of all the philosophers, what would all that profit thee without the love of God (1 Cor. 13:2), and without His grace?</p>
+                <p>Vanity of vanities, and all is vanity (Eccles. 1:2), except to love God, and to serve Him only. This is the highest wisdom, by contempt of the world to press forward towards heavenly kingdoms.</p>
+            </div>
+        </article>
+
+        <hr class="my-4">
+
+        <WeekThreePrayers UseTraditional="true" />
+    </div>
+}
+else
+{
+    @* This entire block is displayed for the MODERN language setting *@
+    <div class="page-content">
+        <h1 class="page-title">Day 29 of 33</h1>
+
+        <article class="scripture-reading my-4">
+            <h2 class="scripture-reference h4 mb-3" style="color: var(--primary-color);">Imitation of Christ, by Thomas á Kempis: Book 1, Chapter 1</h2>
+            <h3 class="reading-subtitle h5 mb-2" style="color: var(--text-color); font-style: italic;">Of the Imitation of Christ, and Contempt of all the Vanities of the World</h3>
+            <div class="scripture-text">
+                <p>Whoever follows me will not walk in darkness (John 8:12), says the Lord. These are the words of Christ, by which we are admonished, how we ought to imitate His life and manners, if we would truly be enlightened, and delivered from all blindness of heart. Let therefore our chief endeavor be, to meditate upon the life of Jesus Christ.</p>
+                <p>The doctrine of Christ exceeds all the doctrine of holy men; and he that has the Spirit will find there the hidden manna (Revelation 2:17). But it falls out that many who often hear the Gospel of Christ, feel little desire after it, because they do not have the Spirit of Christ (Rom. 8:9). But Whoever will fully and with relish understand the words of Christ, must endeavor to conform his life wholly to the life of Christ.</p>
+                <p>2. What does it avail you to discourse profoundly of the Trinity, if you are void of humility, and are thereby displeasing to the Trinity? Surely profound words do not make a man holy and just; but a virtuous life makes him dear to God. I would rather feel contrition, than know the definition. If you did know the whole Bible by heart, and the sayings of all the philosophers, what would all that profit you without the love of God (1 Cor. 13:2), and without His grace?</p>
+                <p>Vanity of vanities, and all is vanity (Eccles. 1:2), except to love God, and to serve Him only. This is the highest wisdom, by contempt of the world to press forward towards heavenly kingdoms.</p>
+            </div>
+        </article>
+
+        <hr class="my-4">
+
+        <WeekThreePrayers UseTraditional="false" />
+    </div>
+}
 
 @code {
+    private bool useTraditional;
 
+    protected override async Task OnInitializedAsync()
+    {
+        useTraditional = await LangHelper.GetIsTraditional();
+    }
 }

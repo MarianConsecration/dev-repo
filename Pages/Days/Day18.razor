@@ -1,5 +1,89 @@
-﻿<h3>Component1</h3>
+﻿@page "/day18"
+@inject LanguageHelper LangHelper
+
+<PageTitle>Day 18 - Marian Consecration</PageTitle>
+
+@if (useTraditional)
+{
+    @* This entire block is displayed for the TRADITIONAL language setting *@
+    <div class="page-content">
+        <h1 class="page-title">Day 18 of 33</h1>
+
+        <article class="scripture-reading my-4">
+            <h2 class="scripture-reference h4 mb-3" style="color: var(--primary-color);">Luke 17:1-10</h2>
+            <div class="scripture-text">
+                <h3 class="reading-subtitle h5 mb-2" style="color: var(--text-color); font-style: italic;">On Leading Others Astray</h3>
+                <p>And he said to his disciples: It is impossible that scandals should not come: but woe to him through whom they come. It were better for him, that a millstone were hanged about his neck, and he cast into the sea, than that he should scandalize one of these little ones.</p>
+
+                <h3 class="reading-subtitle h5 mt-3 mb-2" style="color: var(--text-color); font-style: italic;">On Brotherly Correction</h3>
+                <p>Take heed to yourselves. If thy brother sin against thee, reprove him: and if he do penance, forgive him. And if he sin against thee seven times in a day, and seven times in a day be converted unto thee, saying, I repent; forgive him.</p>
+
+                <h3 class="reading-subtitle h5 mt-3 mb-2" style="color: var(--text-color); font-style: italic;">The Power of Faith</h3>
+                <p>And the apostles said to the Lord: Increase our faith. And the Lord said: If you had faith like to a grain of mustard seed, you might say to this mulberry tree, Be thou rooted up, and be thou transplanted into the sea: and it would obey you.</p>
+
+                <h3 class="reading-subtitle h5 mt-3 mb-2" style="color: var(--text-color); font-style: italic;">Humble Service</h3>
+                <p>But which of you having a servant ploughing, or feeding cattle, will say to him, when he is come from the field: Immediately go, sit down to meat: And will not rather say to him: Make ready my supper, and gird thyself, and serve me, whilst I eat and drink, and afterwards thou shalt eat and drink? Doth he thank that servant, for doing the things which he commanded him? I think not. So you also, when you shall have done all these things that are commanded you, say: We are unprofitable servants; we have done that which we ought to do.</p>
+            </div>
+        </article>
+
+        <hr class="my-4">
+
+        <article class="scripture-reading my-4">
+            <h2 class="scripture-reference h4 mb-3" style="color: var(--primary-color);">Imitation of Christ, by Thomas á Kempis: Book 3, Chapter 47</h2>
+            <h3 class="reading-subtitle h5 mb-2" style="color: var(--text-color); font-style: italic;">That All Grievous Things Are to Be Endured For the Sake of Eternal Life</h3>
+            <div class="scripture-text">
+                <p>My son, be not wearied out by the labors which thou hast undertaken for My sake, nor let tribulation cast thee down ever at all; but let My promise strengthen and comfort thee under every circumstance. I am well able to reward thee, above all measure and degree. Thou shalt not long toil here, nor always be oppressed with griefs. Wait a little while, and thou shalt see a speedy end of thine evils.</p>
+            </div>
+        </article>
+
+        <hr class="my-4">
+
+        <WeekOnePrayers UseTraditional="true" />
+    </div>
+}
+else
+{
+    @* This entire block is displayed for the MODERN language setting *@
+    <div class="page-content">
+        <h1 class="page-title">Day 18 of 33</h1>
+
+        <article class="scripture-reading my-4">
+            <h2 class="scripture-reference h4 mb-3" style="color: var(--primary-color);">Luke 17:1-10</h2>
+            <div class="scripture-text">
+                <h3 class="reading-subtitle h5 mb-2" style="color: var(--text-color); font-style: italic;">On Leading Others Astray</h3>
+                <p>He said to his disciples, “Things that cause sin will inevitably occur, but woe to the person through whom they occur. It would be better for him if a millstone were put around his neck and he be thrown into the sea than for him to cause one of these little ones to sin.</p>
+                
+                <h3 class="reading-subtitle h5 mt-3 mb-2" style="color: var(--text-color); font-style: italic;">On Brotherly Correction</h3>
+                <p>Be on your guard! If your brother sins, rebuke him; and if he repents, forgive him. And if he wrongs you seven times in one day and returns to you seven times saying, ‘I am sorry,’ you should forgive him.”</p>
+                
+                <h3 class="reading-subtitle h5 mt-3 mb-2" style="color: var(--text-color); font-style: italic;">The Power of Faith</h3>
+                <p>And the apostles said to the Lord, “Increase our faith.” The Lord replied, “If you have faith the size of a mustard seed, you would say to this mulberry tree, ‘Be uprooted and planted in the sea,’ and it would obey you.”</p>
+                
+                <h3 class="reading-subtitle h5 mt-3 mb-2" style="color: var(--text-color); font-style: italic;">Humble Service</h3>
+                <p>“Who among you would say to your servant who has just come in from plowing or tending sheep in the field, ‘Come here immediately and take your place at the table’? Would he not rather say to him, ‘Prepare something for me to eat. Put on your apron and wait on me while I eat and drink. You may eat and drink when I am finished’? Is he grateful to that servant because he did what was commanded? So should it be with you. When you have done all you have been commanded, say, ‘We are unprofitable servants; we have done what we were obliged to do.’”</p>
+            </div>
+        </article>
+
+        <hr class="my-4">
+
+        <article class="scripture-reading my-4">
+            <h2 class="scripture-reference h4 mb-3" style="color: var(--primary-color);">Imitation of Christ, by Thomas á Kempis: Book 3, Chapter 47</h2>
+            <h3 class="reading-subtitle h5 mb-2" style="color: var(--text-color); font-style: italic;">That All Grievous Things Are to Be Endured For the Sake of Eternal Life</h3>
+            <div class="scripture-text">
+                <p>My son, be not wearied out by the labors which you have undertaken for My sake, nor let tribulation cast you down ever at all; but let My promise strengthen and comfort you under every circumstance. I am well able to reward you, above all measure and degree. you shall not long toil here, nor always be oppressed with griefs. Wait a little while, and you shall see a speedy end of your evils.</p>
+            </div>
+        </article>
+
+        <hr class="my-4">
+        <WeekOnePrayers UseTraditional="false" />
+    </div>
+}
 
 @code {
+    private bool useTraditional;
 
+    protected override async Task OnInitializedAsync()
+    {
+        useTraditional = await LangHelper.GetIsTraditional();
+    }
 }

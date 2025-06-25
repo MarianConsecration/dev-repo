@@ -1,11 +1,7 @@
-﻿@*
-    File: /Shared/PrayerModules/PrepPrayers.razor
-    Contains prayers for the 12-day preliminary period.
-    - Veni Creator
-    - Ave Maris Stella
-    - Magnificat
-    - Glory Be
-*@
+﻿@code {
+    [Parameter]
+    public bool UseTraditional { get; set; }
+}
 
 <div class="prayer-module-content my-4 p-4 border rounded shadow-sm">
     <h2 class="prayer-title text-center h4 mb-3" style="color: var(--primary-color); font-size: 2rem;">12 Day Preparation Prayers</h2>
@@ -59,97 +55,183 @@
         </div>
     </article>
 
-    <hr class="my-4">
+    @if (UseTraditional)
+    {
+        <hr class="my-4">
 
-    <article class="prayer-section mb-4">
-        <h3 class="prayer-subtitle h5 mb-2" style="color: var(--text-color); font-size: 1.5rem;">Ave Maris Stella</h3>
-        <div class="prayer-text">
-            <p>
-                Hail, O Star of the ocean,<br>
-                God's own Mother blest,<br>
-                ever sinless Virgin,<br>
-                gate of heav'nly rest.
-            </p>
-            <p>
-                Taking that sweet Ave,<br>
-                which from Gabriel came,<br>
-                peace confirm within us,<br>
-                changing Eve's name.
-            </p>
-            <p>
-                Break the sinners' fetters,<br>
-                make our blindness day,<br>
-                Chase all evils from us,<br>
-                for all blessings pray.
-            </p>
-            <p>
-                Show thyself a Mother,<br>
-                may the Word divine<br>
-                born for us thine Infant<br>
-                hear our prayers through thine.
-            </p>
-            <p>
-                Virgin all excelling,<br>
-                mildest of the mild,<br>
-                free from guilt preserve us<br>
-                meek and undefiled.
-            </p>
-            <p>
-                Keep our life all spotless,<br>
-                make our way secure<br>
-                till we find in Jesus,<br>
-                joy for evermore.
-            </p>
-            <p>
-                Praise to God the Father,<br>
-                honor to the Son,<br>
-                in the Holy Spirit,<br>
-                be the glory one. Amen.
-            </p>
-        </div>
-    </article>
+        <article class="prayer-section mb-4">
+            <h3 class="prayer-subtitle h5 mb-2" style="color: var(--text-color); font-size: 1.5rem;">Ave Maris Stella</h3>
+            <div class="prayer-text">
+                <p>
+                    Hail, O Star of the ocean,<br>
+                    God's own Mother blest,<br>
+                    ever sinless Virgin,<br>
+                    gate of heav'nly rest.<br>
+                    Taking that sweet Ave,<br>
+                    which from Gabriel came,<br>
+                    peace confirm within us,<br>
+                    changing Eve's name.<br>
+                    Break the sinners' fetters,<br>
+                    make our blindness day,<br>
+                    Chase all evils from us,<br>
+                    for all blessings pray.<br>
+                    Show thyself a Mother,<br>
+                    may the Word divine<br>
+                    born for us thine Infant<br>
+                    hear our prayers through thine.<br>
+                    Virgin all excelling,<br>
+                    mildest of the mild,<br>
+                    free from guilt preserve us<br>
+                    meek and undefiled.<br>
+                    Keep our life all spotless,<br>
+                    make our way secure<br>
+                    till we find in Jesus,<br>
+                    joy for evermore.<br>
+                    Praise to God the Father,<br>
+                    honor to the Son,<br>
+                    in the Holy Spirit,<br>
+                    be the glory one. Amen.
+                </p>
+            </div>
+        </article>
 
-    <hr class="my-4">
+        <hr class="my-4">
 
-    <article class="prayer-section mb-4">
-        <h3 class="prayer-subtitle h5 mb-2" style="color: var(--text-color); font-size: 1.5rem;">Magnificat</h3>
-        <div class="prayer-text">
-            <p>
-                My soul doth magnify the Lord. And my spirit hath<br>
-                rejoiced in God my Savior. Because He hath<br>
-                regarded the humility of His handmaid; for behold,<br>
-                from henceforth all generations shall call me<br>
-                blessed. Because He that is mighty hath done great<br>
-                things to me; and holy is His name. And His mercy is<br>
-                from generation to generations, to them that fear<br>
-                Him. He hath showed might in His arm; He hath<br>
-                scattered the proud in the conceit of their heart.<br>
-                He hath put down the mighty from their seat; and<br>
-                hath exalted the humble. He hath filled the hungry<br>
-                with good things; and the rich he hath sent empty<br>
-                away. He hath received Israel His servant, being<br>
-                mindful of His mercy. As He spoke to our fathers, to<br>
-                Abraham and to his seed forever. Amen.
-            </p>
-        </div>
-    </article>
+        <article class="prayer-section mb-4">
+            <h3 class="prayer-subtitle h5 mb-2" style="color: var(--text-color); font-size: 1.5rem;">Magnificat</h3>
+            <div class="prayer-text">
+                <p>
+                    My soul proclaims the greatness of the Lord,<br>
+                    my spirit rejoices in God my Savior<br>
+                    for he has looked with favor on his lowly servant.
+                </p>
+                <p>
+                    From this day all generations will call me blessed:<br>
+                    the Almighty has done great things for me,<br>
+                    and holy is his Name.
+                </p>
+                <p>
+                    He has mercy on those who fear him<br>
+                    in every generation.<br>
+                    He has shown the strength of his arm,<br>
+                    he has scattered the proud in their conceit.
+                </p>
+                <p>
+                    He has cast down the mighty from their thrones,<br>
+                    and has lifted up the lowly.
+                </p>
+                <p>
+                    He has filled the hungry with good things,<br>
+                    and the rich he has sent away empty.
+                </p>
+                <p>
+                    He has come to the help of his servant Israel<br>
+                    for he has remembered his promise of mercy,<br>
+                    the promise he made to our fathers,<br>
+                    to Abraham and his children for ever.
+                </p>
+            </div>
+        </article>
 
-    <hr class="my-4">
+        <hr class="my-4">
 
-    <article class="prayer-section">
-        <h3 class="prayer-subtitle h5 mb-2" style="color: var(--text-color); font-size: 1.5rem;">Glory Be</h3>
-        <div class="prayer-text">
-            <p>
-                Glory be to the Father, and to the Son, and to the<br>
-                Holy Ghost. As it was in the beginning, is now, and<br>
-                ever shall be, world without end. Amen.
-            </p>
-        </div>
-    </article>
+        <article class="prayer-section">
+            <h3 class="prayer-subtitle h5 mb-2" style="color: var(--text-color); font-size: 1.5rem;">Glory Be</h3>
+            <div class="prayer-text">
+                <p>
+                    Glory be to the Father, and to the Son, and to the Holy Ghost. As it was in the beginning, is now, and ever shall be, world without end. Amen.
+                </p>
+            </div>
+        </article>
+    }
+    else
+    {
+        <hr class="my-4">
 
+        <article class="prayer-section mb-4">
+            <h3 class="prayer-subtitle h5 mb-2" style="color: var(--text-color); font-size: 1.5rem;">Ave Maris Stella</h3>
+            <div class="prayer-text">
+                <p>
+                    Hail, O Star of the ocean,<br>
+                    God's own Mother blest,<br>
+                    ever sinless Virgin,<br>
+                    gate of heav'nly rest.
+                </p>
+                <p>
+                    Taking that sweet Ave,<br>
+                    which from Gabriel came,<br>
+                    peace confirm within us,<br>
+                    changing Eve's name.
+                </p>
+                <p>
+                    Break the sinners' fetters,<br>
+                    make our blindness day,<br>
+                    Chase all evils from us,<br>
+                    for all blessings pray.
+                </p>
+                <p>
+                    Show thyself a Mother,<br>
+                    may the Word divine<br>
+                    born for us thine Infant<br>
+                    hear our prayers through thine.
+                </p>
+                <p>
+                    Virgin all excelling,<br>
+                    mildest of the mild,<br>
+                    free from guilt preserve us<br>
+                    meek and undefiled.
+                </p>
+                <p>
+                    Keep our life all spotless,<br>
+                    make our way secure<br>
+                    till we find in Jesus,<br>
+                    joy for evermore.
+                </p>
+                <p>
+                    Praise to God the Father,<br>
+                    honor to the Son,<br>
+                    in the Holy Spirit,<br>
+                    be the glory one. Amen.
+                </p>
+            </div>
+        </article>
+
+        <hr class="my-4">
+
+        <article class="prayer-section mb-4">
+            <h3 class="prayer-subtitle h5 mb-2" style="color: var(--text-color); font-size: 1.5rem;">Magnificat</h3>
+            <div class="prayer-text">
+                <p>
+                    My soul doth magnify the Lord. And my spirit hath<br>
+                    rejoiced in God my Savior. Because He hath<br>
+                    regarded the humility of His handmaid; for behold,<br>
+                    from henceforth all generations shall call me<br>
+                    blessed. Because He that is mighty hath done great<br>
+                    things to me; and holy is His name. And His mercy is<br>
+                    from generation to generations, to them that fear<br>
+                    Him. He hath showed might in His arm; He hath<br>
+                    scattered the proud in the conceit of their heart.<br>
+                    He hath put down the mighty from their seat; and<br>
+                    hath exalted the humble. He hath filled the hungry<br>
+                    with good things; and the rich he hath sent empty<br>
+                    away. He hath received Israel His servant, being<br>
+                    mindful of His mercy. As He spoke to our fathers, to<br>
+                    Abraham and to his seed forever. Amen.
+                </p>
+            </div>
+        </article>
+
+        <hr class="my-4">
+
+        <article class="prayer-section">
+            <h3 class="prayer-subtitle h5 mb-2" style="color: var(--text-color); font-size: 1.5rem;">Glory Be</h3>
+            <div class="prayer-text">
+                <p>
+                    Glory be to the Father, and to the Son, and to the<br>
+                    Holy Ghost. As it was in the beginning, is now, and<br>
+                    ever shall be, world without end. Amen.
+                </p>
+            </div>
+        </article>
+    }
 </div>
-
-@code {
-    // This component is purely for displaying static prayer text.
-    // No C# code is needed here unless dynamic behavior is added later.
-}

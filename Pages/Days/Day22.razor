@@ -1,5 +1,60 @@
-﻿<h3>Component1</h3>
+﻿@page "/day22"
+@inject LanguageHelper LangHelper
+
+<PageTitle>Day 22 - Marian Consecration</PageTitle>
+
+@if (useTraditional)
+{
+    @* This entire block is displayed for the TRADITIONAL language setting *@
+    <div class="page-content">
+        <h1 class="page-title">Day 22 of 33</h1>
+
+        <article class="scripture-reading my-4">
+            <h2 class="scripture-reference h4 mb-3" style="color: var(--primary-color);">From True Devotion To the Blessed Virgin Mary, No. 106-110</h2>
+            <h3 class="reading-subtitle h5 mb-2" style="color: var(--text-color); font-style: italic;">Marks of authentic devotion to our Lady</h3>
+            <div class="scripture-text">
+                <p>106. First, true devotion to our Lady is interior, that is, it comes from within the mind and the heart and follows from the esteem in which we hold her, the high regard we have for her greatness, and the love we bear her.</p>
+                <p>107. Second, it is trustful, that is to say, it fills us with confidence in the Blessed Virgin, the confidence that a child has for its loving Mother. It prompts us to go to her in every need of body and soul with great simplicity, trust and affection.</p>
+                <p>108. Third, true devotion to our Lady is holy, that is, it leads us to avoid sin and to imitate the virtues of Mary. Her ten principal virtues are: deep humility, lively faith, blind obedience, unceasing prayer, constant self-denial, surpassing purity, ardent love, heroic patience, angelic kindness, and heavenly wisdom.</p>
+                <p>109. Fourth, true devotion to our Lady is constant. It strengthens us in our desire to do good and prevents us from giving up our devotional practices too easily. It gives us the courage to oppose the fashions and maxims of the world, the vexations and unruly inclinations of the flesh and the temptations of the devil. Thus a person truly devoted to our Blessed Lady is not changeable, fretful, scrupulous or timid.</p>
+                <p>110. Fifth, true devotion to Mary is disinterested. It inspires us to seek God alone in his Blessed Mother and not ourselves. The true subject of Mary does not serve his illustrious Queen for selfish gain. He does not serve her for temporal or eternal well-being but simply and solely because she has the right to be served and God alone in her.</p>
+            </div>
+        </article>
+
+        <hr class="my-4">
+
+        <WeekTwoPrayers UseTraditional="true" />
+    </div>
+}
+else
+{
+    @* This entire block is displayed for the MODERN language setting *@
+    <div class="page-content">
+        <h1 class="page-title">Day 22 of 33</h1>
+
+        <article class="scripture-reading my-4">
+            <h2 class="scripture-reference h4 mb-3" style="color: var(--primary-color);">From True Devotion To the Blessed Virgin Mary, No. 106-110</h2>
+            <h3 class="reading-subtitle h5 mb-2" style="color: var(--text-color); font-style: italic;">Marks of authentic devotion to our Lady</h3>
+            <div class="scripture-text">
+                <p>106. First, true devotion to our Lady is interior, that is, it comes from within the mind and the heart and follows from the esteem in which we hold her, the high regard we have for her greatness, and the love we bear her.</p>
+                <p>107. Second, it is trustful, that is to say, it fills us with confidence in the Blessed Virgin, the confidence that a child has for its loving Mother. It prompts us to go to her in every need of body and soul with great simplicity, trust and affection.</p>
+                <p>108. Third, true devotion to our Lady is holy, that is, it leads us to avoid sin and to imitate the virtues of Mary. Her ten principal virtues are: deep humility, lively faith, blind obedience, unceasing prayer, constant self-denial, surpassing purity, ardent love, heroic patience, angelic kindness, and heavenly wisdom.</p>
+                <p>109. Fourth, true devotion to our Lady is constant. It strengthens us in our desire to do good and prevents us from giving up our devotional practices too easily. It gives us the courage to oppose the fashions and maxims of the world, the vexations and unruly inclinations of the flesh and the temptations of the devil. Thus a person truly devoted to our Blessed Lady is not changeable, fretful, scrupulous or timid.</p>
+                <p>110. Fifth, true devotion to Mary is disinterested. It inspires us to seek God alone in his Blessed Mother and not ourselves. The true subject of Mary does not serve his illustrious Queen for selfish gain. He does not serve her for temporal or eternal well-being but simply and solely because she has the right to be served and God alone in her.</p>
+            </div>
+        </article>
+
+        <hr class="my-4">
+
+        <WeekTwoPrayers UseTraditional="false" />
+    </div>
+}
 
 @code {
+    private bool useTraditional;
 
+    protected override async Task OnInitializedAsync()
+    {
+        useTraditional = await LangHelper.GetIsTraditional();
+    }
 }

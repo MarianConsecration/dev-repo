@@ -1,5 +1,74 @@
-﻿<h3>Component1</h3>
+﻿@page "/day15"
+@inject LanguageHelper LangHelper
+
+<PageTitle>Day 15 - Marian Consecration</PageTitle>
+
+@if (useTraditional)
+{
+    @* This entire block is displayed for the TRADITIONAL language setting *@
+    <div class="page-content">
+        <h1 class="page-title">Day 15 of 33</h1>
+
+        <article class="scripture-reading my-4">
+            <h2 class="scripture-reference h4 mb-3" style="color: var(--primary-color);">Luke 13:1-5</h2>
+            <h3 class="reading-subtitle h5 mb-2" style="color: var(--text-color); font-style: italic;">Examples inviting Repentance</h3>
+            <div class="scripture-text">
+                <p>And there were present, at that very time, some that told him of the Galileans, whose blood Pilate had mingled with their sacrifices. And he answering, said to them: Think you that these Galileans were sinners above all the men of Galilee, because they suffered such things? No, I say to you: but unless you shall do penance, you shall all likewise perish. Or those eighteen upon whom the tower fell in Siloe, and slew them: think you, that they also were debtors above all the men that dwelt in Jerusalem? No, I say to you; but except you do penance, you shall all likewise perish.</p>
+            </div>
+        </article>
+
+        <hr class="my-4">
+
+        <article class="scripture-reading my-4">
+            <h2 class="scripture-reference h4 mb-3" style="color: var(--primary-color);">True Devotion to the Blessed Virgin Mary, Nos. 81 and 82</h2>
+            <h3 class="reading-subtitle h5 mb-2" style="color: var(--text-color); font-style: italic;">We Need Mary in order to Die to Ourselves</h3>
+            <div class="scripture-text">
+                <p>Secondly, in order to empty ourselves of self, we must die daily to ourselves. This involves our renouncing what the powers of the soul and the senses of the body incline us to do. We must see as if we did not see, hear as if we did not hear and use the things of this world as if we did not use them. This is what St. Paul calls "dying daily". Unless the grain of wheat falls to the ground and dies, it remains only a single grain and does not bear any good fruit. If we do not die to self and if our holiest devotions do not lead us to this necessary and fruitful death, we shall not bear fruit of any worth and our devotions will cease to be profitable. All our good works will be tainted by selflove and self-will so that our greatest sacrifices and our best actions will be unacceptable to God. Consequently when we come to die we shall find ourselves devoid of virtue and merit and discover that we do not possess even one spark of that pure love which God shares only with those who have died to themselves and whose life is hidden with Jesus Christ in him.</p>
+                <p>Thirdly, we must choose among all the devotions to the Blessed Virgin the one which will lead us more surely to this dying to self. This devotion will be the best and the most sanctifying for us.</p>
+            </div>
+        </article>
+
+        <hr class="my-4">
+
+        <WeekOnePrayers UseTraditional="true" />
+
+    </div>
+}
+else
+{
+    @* This entire block is displayed for the MODERN language setting *@
+    <div class="page-content">
+        <h1 class="page-title">Day 15 of 33</h1>
+
+        <article class="scripture-reading my-4">
+            <h2 class="scripture-reference h4 mb-3" style="color: var(--primary-color);">Luke 13:1-5</h2>
+            <h3 class="reading-subtitle h5 mb-2" style="color: var(--text-color); font-style: italic;">Examples inviting Repentance</h3>
+            <div class="scripture-text">
+                <p>At that time, some people who were present told him about the Galileans whose blood Pilate had mingled with the blood of their sacrifices. He said to them in reply, “Do you think that because these Galileans suffered in this way they were greater sinners than all other Galileans? By no means! But I tell you, if you do not repent, you will all perish as they did! Or those eighteen people who were killed when the tower at Siloam fell on them—do you think they were more guilty than everyone else who lived in Jerusalem? By no means! But I tell you, if you do not repent, you will all perish as they did!”</p>
+            </div>
+        </article>
+        
+        <hr class="my-4">
+
+        <article class="scripture-reading my-4">
+            <h2 class="scripture-reference h4 mb-3" style="color: var(--primary-color);">True Devotion to the Blessed Virgin Mary, Nos. 81 and 82</h2>
+            <h3 class="reading-subtitle h5 mb-2" style="color: var(--text-color); font-style: italic;">We Need Mary in order to Die to Ourselves</h3>
+            <div class="scripture-text">
+                <p>Secondly, in order to empty ourselves of self, we must die daily to ourselves. This involves our renouncing what the powers of the soul and the senses of the body incline us to do. We must see as if we did not see, hear as if we did not hear and use the things of this world as if we did not use them. This is what St. Paul calls "dying daily". Unless the grain of wheat falls to the ground and dies, it remains only a single grain and does not bear any good fruit. If we do not die to self and if our holiest devotions do not lead us to this necessary and fruitful death, we shall not bear fruit of any worth and our devotions will cease to be profitable. All our good works will be tainted by self love and self-will so that our greatest sacrifices and our best actions will be unacceptable to God. Consequently when we come to die we shall find ourselves devoid of virtue and merit and discover that we do not possess even one spark of that pure love which God shares only with those who have died to themselves and whose life is hidden with Jesus Christ in him.</p>
+                <p>Thirdly, we must choose among all the devotions to the Blessed Virgin the one which will lead us more surely to this dying to self. This devotion will be the best and the most sanctifying for us.</p>
+            </div>
+        </article>
+
+        <hr class="my-4">
+        <WeekOnePrayers UseTraditional="false" />
+    </div>
+}
 
 @code {
+    private bool useTraditional;
 
+    protected override async Task OnInitializedAsync()
+    {
+        useTraditional = await LangHelper.GetIsTraditional();
+    }
 }

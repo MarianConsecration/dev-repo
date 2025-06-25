@@ -1,5 +1,71 @@
-﻿<h3>Component1</h3>
+﻿@page "/day27"
+@inject LanguageHelper LangHelper
+
+<PageTitle>Day 27 - Marian Consecration</PageTitle>
+
+@if (useTraditional)
+{
+    @* This entire block is displayed for the TRADITIONAL language setting *@
+    <div class="page-content">
+        <h1 class="page-title">Day 27 of 33</h1>
+
+        <article class="scripture-reading my-4">
+            <h2 class="scripture-reference h4 mb-3" style="color: var(--primary-color);">Theme for the Week: Knowledge Of Jesus Christ</h2>
+            <div class="scripture-text">
+                <p>During this period we shall apply ourselves to the study of Jesus Christ. What is to be studied in Christ? First the God-Man, His grace and glory; then His rights to sovereign dominion over us; since, after having renounced Satan and the world, we have taken Jesus Christ for our Lord. What next shall be the object of our study? His exterior actions and also His interior life; namely, the virtues and acts of His Sacred Heart; His association with Mary in the mysteries of the Annunciation and Incarnation, during His infancy and hidden life, at the feast of Cana and on Calvary.</p>
+            </div>
+        </article>
+
+        <hr class="my-4">
+
+        <article class="scripture-reading my-4">
+            <h2 class="scripture-reference h4 mb-3" style="color: var(--primary-color);">From True Devotion To the Blessed Virgin Mary, Nos. 61-62</h2>
+            <div class="scripture-text">
+                <p>61. Jesus, our Saviour, true God and true man must be the ultimate end of all our other devotions; otherwise they would be false and misleading. He is the Alpha and the Omega, the beginning and end of everything. "We labour," says St. Paul, "only to make all men perfect in Jesus Christ." For in him alone dwells the entire fullness of the divinity and the complete fullness of grace, virtue and perfection. In him alone we have been blessed with every spiritual blessing; he is the only teacher from whom we must learn; the only Lord on whom we should depend; the only Head to whom we should be united and the only model that we should imitate. He is the only Physician that can heal us; the only Shepherd that can feed us; the only Way that can lead us; the only Truth that we can believe; the only Life that can animate us. He alone is everything to us and he alone can satisfy all our desires. We are given no other name under heaven by which we can be saved. God has laid no other foundation for our salvation, perfection and glory than Jesus. Every edifice which is not built on that firm rock, is founded upon shifting sands and will certainly fall sooner or later. Through him, with him and in him, we can do all things and render all honour and glory to the Father in the unity of the Holy Spirit; we can make ourselves perfect and be for our neighbour a fragrance of eternal life.</p>
+                <p>62. If then we are establishing sound devotion to our Blessed Lady, it is only in order to establish devotion to our Lord more perfectly, by providing a smooth but certain way of reaching Jesus Christ. If devotion to our Lady distracted us from our Lord, we would have to reject it as an illusion of the devil. But this is far from being the case. As I have already shown and will show again later on, this devotion is necessary, simply and solely because it is a way of reaching Jesus perfectly, loving him tenderly, and serving him faithfully.</p>
+            </div>
+        </article>
+
+        <hr class="my-4">
+
+        <WeekThreePrayers UseTraditional="true" />
+    </div>
+}
+else
+{
+    @* This entire block is displayed for the MODERN language setting *@
+    <div class="page-content">
+        <h1 class="page-title">Day 27 of 33</h1>
+
+        <article class="scripture-reading my-4">
+            <h2 class="scripture-reference h4 mb-3" style="color: var(--primary-color);">Theme for the Week: Knowledge Of Jesus Christ</h2>
+            <div class="scripture-text">
+                <p>During this period we shall apply ourselves to the study of Jesus Christ. What is to be studied in Christ? First the God-Man, His grace and glory; then His rights to sovereign dominion over us; since, after having renounced Satan and the world, we have taken Jesus Christ for our Lord. What next shall be the object of our study? His exterior actions and also His interior life; namely, the virtues and acts of His Sacred Heart; His association with Mary in the mysteries of the Annunciation and Incarnation, during His infancy and hidden life, at the feast of Cana and on Calvary.</p>
+            </div>
+        </article>
+        
+        <hr class="my-4">
+
+        <article class="scripture-reading my-4">
+            <h2 class="scripture-reference h4 mb-3" style="color: var(--primary-color);">From True Devotion To the Blessed Virgin Mary, Nos. 61-62</h2>
+            <div class="scripture-text">
+                <p>61. Jesus, our Saviour, true God and true man must be the ultimate end of all our other devotions; otherwise they would be false and misleading. He is the Alpha and the Omega, the beginning and end of everything. "We labor," says St. Paul, "only to make all men perfect in Jesus Christ." For in him alone dwells the entire fullness of the divinity and the complete fullness of grace, virtue and perfection. In him alone we have been blessed with every spiritual blessing; he is the only teacher from whom we must learn; the only Lord on whom we should depend; the only Head to whom we should be united and the only model that we should imitate. He is the only Physician that can heal us; the only Shepherd that can feed us; the only Way that can lead us; the only Truth that we can believe; the only Life that can animate us. He alone is everything to us and he alone can satisfy all our desires. We are given no other name under heaven by which we can be saved. God has laid no other foundation for our salvation, perfection and glory than Jesus. Every edifice which is not built on that firm rock, is founded upon shifting sands and will certainly fall sooner or later. Through Him, with Him and in Him, we can do all things and render all honor and glory to the Father in the unity of the Holy Spirit; we can make ourselves perfect and be for our neighbor a fragrance of eternal life.</p>
+                <p>62. If then we are establishing sound devotion to our Blessed Lady, it is only in order to establish devotion to our Lord more perfectly, by providing a smooth but certain way of reaching Jesus Christ. If devotion to our Lady distracted us from our Lord, we would have to reject it as an illusion of the devil. But this is far from being the case. As I have already shown and will show again later on, this devotion is necessary, simply and solely because it is a way of reaching Jesus perfectly, loving him tenderly, and serving him faithfully.</p>
+            </div>
+        </article>
+
+        <hr class="my-4">
+
+        <WeekThreePrayers UseTraditional="false" />
+
+    </div>
+}
 
 @code {
+    private bool useTraditional;
 
+    protected override async Task OnInitializedAsync()
+    {
+        useTraditional = await LangHelper.GetIsTraditional();
+    }
 }

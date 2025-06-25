@@ -1,34 +1,64 @@
 ﻿@page "/day10"
-@* Assuming PrepPrayers is in a shared folder like Shared/PrayerModules *@
-@* If not already in _Imports.razor, you might need: *@
-@* @using YourProjectName.Shared.PrayerModules *@
+@inject LanguageHelper LangHelper
 
 <PageTitle>Day 10 - Marian Consecration</PageTitle>
 
-<div class="page-content">
-    <h1 class="page-title">Day 10 of 33</h1>
+@if (useTraditional)
+{
+    @* This entire block is displayed for the TRADITIONAL language setting *@
+    <div class="page-content">
+        <h1 class="page-title">Day 10 of 33</h1>
 
-    <article class="scripture-reading my-4">
-        <h2 class="scripture-reference h4 mb-3" style="color: var(--primary-color);">Reading: Imitation of Christ, Book 3, Chapter 10</h2>
+        <article class="scripture-reading my-4">
+            <h2 class="scripture-reference h4 mb-3" style="color: var(--primary-color);">Imitation of Christ, Book 3, Chapter 10</h2>
 
-        <section class="reading-section">
-            <h3 class="reading-subtitle h5 mb-2" style="color: var(--text-color); font-style: italic;">That it is sweet to despise the world and to serve God.</h3>
-            <div class="scripture-text">
-                <p>Now, will I speak again, O Lord, and will not be silent, I will say in the hearing of my God and my King Who is on high: Oh, how great is the abundance of Your sweetness, O Lord, which You have hidden for those that fear You! But what are You, for those who love You? What, to those who serve You with their whole heart? Unspeakable indeed is the sweetness of Your contemplation, which You bestow on those who love You.</p>
-                <p>In this most of all have You showed me the sweetness of Your love, that when I had no being, You did make me; and when I was straying far from You, You brought me back again, that I might serve You: and You have commanded me to serve You. O Fountain of everlasting love, what shall I say of You? How can I forget You, Who has vouchsafed to remember me even after I was corrupted and lost? Beyond all hope You show mercy to Your servant; and beyond all desert, You have manifested Your grace and friendship.</p>
-                <p>What return shall I make to You for this favor? For it is granted to all who forsake these things, to renounce the world, and to assume the monastic life. Is it much that I should serve You, Whom the whole creation is bound to serve? It ought not to seem much to me to serve You; but this does rather appear great and wonderful to me, that You vouchsafe to receive one so wretched and unworthy as Your servant.</p>
-                <p>It is a great honor, a great glory, to serve You, and to despise all things for You, for they who willingly subject themselves to Your holy service, shall have great grace. They shall experience the most sweet consolation of the Holy Spirit, Who for the love of You, have cast aside all carnal delight.</p>
-            </div>
-        </section>
-    </article>
+            <section class="reading-section">
+                <h3 class="reading-subtitle h5 mb-2" style="color: var(--text-color); font-style: italic;">That it is sweet to despise the world and to serve God</h3>
+                <div class="scripture-text">
+                    <p>Now, will I speak again, O Lord, and will not be silent, I will say in the hearing of my God and my King Who is on high: Oh, how great is the abundance of Thy sweetness, O Lord, which Thou hast hidden for those that fear Thee! But what art Thou, for those who love Thee? What, to those who serve Thee with their whole heart? Unspeakable indeed is the sweetness of Thy contemplation, which Thou bestowest on those who love Thee.</p>
+                    <p>In this most of all hast Thou showed me the sweetness of Thy love, that when I had no being, Thou didst make me; and when I was straying far from Thee, Thou brought me back again, that I might serve Thee: and Thou hast commanded me to serve Thee. O Fountain of everlasting love, what shall I say of Thee? How can I forget Thee, Who hast vouchsafed to remember me even after I was corrupted and lost? Beyond all hope Thou showest mercy to Thy servant; and beyond all desert, hast Thou manifested Thy grace and friendship.</p>
+                    <p>What return shall I make to Thee for this favor? For it is granted to all who forsake these things, to renounce the world, and to assume the monastic life. Is it much that I should serve Thee, Whom the whole creation is bound to serve? It ought not to seem much to me to serve Thee; but this does rather appear great and wonderful to me, that Thou vouchsafest to receive one so wretched and unworthy as Thy servant.</p>
+                    <p>It is a great honor, a great glory, to serve Thee, and to despise all things for Thee, for they who willingly subject themselves to Thy holy service, shall have great grace. They shall experience the most sweet consolation of the Holy Spirit, Who for the love of Thee, have cast aside all carnal delight.</p>
+                </div>
+            </section>
+        </article>
 
-    <hr class="my-4">
+        <hr class="my-4">
 
-    @* This includes the prayers for the first 12 days *@
-    <PrepPrayers />
+        <PrepPrayers UseTraditional="true" />
+    </div>
+}
+else
+{
+    @* This entire block is displayed for the MODERN language setting *@
+    <div class="page-content">
+        <h1 class="page-title">Day 10 of 33</h1>
 
-</div>
+        <article class="scripture-reading my-4">
+            <h2 class="scripture-reference h4 mb-3" style="color: var(--primary-color);">Imitation of Christ, Book 3, Chapter 10</h2>
+
+            <section class="reading-section">
+                <h3 class="reading-subtitle h5 mb-2" style="color: var(--text-color); font-style: italic;">That it is sweet to despise the world and to serve God.</h3>
+                <div class="scripture-text">
+                    <p>Now, will I speak again, O Lord, and will not be silent, I will say in the hearing of my God and my King Who is on high: Oh, how great is the abundance of Your sweetness, O Lord, which You have hidden for those that fear You! But what are You, for those who love You? What, to those who serve You with their whole heart? Unspeakable indeed is the sweetness of Your contemplation, which You bestow on those who love You.</p>
+                    <p>In this most of all have You showed me the sweetness of Your love, that when I had no being, You did make me; and when I was straying far from You, You brought me back again, that I might serve You: and You have commanded me to serve You. O Fountain of everlasting love, what shall I say of You? How can I forget You, Who has vouchsafed to remember me even after I was corrupted and lost? Beyond all hope You show mercy to Your servant; and beyond all desert, You have manifested Your grace and friendship.</p>
+                    <p>What return shall I make to You for this favor? For it is granted to all who forsake these things, to renounce the world, and to assume the monastic life. Is it much that I should serve You, Whom the whole creation is bound to serve? It ought not to seem much to me to serve You; but this does rather appear great and wonderful to me, that You vouchsafe to receive one so wretched and unworthy as Your servant.</p>
+                    <p>It is a great honor, a great glory, to serve You, and to despise all things for You, for they who willingly subject themselves to Your holy service, shall have great grace. They shall experience the most sweet consolation of the Holy Spirit, Who for the love of You, have cast aside all carnal delight.</p>
+                </div>
+            </section>
+        </article>
+
+        <hr class="my-4">
+
+        <PrepPrayers UseTraditional="false" />
+    </div>
+}
 
 @code {
-    // No specific C# code needed for this page yet.
+    private bool useTraditional;
+
+    protected override async Task OnInitializedAsync()
+    {
+        useTraditional = await LangHelper.GetIsTraditional();
+    }
 }

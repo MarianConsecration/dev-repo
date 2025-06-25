@@ -1,5 +1,55 @@
-﻿<h3>Component1</h3>
+﻿@page "/day14"
+@inject LanguageHelper LangHelper
+
+<PageTitle>Day 14 - Marian Consecration</PageTitle>
+
+@if (useTraditional)
+{
+    @* This entire block is displayed for the TRADITIONAL language setting *@
+    <div class="page-content">
+        <h1 class="page-title">Day 14 of 33</h1>
+
+        <article class="scripture-reading my-4">
+            <h2 class="scripture-reference h4 mb-3" style="color: var(--primary-color);">Imitation of Christ, Book 3, Chapter 13</h2>
+            <h3 class="reading-subtitle h5 mb-2" style="color: var(--text-color); font-style: italic;">Of the Obedience of One in Humble Subjection, After the Example of Jesus Christ</h3>
+            <div class="scripture-text">
+                <p>My son, he that endeavoreth to withdraw himself from obedience, withdraweth himself from grace; and he who seeketh for himself private benefit (Matt. 16:24), loseth those which are common. He that doth not cheerfully and freely submit himself to his superior, it is a sign that his flesh is not as yet perfectly obedient unto him, but oftentimes kicketh and murmureth against him. Learn thou therefore quickly to submit thyself to thy superior, if thou desire to keep thine own flesh under the yoke. For more speedily is the outward enemy overcome, if the inward man be not laid waste. There is no worse nor more troublesome enemy to the soul than thou art unto thyself, if thou be not well in harmony with the Spirit. It is altogether necessary that thou take up a true contempt for thyself, if thou desire to prevail against flesh and blood.</p>
+                <p>Because as yet thou lovest thyself too inordinately, therefore thou art afraid to resign thyself wholly to the will of others. And yet, what great matter is it, if thou, who art but dust and nothing, subject thyself to a man for God's sake, when I, the Almighty and the Most Highest who created all things of nothing, humbly subjected Myself to man for thy sake?</p>
+                <p>I became of all men the most humble and the most abject (Luke 2:7; John 13:14), that thou mightest overcome thy pride with My humility. O dust! learn to be obedient. Learn to humble thyself, thou earth and clay, and to bow thyself down under the feet of all men. Learn to break thine own wishes, and to yield thyself to all subjection.</p>
+            </div>
+        </article>
+
+        <hr class="my-4">
+
+        <WeekOnePrayers UseTraditional="true" />
+    </div>
+}
+else
+{
+    @* This entire block is displayed for the MODERN language setting *@
+    <div class="page-content">
+        <h1 class="page-title">Day 14 of 33</h1>
+
+        <article class="scripture-reading my-4">
+            <h2 class="scripture-reference h4 mb-3" style="color: var(--primary-color);">Imitation of Christ, Book 3, Chapter 13</h2>
+             <h3 class="reading-subtitle h5 mb-2" style="color: var(--text-color); font-style: italic;">Of the Obedience of One in Humble Subjection, After the Example of Jesus Christ</h3>
+            <div class="scripture-text">
+                <p>My son, he that endeavored to withdraw himself from obedience, withdraws himself from grace; and he who seeks for himself private benefit (Matt. 16:24), loses those which are common. He that does not cheerfully and freely submit himself to his superior, it is a sign that his flesh is not as yet perfectly obedient unto him, but oftentimes kick and murmur against him. Learn you therefore quickly to submit yourself to your superior, if you desire to keep your own flesh under the yoke. For more speedily is the outward enemy overcome, if the inward man is not laid waste. There is no worse nor more troublesome enemy to the soul than you are unto yourself, if you are not well in harmony with the Spirit. It is altogether necessary that You take up a true contempt for yourself, if You desire to prevail against flesh and blood.</p>
+                <p>Because as yet you love yourself too inordinately, therefore you are afraid to resign yourself wholly to the will of others. And yet, what great matter is it, if you, who are but dust and nothing, subject yourself to a man for God's sake, when I, the Almighty and the Most High who created all things of nothing, humbly subjected Myself to man for your sake?</p>
+                <p>I became of all men the most humble and the most abject (Luke 2:7; John 13:14), that You might overcome your pride with My humility. O dust! learn to be obedient. Learn to humble yourself, You earth and clay, and to bow yourself down under the feet of all men. Learn to break your own wishes, and to yield yourself to all subjection.</p>
+            </div>
+        </article>
+
+        <hr class="my-4">
+        <WeekOnePrayers UseTraditional="false" />
+    </div>
+}
 
 @code {
+    private bool useTraditional;
 
+    protected override async Task OnInitializedAsync()
+    {
+        useTraditional = await LangHelper.GetIsTraditional();
+    }
 }

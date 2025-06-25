@@ -1,5 +1,52 @@
-﻿<h3>Component1</h3>
+﻿@page "/day21"
+@inject LanguageHelper LangHelper
+
+<PageTitle>Day 21 - Marian Consecration</PageTitle>
+
+@if (useTraditional)
+{
+    @* This entire block is displayed for the TRADITIONAL language setting *@
+    <div class="page-content">
+        <h1 class="page-title">Day 21 of 33</h1>
+
+        <article class="scripture-reading my-4">
+            <h2 class="scripture-reference h4 mb-3" style="color: var(--primary-color);">From Secret of Mary: No. 23-24</h2>
+            <h3 class="reading-subtitle h5 mb-2" style="color: var(--text-color); font-style: italic;">True Devotion to Our Blessed Lady</h3>
+            <div class="scripture-text">
+                <p>If we would go up to God, and be united with Him, we must use the same means He used to come down to us to be made Man and to impart His graces to us. This means is a true devotion to our Blessed Lady. There are several true devotions to our Lady: here I do not speak of those which are false. The first consists in fulfilling our Christian duties, avoiding mortal sin, acting more out of love than with fear, praying to our Lady now and then, honoring her as the Mother of God, yet without having any special devotion to her. The second consists in entertaining for our Lady more perfect feelings of esteem and love, of confidence and veneration. It leads us to join the Confraternities of the Holy Rosary and of the Scapular, to recite the five or the fifteen decades of the Holy Rosary, to honor Mary's images and altars, to publish her praises and to enroll ourselves in her modalities. This devotion is good, holy and praiseworthy if we keep ourselves free from sin. But it is not so perfect as the next, nor so efficient in severing our soul from creatures, in detaching ourselves in order to be united with Jesus Christ. The third devotion to our Lady, known and practiced by very few persons, is this I am about to disclose to you, predestinate soul. It consists in giving one's self entirely and as a slave to Mary, and to Jesus through Mary, and after that, to do all that we do, through Mary, with Mary in Mary and for Mary We should choose a special feast day on which we give, consecrate and sacrifice to Mary voluntarily lovingly and without constraint, entirely and without reserve: our body and soul, our exterior property such as house, family and income, and also our interior and spiritual possessions: namely, our merits, graces, virtues, and satisfactions.</p>
+            </div>
+        </article>
+
+        <hr class="my-4">
+
+        <WeekTwoPrayers UseTraditional="true" />
+    </div>
+}
+else
+{
+    @* This entire block is displayed for the MODERN language setting *@
+    <div class="page-content">
+        <h1 class="page-title">Day 21 of 33</h1>
+
+        <article class="scripture-reading my-4">
+            <h2 class="scripture-reference h4 mb-3" style="color: var(--primary-color);">From Secret of Mary: No. 23-24</h2>
+            <h3 class="reading-subtitle h5 mb-2" style="color: var(--text-color); font-style: italic;">True Devotion to Our Blessed Lady</h3>
+            <div class="scripture-text">
+                <p>If we would go up to God, and be united with Him, we must use the same means He used to come down to us to be made Man and to impart His graces to us. This means a true devotion to our Blessed Lady. There are several true devotions to our Lady: here I do not speak of those which are false. The first consists in fulfilling our Christian duties, avoiding mortal sin, acting more out of love than with fear, praying to our Lady now and then, honoring her as the Mother of God, yet without having any special devotion to her. The second consists in entertaining for our Lady more perfect feelings of esteem and love, of confidence and veneration. It leads us to join the Confraternities of the Holy Rosary and of the Scapular, to recite the five or the fifteen decades of the Holy Rosary, to honor Mary's images and altars, to publish her praises and to enroll ourselves in her modalities. This devotion is good, holy and praiseworthy if we keep ourselves free from sin. But it is not so perfect as the next, nor so efficient in severing our soul from creatures, in detaching ourselves in order to be united with Jesus Christ. The third devotion to our Lady, known and practiced by very few persons, is this I am about to disclose to you, predestinate soul. It consists in giving one's self entirely and as a slave to Mary, and to Jesus through Mary, and after that, to do all that we do, through Mary, with Mary in Mary and for Mary. We should choose a special feast day on which we give, consecrate and sacrifice to Mary voluntarily lovingly and without constraint, entirely and without reserve: our body and soul, our exterior property such as house, family and income, and also our interior and spiritual possessions: namely, our merits, graces, virtues, and satisfactions.</p>
+            </div>
+        </article>
+
+        <hr class="my-4">
+
+        <WeekTwoPrayers UseTraditional="false" />
+    </div>
+}
 
 @code {
+    private bool useTraditional;
 
+    protected override async Task OnInitializedAsync()
+    {
+        useTraditional = await LangHelper.GetIsTraditional();
+    }
 }

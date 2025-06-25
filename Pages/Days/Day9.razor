@@ -1,34 +1,54 @@
 ﻿@page "/day9"
-@* Assuming PrepPrayers is in a shared folder like Shared/PrayerModules *@
-@* If not already in _Imports.razor, you might need: *@
-@* @using YourProjectName.Shared.PrayerModules *@
+@inject LanguageHelper LangHelper
 
 <PageTitle>Day 9 - Marian Consecration</PageTitle>
 
-<div class="page-content">
-    <h1 class="page-title">Day 9 of 33</h1>
+@if (useTraditional)
+{
+    @* This entire block is displayed for the TRADITIONAL language setting *@
+    <div class="page-content">
+        <h1 class="page-title">Day 9 of 33</h1>
 
-    <article class="scripture-reading my-4">
-        <h2 class="scripture-reference h4 mb-3" style="color: var(--primary-color);">Reading: Imitation of Christ, Book 1, Chapter 13, cont.</h2>
+        <article class="scripture-reading my-4">
+            <h2 class="scripture-reference h4 mb-3" style="color: var(--primary-color);">Imitation of Christ, Book 1, Chapter 13, cont.</h2>
+            <div class="scripture-text">
+                <p>Fire tries iron, and temptation a just man. We often know not what we are able to do, but temptations discover what we are. Still, we must watch, especially in the beginning of temptation; for then the enemy is more easily overcome, if he be not suffered to enter the door of the mind, but is withstood upon the threshold the very moment he knocks. Whence a certain one has said "Resist beginnings; all too late the cure." When ills have gathered strength, by long delay, first there comes from the mind a simple thought; then a strong imagination, afterwards delight, and the evil motion and consent and so, little by little the fiend does gain entrance, when he is not resisted in the beginning.</p>
+                <p>The longer anyone has been slothful in resisting, so much the weaker he becomes, daily in himself, and the enemy, so much the stronger in him. Some suffer grievous temptations in the beginning of their conversion, others in the end and others are troubled nearly their whole life. Some are very lightly tempted, according to the wisdom and the equity of the ordinance of God who weighs man's condition and merits, and preordaineth all things for the salvation of His elect.</p>
+                <p>We must not, therefore, despair when we are tempted, but the more fervently pray to God to help us in every tribulation: Who, of a truth, according to the sayings of St. Paul, will make such issue with the temptation, that we are able to sustain it. Let us then humble our souls under the hand of God in every temptation and tribulation, for the humble in spirit, He will save and exalt. In temptation and tribulations, it is proved what progress man has made; and there also is great merit, and virtue is made more manifest.</p>
+            </div>
+        </article>
 
-        <section class="reading-section">
-            @* This is a continuation of "Of Resisting Temptations" from Chapter 13. *@
-            @* No distinct subtitle was provided for this continuation, so I'm omitting one for now. *@
+        <hr class="my-4">
+
+        <PrepPrayers UseTraditional="true" />
+    </div>
+}
+else
+{
+    @* This entire block is displayed for the MODERN language setting *@
+    <div class="page-content">
+        <h1 class="page-title">Day 9 of 33</h1>
+
+        <article class="scripture-reading my-4">
+            <h2 class="scripture-reference h4 mb-3" style="color: var(--primary-color);">Imitation of Christ, Book 1, Chapter 13, cont.</h2>
             <div class="scripture-text">
                 <p>Fire tries iron, and temptation a just man. We often do not know what we are able to do, but temptations discover what we are. Still, we must watch, especially in the beginning of temptation; for then the enemy is more easily overcome, if he is not permitted to enter the door of the mind, but is withstood upon the threshold the very moment he knocks. Whence a certain one has said "Resist beginnings; all too late the cure." When ills have gathered strength, by long delay, first there comes from the mind a simple thought; then a strong imagination, afterwards delight, and the evil motion and consent and so, little by little the fiend does gain entrance, when he is not resisted in the beginning.</p>
                 <p>The longer anyone has been slothful in resisting, so much the weaker he becomes, daily in himself, and the enemy, so much the stronger in him. Some suffer grievous temptations in the beginning of their conversion, others in the end and others are troubled nearly their whole life. Some are very lightly tempted, according to the wisdom and the equity of the ordinance of God who weighs man's condition and merits, and preordained all things for the salvation of His elect.</p>
                 <p>We must not, therefore, despair when we are tempted, but the more fervently pray to God to help us in every tribulation: Who, of a truth, according to the sayings of St. Paul, will make such issue with the temptation, that we are able to sustain it. Let us then humble our souls under the hand of God in every temptation and tribulation, for the humble in spirit, He will save and exalt. In temptation and tribulations, it is proved what progress man has made; and there also is great merit, and virtue is made more manifest.</p>
             </div>
-        </section>
-    </article>
+        </article>
 
-    <hr class="my-4">
+        <hr class="my-4">
 
-    @* This includes the prayers for the first 12 days *@
-    <PrepPrayers />
-
-</div>
+        <PrepPrayers UseTraditional="false" />
+    </div>
+}
 
 @code {
-    // No specific C# code needed for this page yet.
+    private bool useTraditional;
+
+    protected override async Task OnInitializedAsync()
+    {
+        useTraditional = await LangHelper.GetIsTraditional();
+    }
 }

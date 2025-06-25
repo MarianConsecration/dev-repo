@@ -1,5 +1,72 @@
-﻿<h3>Component1</h3>
+﻿@page "/day30"
+@inject LanguageHelper LangHelper
+
+<PageTitle>Day 30 - Marian Consecration</PageTitle>
+
+@if (useTraditional)
+{
+    @* This entire block is displayed for the TRADITIONAL language setting *@
+    <div class="page-content">
+        <h1 class="page-title">Day 30 of 33</h1>
+
+        <article class="scripture-reading my-4">
+            <h2 class="scripture-reference h4 mb-3" style="color: var(--primary-color);">Matthew 27:36-44</h2>
+            <div class="scripture-text">
+                <p>they sat and watched him. And they put over his head his cause written: THIS IS JESUS THE KING OF THE JEWS. Then were crucified with him two thieves: one on the right hand, and one on the left. And they that passed by, blasphemed him, wagging their heads, And saying: Vah, thou that destroyest the temple of God, and in three days dost rebuild it: save thy own self: if thou be the Son of God, come down from the cross. In like manner also the chief priests, with the scribes and ancients, mocking, said: He saved others; himself he cannot save. If he be the king of Israel, let him now come down from the cross, and we will believe him. He trusted in God; let him now deliver him if he will have him; for he said: I am the Son of God. And the selfsame thing the thieves also, that were crucified with him, reproached him with.</p>
+            </div>
+        </article>
+
+        <hr class="my-4">
+
+        <article class="scripture-reading my-4">
+            <h2 class="scripture-reference h4 mb-3" style="color: var(--primary-color);">Imitation of Christ, by Thomas á Kempis: Book 2, Chapter 12</h2>
+            <h3 class="reading-subtitle h5 mb-2" style="color: var(--text-color); font-style: italic;">Of the King's High Way of the Holy Cross</h3>
+            <div class="scripture-text">
+                <p>Unto many this seemeth an hard saying, "Deny thyself, take up thy cross, and follow Jesus" (Matt. 16:24). But much harder will it be to hear that last word, "Depart from Me, ye cursed, into everlasting fire" (Matt. 25:41). For they who now willingly hear and follow the word of the Cross, shall not then fear (Psalm 112:7) to hear the sentence of everlasting damnation. This sign of the Cross shall be in the heaven, when the Lord shall come to judgment (Matt. 24:30). Then all the servants of the Cross, who in their life-time conformed themselves unto Christ crucified, shall draw near unto Christ the Judge with great confidence.</p>
+                <p>Why therefore fearest thou to take up the Cross which leadeth thee to a kingdom? In the Cross is salvation, in the Cross is life, in the Cross is protection against our enemies, in the Cross is infusion of heavenly sweetness, in the Cross is strength of mind, in the Cross joy of spirit, in the Cross the height of virtue, in the Cross the perfection of holiness. Take up therefore thy Cross and follow Jesus (Luke 14:27), and thou shalt go into life everlasting.</p>
+            </div>
+        </article>
+
+        <hr class="my-4">
+
+        <WeekThreePrayers UseTraditional="true" />
+    </div>
+}
+else
+{
+    @* This entire block is displayed for the MODERN language setting *@
+    <div class="page-content">
+        <h1 class="page-title">Day 30 of 33</h1>
+
+        <article class="scripture-reading my-4">
+            <h2 class="scripture-reference h4 mb-3" style="color: var(--primary-color);">Matthew 27:36-44</h2>
+            <div class="scripture-text">
+                <p>Then they sat down and kept watch over him there. They placed over his head the written charge against him: "This is Jesus, the King of the Jews." Two revolutionaries were crucified with him, one on his right and the other on his left. Those passing by reviled him, shaking their heads and saying, “You who would destroy the temple and rebuild it in three days, save yourself, if you are the Son of God, and come down from the cross!” Likewise, the chief priests with the scribes and elders mocked him and said, “He saved others; he cannot save himself. So he is the king of Israel! Let him come down from the cross now, and we will believe in him. He trusted in God; let him deliver him now if he wants him. For he said, ‘I am the Son of God.’” The revolutionaries who were crucified with him also kept abusing him in the same way.</p>
+            </div>
+        </article>
+
+        <hr class="my-4">
+
+        <article class="scripture-reading my-4">
+            <h2 class="scripture-reference h4 mb-3" style="color: var(--primary-color);">Imitation of Christ, by Thomas á Kempis: Book 2, Chapter 12</h2>
+            <h3 class="reading-subtitle h5 mb-2" style="color: var(--text-color); font-style: italic;">Of the King's High Way of the Holy Cross</h3>
+            <div class="scripture-text">
+                <p>To many this seems a hard saying, "Deny yourself, take up your cross, and follow Jesus" (Matt. 16:24). But much harder will it be to hear that last word, "Depart from me, you accursed, into the eternal fire" (Matt. 25:41). For they who now willingly hear and follow the word of the Cross, shall not then fear (Psalm 112:7) to hear the sentence of everlasting damnation. This sign of the Cross shall be in heaven, when the Lord shall come to judgment (Matt. 24:30). Then all the servants of the Cross, who in their life-time conformed themselves unto Christ crucified, shall draw near unto Christ the Judge with great confidence.</p>
+                <p>Why therefore fear you to take up the Cross which leads you to the kingdom? In the Cross is salvation, in the Cross is life, in the Cross is protection against our enemies, in the Cross is infusion of heavenly sweetness, in the Cross is strength of mind, in the Cross joy of spirit, in the Cross the height of virtue, in the Cross the perfection of holiness. Take up therefore your Cross and follow Jesus (Luke 14:27), and you shall go into life everlasting.</p>
+            </div>
+        </article>
+
+        <hr class="my-4">
+
+        <WeekThreePrayers UseTraditional="false" />
+    </div>
+}
 
 @code {
+    private bool useTraditional;
 
+    protected override async Task OnInitializedAsync()
+    {
+        useTraditional = await LangHelper.GetIsTraditional();
+    }
 }

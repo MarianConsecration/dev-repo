@@ -1,5 +1,70 @@
-﻿<h3>Component1</h3>
+﻿@page "/day16"
+@inject LanguageHelper LangHelper
+
+<PageTitle>Day 16 - Marian Consecration</PageTitle>
+
+@if (useTraditional)
+{
+    @* This entire block is displayed for the TRADITIONAL language setting *@
+    <div class="page-content">
+        <h1 class="page-title">Day 16 of 33</h1>
+
+        <article class="scripture-reading my-4">
+            <h2 class="scripture-reference h4 mb-3" style="color: var(--primary-color);">From True Devotion To the Blessed Virgin Mary, No. 228</h2>
+            <h3 class="reading-subtitle h5 mb-2" style="color: var(--text-color); font-style: italic;">Preparatory Exercises</h3>
+            <div class="scripture-text">
+                <p>During the first week they should offer up all their prayers and acts of devotion to acquire knowledge of themselves and sorrow for their sins. Let them perform all their actions in a spirit of humility. With this end in view they may, if they wish, meditate on what I have said concerning our corrupted nature, and consider themselves during six days of the week as nothing but sails, slugs, toads, swine, snakes and goats. Or else they may meditate on the following three considerations of St. Bernard: "Remember what you were -corrupted seed; what you are - a body destined for decay; what you will be -food for worms." They will ask our Lord and the Holy Spirit to enlighten them saying, "Lord, that I may see," or "Lord, let me know myself," or the "Come, Holy Spirit". Every day they should say the Litany of the Holy Spirit, with the prayer that follows, as indicated in the first part of this work. They will turn to our Blessed Lady and beg her to obtain for them that great grace which is the foundation of all others, the grace of self-knowledge. For this intention they will say each day the Ave Maris Stella and the Litany of the Blessed Virgin.</p>
+            </div>
+        </article>
+
+        <hr class="my-4">
+
+        <article class="scripture-reading my-4">
+            <h2 class="scripture-reference h4 mb-3" style="color: var(--primary-color);">Imitation of Christ, by Thomas á Kempis: Book 2, Chapter 5</h2>
+            <h3 class="reading-subtitle h5 mb-2" style="color: var(--text-color); font-style: italic;">Of Self-consideration</h3>
+            <div class="scripture-text">
+                <p>We cannot trust over much to ourselves (Jer. 17:5), because grace oftentimes is wanting to us, and understanding also. Little light is there in us, and this we quickly lose by our negligence. Oftentimes too we perceive not our inward blindness how great it is. Oftentimes we do evil, and excuse it worse (Psalm 141:4). We are sometimes moved with passion, and we think it zeal. We reprehend small things in others, and pass over our own greater matters (Matt. 7:5). Quickly enough we feel and weigh what we suffer at the hands of others; but we mind not how much others suffer from us. He that well and rightly considereth his own works, will find little cause to judge hardly of another.</p>
+            </div>
+        </article>
+
+        <hr class="my-4">
+        <WeekOnePrayers UseTraditional="true" />
+    </div>
+}
+else
+{
+    @* This entire block is displayed for the MODERN language setting *@
+    <div class="page-content">
+        <h1 class="page-title">Day 16 of 33</h1>
+
+        <article class="scripture-reading my-4">
+            <h2 class="scripture-reference h4 mb-3" style="color: var(--primary-color);">From True Devotion To the Blessed Virgin Mary, No. 228</h2>
+            <h3 class="reading-subtitle h5 mb-2" style="color: var(--text-color); font-style: italic;">Preparatory Exercises</h3>
+            <div class="scripture-text">
+                <p>During the first week they should offer up all their prayers and acts of devotion to acquire knowledge of themselves and sorrow for their sins. Let them perform all their actions in a spirit of humility. With this end in view they may, if they wish, meditate on what I have said concerning our corrupted nature, and consider themselves during six days of the week as nothing but snails, slugs, toads, swine, snakes and goats. Or else they may meditate on the following three considerations of St. Bernard: "Remember what you were -corrupted seed; what you are - a body destined for decay; what you will be -food for worms." They will ask our Lord and the Holy Spirit to enlighten them saying, "Lord, that I may see," or "Lord, let me know myself," or the "Come, Holy Spirit". Every day they should say the Litany of the Holy Spirit, with the prayer that follows, as indicated in the first part of this work. They will turn to our Blessed Lady and beg her to obtain for them that great grace which is the foundation of all others, the grace of self-knowledge. For this intention they will say each day the Ave Maris Stella and the Litany of the Blessed Virgin.</p>
+            </div>
+        </article>
+
+        <hr class="my-4">
+
+        <article class="scripture-reading my-4">
+            <h2 class="scripture-reference h4 mb-3" style="color: var(--primary-color);">Imitation of Christ, by Thomas á Kempis: Book 2, Chapter 5</h2>
+            <h3 class="reading-subtitle h5 mb-2" style="color: var(--text-color); font-style: italic;">Of Self-consideration</h3>
+            <div class="scripture-text">
+                <p>We cannot trust over much to ourselves (Jer. 17:5), because grace oftentimes is wanting to us, and understanding also. Little light is there in us, and this we quickly lose by our negligence. Oftentimes too we do not perceive how great our inward blindness is. Oftentimes we do evil, and excuse it worse (Psalm 141:4). We are sometimes moved with passion, and we think it zeal. We reprehend small things in others, and pass over our own greater matters (Matt. 7:5). Quickly enough we feel and weigh what we suffer at the hands of others; but we mind not how much others suffer from us. He that well and rightly considers his own works, will find little cause to judge hardly of another.</p>
+            </div>
+        </article>
+
+        <hr class="my-4">
+        <WeekOnePrayers UseTraditional="false" />
+    </div>
+}
 
 @code {
+    private bool useTraditional;
 
+    protected override async Task OnInitializedAsync()
+    {
+        useTraditional = await LangHelper.GetIsTraditional();
+    }
 }

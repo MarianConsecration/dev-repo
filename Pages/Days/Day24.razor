@@ -1,5 +1,56 @@
-﻿<h3>Component1</h3>
+﻿@page "/day24"
+@inject LanguageHelper LangHelper
+
+<PageTitle>Day 24 - Marian Consecration</PageTitle>
+
+@if (useTraditional)
+{
+    @* This entire block is displayed for the TRADITIONAL language setting *@
+    <div class="page-content">
+        <h1 class="page-title">Day 24 of 33</h1>
+
+        <article class="scripture-reading my-4">
+            <h2 class="scripture-reference h4 mb-3" style="color: var(--primary-color);">From True Devotion To the Blessed Virgin Mary, No. 152-164</h2>
+            <div class="scripture-text">
+                <p>(a) This devotion is a smooth way. It is the path which Jesus Christ opened up in coming to us and in which there is no obstruction to prevent us reaching him. It is quite true that we can attain to divine union by other roads, but these involve many more crosses and exceptional setbacks and many difficulties that we cannot easily overcome.</p>
+                <p>(b) This devotion is a short way to discover Jesus, either because it is a road we do not wander from, or because, as we have just said, we walk along this road with greater ease and joy, and consequently with greater speed. We advance more in a brief period of submission to Mary and dependence on her than in whole years of self-will and self-reliance.</p>
+                <p>(c) This devotion is a perfect way to reach our Lord and be united to him, for Mary is the most perfect and the most holy of all creatures, and Jesus, who came to us in a perfect manner, chose no other road for his great and wonderful journey. The Most High, the Incomprehensible One, the Inaccessible One, He who is, deigned to come down to us poor earthly creatures who are nothing at all. How was this done? The Most High God came down to us in a perfect way through the humble Virgin Mary, without losing anything of his divinity or holiness. It is likewise through Mary that we poor creatures must ascend to almighty God in a perfect manner without having anything to fear.</p>
+                <p>(d) This devotion to our Lady is a sure way to go to Jesus and to acquire holiness through union with him. The devotion which I teach is not new. Indeed it could not be condemned without overthrowing the foundations of Christianity. It is obvious then that this devotion is not new. If it is not commonly practised, the reason is that it is too sublime to be appreciated and undertaken by everyone. This devotion is a safe means of going to Jesus Christ, because it is Mary's role to lead us safely to her Son.</p>
+            </div>
+        </article>
+
+        <hr class="my-4">
+
+        <WeekTwoPrayers UseTraditional="true" />
+    </div>
+}
+else
+{
+    @* This entire block is displayed for the MODERN language setting *@
+    <div class="page-content">
+        <h1 class="page-title">Day 24 of 33</h1>
+
+        <article class="scripture-reading my-4">
+            <h2 class="scripture-reference h4 mb-3" style="color: var(--primary-color);">From True Devotion To the Blessed Virgin Mary, No. 152-164</h2>
+            <div class="scripture-text">
+                <p>(a) This devotion is a smooth way. It is the path which Jesus Christ opened up in coming to us and in which there is no obstruction to prevent us reaching him. It is quite true that we can attain divine union by other roads, but these involve many more crosses and exceptional setbacks and many difficulties that we cannot easily overcome.</p>
+                <p>(b) This devotion is a short way to discover Jesus, either because it is a road we do not wander from, or because, as we have just said, we walk along this road with greater ease and joy, and consequently with greater speed. We advance more in a brief period of submission to Mary and dependence on her than in whole years of self-will and self-reliance.</p>
+                <p>(c) This devotion is a perfect way to reach our Lord and be united to him, for Mary is the most perfect and the most holy of all creatures, and Jesus, who came to us in a perfect manner, chose no other road for his great and wonderful journey. The Most High, the Incomprehensible One, the Inaccessible One, He who is, deigned to come down to us poor earthly creatures who are nothing at all. How was this done? The Most High God came down to us in a perfect way through the humble Virgin Mary, without losing anything of his divinity or holiness. It is likewise through Mary that we poor creatures must ascend to almighty God in a perfect manner without having anything to fear.</p>
+                <p>(d) This devotion to our Lady is a sure way to go to Jesus and to acquire holiness through union with him. The devotion which I teach is not new. Indeed it could not be condemned without overthrowing the foundations of Christianity. It is obvious then that this devotion is not new. If it is not commonly practiced, the reason is that it is too sublime to be appreciated and undertaken by everyone. This devotion is a safe means of going to Jesus Christ, because it is Mary's role to lead us safely to her Son.</p>
+            </div>
+        </article>
+
+        <hr class="my-4">
+
+        <WeekTwoPrayers UseTraditional="false" />
+    </div>
+}
 
 @code {
+    private bool useTraditional;
 
+    protected override async Task OnInitializedAsync()
+    {
+        useTraditional = await LangHelper.GetIsTraditional();
+    }
 }

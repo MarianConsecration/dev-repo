@@ -1,34 +1,64 @@
 ﻿@page "/day8"
-@* Assuming PrepPrayers is in a shared folder like Shared/PrayerModules *@
-@* If not already in _Imports.razor, you might need: *@
-@* @using YourProjectName.Shared.PrayerModules *@
+@inject LanguageHelper LangHelper
 
 <PageTitle>Day 8 - Marian Consecration</PageTitle>
 
-<div class="page-content">
-    <h1 class="page-title">Day 8 of 33</h1>
+@if (useTraditional)
+{
+    @* This entire block is displayed for the TRADITIONAL language setting *@
+    <div class="page-content">
+        <h1 class="page-title">Day 8 of 33</h1>
 
-    <article class="scripture-reading my-4">
-        <h2 class="scripture-reference h4 mb-3" style="color: var(--primary-color);">Reading: Imitation of Christ, Book 1, Chapter 13</h2>
+        <article class="scripture-reading my-4">
+            <h2 class="scripture-reference h4 mb-3" style="color: var(--primary-color);">Imitation of Christ, Book 1, Chapter 13</h2>
 
-        <section class="reading-section">
-            <h3 class="reading-subtitle h5 mb-2" style="color: var(--text-color); font-style: italic;">Of Resisting Temptations</h3>
-            <div class="scripture-text">
-                <p>As long as we live in this world, we cannot be without temptations and tribulations. Hence it is written in Job "Man's life on earth is a temptation." Everyone therefore should be solicitous about his temptations and watch in prayer lest the devil find an opportunity to catch him: who never sleeps, but goes about, seeking whom he can devour. No one is so perfect and holy as sometimes not to have temptations and we can never be wholly free from them.</p>
-                <p>Nevertheless, temptations are very profitable to man, troublesome and grievous though they may be, for in them, a man is humbled, purified and instructed. All the Saints passed through many tribulations and temptations and were purified by them. And they that could not support temptations, became reprobate, and fell away.</p>
-                <p>Many seek to flee temptations, and fall worse into them. We cannot conquer by flight alone, but by patience and true humility we become stronger than all our enemies. He who only declines them outwardly, and does not pluck out their root, will profit little; no, temptations will sooner return and he will find himself in a worse condition. By degrees and by patience you will, by God's grace, better overcome them than by harshness and your own importunity. Take council the oftener in temptation, and do not deal harshly with one who is tempted; but pour in consolation, as You would wish to be done unto yourself.</p>
-                <p>Inconstancy of mind and little confidence in God, is the beginning of all temptations. For as a ship without a helm is driven to and fro by the waves, so the man who neglects and gives up his resolutions is tempted in many ways.</p>
-            </div>
-        </section>
-    </article>
+            <section class="reading-section">
+                <h3 class="reading-subtitle h5 mb-2" style="color: var(--text-color); font-style: italic;">Of Resisting Temptations</h3>
+                <div class="scripture-text">
+                    <p>As long as we live in this world, we cannot be without temptations and tribulations. Hence it is written in Job "Man's life on earth is a temptation." Everyone therefore should be solicitous about his temptations and watch in prayer lest the devil find an opportunity to catch him: who never sleeps, but goes about, seeking whom he can devour. No one is so perfect and holy as sometimes not to have temptations and we can never be wholly free from them.</p>
+                    <p>Nevertheless, temptations are very profitable to man, troublesome and grievous though they may be, for in them, a man is humbled, purified and instructed. All the Saints passed through many tribulations and temptations and were purified by them. And they that could not support temptations, became reprobate, and fell away.</p>
+                    <p>Many seek to flee temptations, and fall worse into them. We cannot conquer by flight alone, but by patience and true humility we become stronger than all our enemies. He who only declines them outwardly, and does not pluck out their root, will profit little; nay, temptations will sooner return and he will find himself in a worse condition. By degrees and by patience you will, by God's grace, better overcome them than by harshness and your own importunity. Take council the oftener in temptation, and do not deal harshly with one who is tempted; but pour in consolation, as thou wouldst wish to be done unto yourself.</p>
+                    <p>Inconstancy of mind and little confidence in God, is the beginning of all temptations. For as a ship without a helm is driven to and fro by the waves, so the man who neglects and gives up his resolutions is tempted in many ways.</p>
+                </div>
+            </section>
+        </article>
 
-    <hr class="my-4">
+        <hr class="my-4">
 
-    @* This includes the prayers for the first 12 days *@
-    <PrepPrayers />
+        <PrepPrayers UseTraditional="true" />
+    </div>
+}
+else
+{
+    @* This entire block is displayed for the MODERN language setting *@
+    <div class="page-content">
+        <h1 class="page-title">Day 8 of 33</h1>
 
-</div>
+        <article class="scripture-reading my-4">
+            <h2 class="scripture-reference h4 mb-3" style="color: var(--primary-color);">Imitation of Christ, Book 1, Chapter 13</h2>
+
+            <section class="reading-section">
+                <h3 class="reading-subtitle h5 mb-2" style="color: var(--text-color); font-style: italic;">Of Resisting Temptations</h3>
+                <div class="scripture-text">
+                    <p>As long as we live in this world, we cannot be without temptations and tribulations. Hence it is written in Job "Man's life on earth is a temptation." Everyone therefore should be solicitous about his temptations and watch in prayer lest the devil find an opportunity to catch him: who never sleeps, but goes about, seeking whom he can devour. No one is so perfect and holy as sometimes not to have temptations and we can never be wholly free from them.</p>
+                    <p>Nevertheless, temptations are very profitable to man, troublesome and grievous though they may be, for in them, a man is humbled, purified and instructed. All the Saints passed through many tribulations and temptations and were purified by them. And they that could not support temptations, became reprobate, and fell away.</p>
+                    <p>Many seek to flee temptations, and fall worse into them. We cannot conquer by flight alone, but by patience and true humility we become stronger than all our enemies. He who only declines them outwardly, and does not pluck out their root, will profit little; no, temptations will sooner return and he will find himself in a worse condition. By degrees and by patience you will, by God's grace, better overcome them than by harshness and your own importunity. Take council the oftener in temptation, and do not deal harshly with one who is tempted; but pour in consolation, as You would wish to be done unto yourself.</p>
+                    <p>Inconstancy of mind and little confidence in God, is the beginning of all temptations. For as a ship without a helm is driven to and fro by the waves, so the man who neglects and gives up his resolutions is tempted in many ways.</p>
+                </div>
+            </section>
+        </article>
+
+        <hr class="my-4">
+
+        <PrepPrayers UseTraditional="false" />
+    </div>
+}
 
 @code {
-    // No specific C# code needed for this page yet.
+    private bool useTraditional;
+
+    protected override async Task OnInitializedAsync()
+    {
+        useTraditional = await LangHelper.GetIsTraditional();
+    }
 }

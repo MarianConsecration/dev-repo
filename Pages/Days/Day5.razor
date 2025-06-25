@@ -1,32 +1,52 @@
 ﻿@page "/day5"
-@* Assuming PrepPrayers is in a shared folder like Shared/PrayerModules *@
-@* If not already in _Imports.razor, you might need: *@
-@* @using YourProjectName.Shared.PrayerModules *@
+@inject LanguageHelper LangHelper
 
 <PageTitle>Day 5 - Marian Consecration</PageTitle>
 
-<div class="page-content">
-    <h1 class="page-title">Day 5 of 33</h1>
+@if (useTraditional)
+{
+    @* This entire block is displayed for the TRADITIONAL language setting *@
+    <div class="page-content">
+        <h1 class="page-title">Day 5 of 33</h1>
 
-    <article class="scripture-reading my-4">
-        <h2 class="scripture-reference h4 mb-3" style="color: var(--primary-color);">Reading: Imitation of Christ, Book 3, Chapter 40</h2>
+        <article class="scripture-reading my-4">
+            <h2 class="scripture-reference h4 mb-3" style="color: var(--primary-color);">Imitation of Christ, Book 3, Chapter 40</h2>
+            <div class="scripture-text">
+                <p>Wherefore, but I did know well, how to cast from me all human comfort, either for the sake of devotion, or through the necessity by which I am compelled to seek Thee, because there is no man that can comfort me. Then might I deservedly hope in Thy favor, and rejoice in the gift of a new consolation. Thanks be to Thee from Whom all things proceed, as often as it happens to me. I, indeed, am but vanity, and nothing in Thy sight , an inconstant and weak man. Where, therefore, can I glory, or for what do I desire to be thought of highly?</p>
+                <p>Forsooth of my very nothingness; and this is most vain. Truly vainglory is an evil plague, because it draws away from true glory, and robs us of heavenly grace. For, while a man takes complacency in himself, he displeases Thee; while he wants for human applause, he is deprived of true virtues. But true, glory and holy exultation is to glory in Thee, and not in one's self; to rejoice in Thy Name, but not in one's own strength. To find pleasure in no creature, save only for Thy sake. Let Thy Name be praised, not mine; let Thy work be magnified, not mine; let Thy Holy Name be blessed, but let nothing be attributed to me of the praise of men. Thou art my glory; Thou art the exultation of my heart; in Thee, will I glory and rejoice all the day; but for myself, I will glory in nothing but in my infirmities.</p>
+            </div>
+        </article>
 
-        <section class="reading-section">
-            @* Based on the provided text, this seems to be a continuation or another part of Chapter 40, focusing on humility and true glory. *@
+        <hr class="my-4">
+
+        <PrepPrayers UseTraditional="true" />
+    </div>
+}
+else
+{
+    @* This entire block is displayed for the MODERN language setting *@
+    <div class="page-content">
+        <h1 class="page-title">Day 5 of 33</h1>
+
+        <article class="scripture-reading my-4">
+            <h2 class="scripture-reference h4 mb-3" style="color: var(--primary-color);">Imitation of Christ, Book 3, Chapter 40</h2>
             <div class="scripture-text">
                 <p>For what reason, but I did know well, how to cast from me all human comfort, either for the sake of devotion, or through the necessity by which I am compelled to seek You, because there is no man that can comfort me. Then might I deservedly hope in Your favor, and rejoice in the gift of a new consolation. Thanks be to You from Whom all things proceed, as often as it happens to me. I, indeed, am but vanity, and nothing in Your sight , an inconstant and weak man. Where, therefore, can I glory, or for what do I desire to be thought of highly?</p>
                 <p>Indeed of my very nothingness; and this is most vain. Truly vainglory is an evil plague, because it draws away from true glory, and robs us of heavenly grace. For, while a man takes complacency in himself, he displeases You; while he wants for human applause, he is deprived of true virtues. But true, glory and holy exultation is to glory in You, and not in one's self; to rejoice in Your Name, but not in one's own strength. To find pleasure in no creature, save only for Your sake. Let Your Name be praised, not mine; let Your work be magnified, not mine; let Your Holy Name be blessed, but let nothing be attributed to me of the praise of men. You are my glory; You are the exultation of my heart; in You, will I glory and rejoice all the day; but for myself, I will glory in nothing but in my infirmities.</p>
             </div>
-        </section>
-    </article>
+        </article>
 
-    <hr class="my-4">
+        <hr class="my-4">
 
-    @* This includes the prayers for the first 12 days *@
-    <PrepPrayers />
-
-</div>
+        <PrepPrayers UseTraditional="false" />
+    </div>
+}
 
 @code {
-    // No specific C# code needed for this page yet.
+    private bool useTraditional;
+
+    protected override async Task OnInitializedAsync()
+    {
+        useTraditional = await LangHelper.GetIsTraditional();
+    }
 }

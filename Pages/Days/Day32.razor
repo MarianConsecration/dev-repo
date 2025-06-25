@@ -1,5 +1,84 @@
-﻿<h3>Component1</h3>
+﻿@page "/day32"
+@inject LanguageHelper LangHelper
+
+<PageTitle>Day 32 - Marian Consecration</PageTitle>
+
+@if (useTraditional)
+{
+    @* This entire block is displayed for the TRADITIONAL language setting *@
+    <div class="page-content">
+        <h1 class="page-title">Day 32 of 33</h1>
+
+        <article class="scripture-reading my-4">
+            <h2 class="scripture-reference h4 mb-3" style="color: var(--primary-color);">Imitation of Christ, by Thomas á Kempis: Book 2, Chapter 7</h2>
+            <h3 class="reading-subtitle h5 mb-2" style="color: var(--text-color); font-style: italic;">Of the Love of Jesus above All Things</h3>
+            <div class="scripture-text">
+                <p>Blessed is he that understandeth (Psalm 119:1,2) what it is to love Jesus, and to despise himself for Jesus' sake. Thou oughtest to leave thy beloved, for thy beloved (Deut. 6:5; Matt. 22:37; Cant. 2:16); for that Jesus will be loved alone above all things.</p>
+                <p>The love of things created is deceitful and inconstant; the love of Jesus is faithful and persevering. He that cleaveth unto a creature, shall fall with that which is subject to fall; he that embraceth Jesus shall be made strong for ever.</p>
+                <p>2. Love Him, and keep Him for thy friend, who, when all go away, will not forsake thee, nor suffer thee to perish in the end. Some time or other thou must be separated from all, whether thou wilt or no. Keep close to Jesus both in life and in death, and commit thyself unto His faithfulness, who, when all fail, can alone help thee.</p>
+                <p>Thy Beloved is of that nature, that He will admit of no rival; but will have thy heart alone, and sit on His throne as King. If thou couldest empty thyself perfectly from all creatures, Jesus would willingly dwell with thee.</p>
+            </div>
+        </article>
+
+        <hr class="my-4">
+
+        <article class="scripture-reading my-4">
+            <h2 class="scripture-reference h4 mb-3" style="color: var(--primary-color);">From True Devotion To the Blessed Virgin Mary, Nos. 257-260</h2>
+            <div class="scripture-text">
+                <p>There are some very sanctifying interior practices for those souls who feel called by the Holy Spirit to a high degree of perfection. They may be expressed in four words, doing everything through Mary, with Mary, in Mary, and for Mary, in order to do it more perfectly through Jesus, with Jesus, in Jesus, and for Jesus.</p>
+                <h4 class="reading-subtitle h6 mt-3 mb-2" style="color: var(--text-color); font-style: italic;">Through Mary</h4>
+                <p>258. We must do everything through Mary, that is, we must obey her always and be led in all things by her spirit, which is the Holy Spirit of God. "Those who are led by the Spirit of God are children of God," says St. Paul. Those who are led by the spirit of Mary are children of Mary, and, consequently children of God, as we have already shown. Among the many servants of Mary only those who are truly and faithfully devoted to her are led by her spirit. I have said that the spirit of Mary is the spirit of God because she was never led by her own spirit, but always by the spirit of God, who made himself master of her to such an extent that he became her very spirit. That is why St. Ambrose says, "May the soul of Mary be in each one of us to glorify the Lord. May the spirit of Mary be in each one of us to rejoice in God." Happy is the man who follows the example of the good Jesuit Brother Rodriguez, who died a holy death, because he will be completely possessed and governed by the spirit of Mary, a spirit which is gentle yet strong, zealous yet prudent, humble yet courageous, pure yet fruitful.</p>
+                <h4 class="reading-subtitle h6 mt-3 mb-2" style="color: var(--text-color); font-style: italic;">With Mary</h4>
+                <p>260. We must do everything with Mary, that is to say, in all our actions we must look upon Mary, although a simple human being, as the perfect model of every virtue and perfection, fashioned by the Holy Spirit for us to imitate, as far as our limited capacity allows. In every action then we should consider how Mary performed it or how she would perform it if she were in our place. For this reason, we must examine and meditate on the great virtues she practised during her life, especially: 1) Her lively faith, by which she believed the angel's word without the least hesitation, and believed faithfully and constantly even to the foot of the Cross on Calvary. 2) Her deep humility, which made her prefer seclusion, maintain silence, submit to every eventuality and put herself in the last place.</p>
+            </div>
+        </article>
+
+        <hr class="my-4">
+
+        <WeekThreePrayers UseTraditional="true" />
+    </div>
+}
+else
+{
+    @* This entire block is displayed for the MODERN language setting *@
+    <div class="page-content">
+        <h1 class="page-title">Day 32 of 33</h1>
+
+        <article class="scripture-reading my-4">
+            <h2 class="scripture-reference h4 mb-3" style="color: var(--primary-color);">Imitation of Christ, by Thomas á Kempis: Book 2, Chapter 7</h2>
+            <h3 class="reading-subtitle h5 mb-2" style="color: var(--text-color); font-style: italic;">Of the Love of Jesus above All Things</h3>
+            <div class="scripture-text">
+                <p>Blessed is he that understands (Psalm 119:1,2) what it is to love Jesus, and to despise himself for Jesus' sake. You ought to leave your beloved, for your beloved (Deut. 6:5; Matt. 22:37; Song of Sg. 2:16); for that Jesus will be loved alone above all things.</p>
+                <p>The love of things created is deceitful and inconstant; the love of Jesus is faithful and persevering. He that cleaves unto a creature, shall fall with that which is subject to fall; he that embraces Jesus shall be made strong forever.</p>
+                <p>2. Love Him, and keep Him as your friend, who, when all goes away, will not forsake you nor permit you to perish in the end. Some time or other you must be separated from all, whether You will it or not. Keep close to Jesus both in life and in death, and commit yourself to His faithfulness, who, when all fails, alone can help you.</p>
+                <p>Your Beloved is of that nature, that He will admit of no rival; but will have your heart alone, and sit on His throne as King. If You could empty yourself perfectly from all creatures, Jesus would willingly dwell with you.</p>
+            </div>
+        </article>
+
+        <hr class="my-4">
+
+        <article class="scripture-reading my-4">
+            <h2 class="scripture-reference h4 mb-3" style="color: var(--primary-color);">From True Devotion To the Blessed Virgin Mary, Nos. 257-260</h2>
+            <div class="scripture-text">
+                <p>There are some very sanctifying interior practices for those souls who feel called by the Holy Spirit to a high degree of perfection. They may be expressed in four words, doing everything through Mary, with Mary, in Mary, and for Mary, in order to do it more perfectly through Jesus, with Jesus, in Jesus, and for Jesus.</p>
+                <h4 class="reading-subtitle h6 mt-3 mb-2" style="color: var(--text-color); font-style: italic;">Through Mary</h4>
+                <p>258. We must do everything through Mary, that is, we must obey her always and be led in all things by her spirit, which is the Holy Spirit of God. "Those who are led by the Spirit of God are children of God," says St. Paul. Those who are led by the spirit of Mary are children of Mary, and, consequently children of God, as we have already shown. Among the many servants of Mary only those who are truly and faithfully devoted to her are led by her spirit. I have said that the spirit of Mary is the spirit of God because she was never led by her own spirit, but always by the spirit of God, who made himself master of her to such an extent that he became her very spirit. That is why St. Ambrose says, "May the soul of Mary be in each one of us to glorify the Lord. May the spirit of Mary be in each one of us to rejoice in God." Happy is the man who follows the example of the good Jesuit Brother Rodriguez, who died a holy death, because he was completely possessed and governed by the spirit of Mary, a spirit which is gentle yet strong, zealous yet prudent, humble yet courageous, pure yet fruitful.</p>
+                <h4 class="reading-subtitle h6 mt-3 mb-2" style="color: var(--text-color); font-style: italic;">With Mary</h4>
+                <p>260. We must do everything with Mary, that is to say, in all our actions we must look upon Mary, although a simple human being, as the perfect model of every virtue and perfection, fashioned by the Holy Spirit for us to imitate, as far as our limited capacity allows. In every action then we should consider how Mary performed it or how she would perform it if she were in our place. For this reason, we must examine and meditate on the great virtues she practiced during her life, especially: 1) Her lively faith, by which she believed the angel's word without the least hesitation, and believed faithfully and constantly even to the foot of the Cross on Calvary. 2) Her deep humility, which made her prefer seclusion, maintain silence, submit to every eventuality and put herself in the last place.</p>
+            </div>
+        </article>
+
+        <hr class="my-4">
+
+        <WeekThreePrayers UseTraditional="false" />
+    </div>
+}
 
 @code {
+    private bool useTraditional;
 
+    protected override async Task OnInitializedAsync()
+    {
+        useTraditional = await LangHelper.GetIsTraditional();
+    }
 }

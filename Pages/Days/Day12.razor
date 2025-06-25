@@ -1,35 +1,56 @@
 ﻿@page "/day12"
-@* Assuming PrepPrayers is in a shared folder like Shared/PrayerModules *@
-@* If not already in _Imports.razor, you might need: *@
-@* @using YourProjectName.Shared.PrayerModules *@
+@inject LanguageHelper LangHelper
 
 <PageTitle>Day 12 - Marian Consecration</PageTitle>
 
-<div class="page-content">
-    <h1 class="page-title">Day 12 of 33</h1>
+@if (useTraditional)
+{
+    @* This entire block is displayed for the TRADITIONAL language setting *@
+    <div class="page-content">
+        <h1 class="page-title">Day 12 of 33</h1>
 
-    <article class="scripture-reading my-4">
-        <h2 class="scripture-reference h4 mb-3" style="color: var(--primary-color);">Reading: Imitation of Christ, Book 1, Chapter 25, cont.</h2>
+        <article class="scripture-reading my-4">
+            <h2 class="scripture-reference h4 mb-3" style="color: var(--primary-color);">Imitation of Christ, Book 1, Chapter 25, cont.</h2>
+            <div class="scripture-text">
+                <p>But if thou observest any thing worthy of reproof, beware thou do not the same. And if at any time thou hast done it, labor quickly to amend thyself. As thine eye observeth others, so art thou by others noted again.</p>
+                <p>How sweet and pleasant a thing it is, to see brethren fervent and devout, obedient and well-disciplined! How sad and grievous a thing it is, to see them walk disorderly, not applying themselves to that for which they are called! How hurtful a thing it is, when they neglect the purpose of their calling and busy themselves in things not committed to their care!</p>
+                <p>Be mindful of the purpose thou hast embraced, and set always before thee the image of the Crucified. Good cause thou hast to be ashamed in looking upon the life of Jesus Christ, seeing thou hast not as yet endeavored to conform thyself more unto Him, though thou hast been a long time in the way of God. A religious person that exercizeth himself seriously and devoutly in the most holy life and passion of our Lord, shall there abundantly find whatsoever is profitable and necessary for him, neither shall he need to seek any better thing, besides Jesus. O if Jesus crucified would come into our hearts, how quickly and fully should we be. A man fervent and diligent is prepared for all things.</p>
+                <p>It is harder toil to resist vices and passions, than to sweat in bodily labors. He that avoideth not small faults, by little and little falleth into greater. Thou wilt always rejoice in the evening, if thou spend the day profitably. Be watchful over thyself, stir up thyself, warn thyself, and whatsoever becometh of others, neglect not thyself. The more violent thou uses against thyself, the more shalt thou progress. Amen.</p>
+            </div>
+        </article>
 
-        <section class="reading-section">
-            @* This is a continuation of "On the Fervent Amendment of our Whole Life" from Chapter 25. *@
-            @* No distinct subtitle was provided for this specific continuation, so I'm omitting one. *@
+        <hr class="my-4">
+
+        <PrepPrayers UseTraditional="true" />
+    </div>
+}
+else
+{
+    @* This entire block is displayed for the MODERN language setting *@
+    <div class="page-content">
+        <h1 class="page-title">Day 12 of 33</h1>
+
+        <article class="scripture-reading my-4">
+            <h2 class="scripture-reference h4 mb-3" style="color: var(--primary-color);">Imitation of Christ, Book 1, Chapter 25, cont.</h2>
             <div class="scripture-text">
                 <p>But if You observe anything worthy of reproof, beware You do not the same. And if at any time You have done it, labor quickly to amend yourself. As your eye observes others, so are You by others noted again.</p>
                 <p>How sweet and pleasant a thing it is, to see brethren fervent and devout, obedient and well-disciplined! How sad and grievous a thing it is, to see them walk disorderly, not applying themselves to that for which they are called! How hurtful a thing it is, when they neglect the purpose of their calling and busy themselves in things not committed to their care!</p>
                 <p>Be mindful of the purpose You have embraced, and set always before You the image of the Crucified. Good cause You have to be ashamed in looking upon the life of Jesus Christ, seeing You have not as yet endeavored to conform yourself more unto Him, though You have been a long time in the way of God. A religious person that exercises himself seriously and devoutly in the most holy life and passion of our Lord, shall there abundantly find whatsoever is profitable and necessary for him, neither shall he need to seek any better thing, besides Jesus. O if Jesus crucified would come into our hearts, how quickly and fully should we be. A man fervent and diligent is prepared for all things.</p>
                 <p>It is harder toil to resist vices and passions, than to sweat in bodily labors. He that avoids not small faults, by little and little fall into greater ones. You will always rejoice in the evening, if You spend the day profitably. Be watchful over yourself, stir up yourself, warn yourself, and whatsoever becometh of others, neglect not yourself. The more violent you use against yourself, the more you shall progress. Amen.</p>
             </div>
-        </section>
-    </article>
+        </article>
 
-    <hr class="my-4">
+        <hr class="my-4">
 
-    @* This includes the prayers for the first 12 days *@
-    <PrepPrayers />
-
-</div>
+        <PrepPrayers UseTraditional="false" />
+    </div>
+}
 
 @code {
-    // No specific C# code needed for this page yet.
+    private bool useTraditional;
+
+    protected override async Task OnInitializedAsync()
+    {
+        useTraditional = await LangHelper.GetIsTraditional();
+    }
 }
