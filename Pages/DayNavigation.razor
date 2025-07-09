@@ -1,0 +1,44 @@
+﻿@inject NavigationManager NavigationManager
+
+<div class="day-navigation-container">
+    @if (CurrentDay > 1)
+    {
+        <RadzenButton Icon="arrow_back_ios" Text="Previous Day" Click="GoToPreviousDay" ButtonStyle="ButtonStyle.Success" class="nav-button" />
+    }
+    else
+    {
+        @* This empty div acts as a placeholder to keep the "Next Day" button on the right *@
+        <div class="nav-placeholder"></div>
+    }
+
+    @if (CurrentDay < 34)
+    {
+        <RadzenButton Icon="arrow_forward_ios" Text="Next Day" Click="GoToNextDay" ButtonStyle="ButtonStyle.Primary" class="nav-button" />
+    }
+    else
+    {
+        @* This placeholder keeps the layout consistent on the last day *@
+        <div class="nav-placeholder"></div>
+    }
+</div>
+
+@code {
+    [Parameter]
+    public int CurrentDay { get; set; }
+
+    private void GoToPreviousDay()
+    {
+        if (CurrentDay > 1)
+        {
+            NavigationManager.NavigateTo($"/day{CurrentDay - 1}");
+        }
+    }
+
+    private void GoToNextDay()
+    {
+        if (CurrentDay < 33)
+        {
+            NavigationManager.NavigateTo($"/day{CurrentDay + 1}");
+        }
+    }
+}

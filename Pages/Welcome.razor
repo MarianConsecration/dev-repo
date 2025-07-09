@@ -1,0 +1,146 @@
+﻿@page "/welcome"
+@using Radzen.Blazor
+
+<PageTitle>Welcome - Marian Consecration</PageTitle>
+
+<div class="page-content">
+    <div class="text-center mb-4">
+        <h1 class="page-title">Total Consecration to Jesus Through Mary</h1>
+        <p class="lead">"The surest, easiest, shortest, and the most perfect means." - St. Louis de Montfort</p>
+    </div>
+
+    <hr class="my-4">
+
+    <article class="reading-section my-4">
+        <h2 class="scripture-reference h4 mb-3" style="color: var(--primary-color);">What is Marian Consecration?</h2>
+        <div class="scripture-text">
+            <p>
+                Welcome, dear friend, to this beautiful spiritual journey. Marian Consecration is the act of entrusting your entire self to Our Blessed Mother, so that she, in her great love, may lead you ever closer to the heart of her Son, Our Lord, Jesus Christ.
+            </p>
+            <p>
+                For many, like St. John Paul II who called his Marian Consecration a "turning point" in his life, this consecration marks a gloriously new day, a new dawn in one's spiritual journey.
+            </p>
+            <p>
+                On the Cross, when Jesus said to the Apostle John, "Behold, your mother," Jesus gave us His own mother to be our mother too. Her task, in perfect union with the Holy Spirit, is to give spiritual birth to Christians, to feed and nurture us with grace, and to help us grow to  in Christ. Mary forms us into saints.
+            </p>
+            <blockquote class="blockquote my-3">
+                <p class="mb-0">Marian consecration  means giving Mary our full permission to complete her motherly task in us, which is to form us into other Christs.</p>
+            </blockquote>
+            <p>
+                Let us not be afraid to entrust ourselves to her care.
+            </p>
+            <p class="lead">"Never be afraid of loving the Blessed Virgin too much. You can never love her more than Jesus did."</p>
+            <p class="lead"> - St. Maximilian Kolbe</p>
+        </div>
+    </article>
+
+
+    <article class="reading-section my-4">
+        <h2 class="scripture-reference h4 mb-3" style="color: var(--primary-color);">How to Use This App</h2>
+        <div class="scripture-text">
+            <p>For a more focused and prayerful experience, you can add this application to your phone's home screen. This will allow it to feel like a dedicated app, providing easy, full-screen access.</p>
+
+            <div class="pwa-instructions-container mt-4">
+                <div class="instruction-set">
+                    <h3 class="reading-subtitle h5 mb-2 d-flex align-items-center" style="color: var(--primary-color);">
+                        <span class="pwa-icon-box ios-icon">
+                            <RadzenIcon Icon="ios" />
+                        </span>
+                        For iPhone & iPad (using Safari)
+                    </h3>
+                    <ol>
+                        <li>First, ensure you are viewing this page in the <strong>Safari</strong> browser.</li>
+                        <li>Tap the <strong>Share</strong> button (at the bottom of the screen on iPhone, top on iPad). It looks like a square with an arrow pointing up.</li>
+                        <li>In the menu that appears, scroll down and tap on <strong>"Add to Home Screen"</strong>.</li>
+                        <li>Confirm the name for the app icon, then tap <strong>"Add"</strong>. The icon will now appear on your home screen.</li>
+                    </ol>
+                </div>
+
+                <div class="instruction-set mt-4">
+                    <h3 class="reading-subtitle h5 mb-2 d-flex align-items-center" style="color: var(--primary-color);">
+                        <span class="pwa-icon-box android-icon">
+                            <RadzenIcon Icon="android" />
+                        </span>
+                        For Android (using Chrome)
+                    </h3>
+                    <ol>
+                        <li>First, ensure you are viewing this page in the <strong>Chrome</strong> browser.</li>
+                        <li>Tap the three-dot menu icon in the top-right corner to open the browser options.</li>
+                        <li>Tap on <strong>"Install app"</strong> (this may also say "Add to Home screen" on some devices).</li>
+                        <li>Follow the on-screen prompts to confirm the installation. The app will now be on your home screen or in your app drawer.</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </article>
+
+
+    <hr class="my-4">
+
+    <article class="reading-section my-4">
+        <h2 class="scripture-reference h4 mb-3" style="color: var(--primary-color);">Frequently Asked Questions</h2>
+        <div class="scripture-text">
+            <div class="qa-item mb-3">
+                <h4 class="reading-subtitle h5 mb-2 d-flex align-items-center" style="color: var(--primary-color);"></h4>
+                <p>Do not be discouraged! The goal is a sincere and loving effort, not rigid perfection. Simply pick up where you left off. If you miss several days, you may wish to start the current week over, but the most important thing is to persevere in your desire to grow closer to Jesus through Mary.</p>
+            </div>
+            <div class="qa-item">
+                 <h4 class="reading-subtitle h5 mb-2 d-flex align-items-center" style="color: var(--primary-color);"></h4>
+                <p>This app provides both a "Modern" and a "Traditional" translation for the readings. The "Modern" text uses contemporary language for easier reading, while the "Traditional" text uses the classic, venerable language from sources like the Douay-Rheims Bible. You can choose the version that best helps you to pray by using the toggle in the Settings menu.</p>
+            </div>
+        </div>
+    </article>
+
+</div>
+
+<style>
+    .pwa-instructions-container {
+        border: 1px solid var(--border-color);
+        border-radius: var(--rz-border-radius);
+        padding: 1.5rem;
+        margin-top: 1.5rem;
+        background-color: var(--bg-color); /* Use main page background for contrast */
+    }
+
+        .pwa-instructions-container .instruction-set:not(:last-child) {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+    .pwa-icon-box {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        width: 32px;
+        height: 32px;
+        border-radius: 8px;
+        margin-right: 0.75em;
+        color: white;
+    }
+
+        .pwa-icon-box .rz-icon {
+            font-size: 20px;
+        }
+
+    .ios-icon {
+        background-color: #555; /* A neutral dark gray for the generic phone icon */
+    }
+
+    .android-icon {
+        background-color: #3DDC84;
+    }
+
+    .instruction-set ol {
+        padding-left: 1.5rem;
+        margin-bottom: 0;
+    }
+
+    .instruction-set li {
+        margin-bottom: 0.5rem;
+    }
+</style>
+
+@code {
+    // No C# code is needed for this informational page.
+}

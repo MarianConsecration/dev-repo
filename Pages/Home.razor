@@ -14,8 +14,9 @@
     <img src="pephep.jpg" alt="Image related to Marian Consecration" class="img-fluid rounded shadow-sm mb-3" style="max-height: 300px; width: auto;" />
 </div>
 
-<div class="text-center mb-4 preparation-button-container">
+<div class="home-action-buttons text-center mb-4">
     <RadzenButton Text="Preparation for Consecration" Click="@(() => NavigateTo("/preparation"))" ButtonStyle="ButtonStyle.Primary" Icon="developer_guide" Size="ButtonSize.Large" />
+    <RadzenButton Text="Welcome & App Guide" Click="NavigateToWelcome" ButtonStyle="ButtonStyle.Secondary" Icon="info" Size="ButtonSize.Large" />
 </div>
 
 <div class="calendar-scroll-container">
@@ -150,15 +151,26 @@
     </div>
 </div>
 
+<style>
+    .home-action-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+</style>
 
 @code {
-    // No more CalendarDay, CalendarWeek classes or GenerateCalendarData needed here for this manual approach.
-
     private void NavigateTo(string? route)
     {
         if (!string.IsNullOrEmpty(route))
         {
             NavigationManager.NavigateTo(route);
         }
+    }
+
+    private void NavigateToWelcome()
+    {
+        NavigationManager.NavigateTo("/welcome");
     }
 }

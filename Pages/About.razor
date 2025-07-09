@@ -1,11 +1,20 @@
 ﻿@page "/about"
 @inject IJSRuntime JSRuntime
+@inject NavigationManager NavigationManager
+@using Radzen.Blazor
 
 <PageTitle>About</PageTitle>
 
 <div class="page-content">
     <h1 class="page-title">About</h1>
     <p>This is Saint Louis-Marie de Montfort's Total Consecration to Jesus Through Mary for 2025 ending on the Assumption of the Blessed Virgin Mary.</p>
+
+    <div class="mt-4 text-center">
+        <RadzenButton Text="View Introduction & App Guide"
+                      Icon="info"
+                      ButtonStyle="ButtonStyle.Primary"
+                      Click="NavigateToWelcome" />
+    </div>
 
     <div class="settings-toggles mt-4">
         <h5 class="page-settings-title">Current Page Settings (Toggle to Change)</h5>
@@ -25,21 +34,19 @@
 </div>
 
 @code {
-    private bool useTraditional = false; // This will be bound to LanguageToggle
-
-    // If you need to react to language changes specifically on this page,
-    // you can use the 'useTraditional' field.
-    // The LanguageToggle component itself handles persistence to localStorage.
+    private bool useTraditional = false;
 
     protected override async Task OnInitializedAsync()
     {
-        // Initialize useTraditional from localStorage if LanguageToggle doesn't handle it early enough for this page's own logic
-        // However, LanguageToggle's internal OnAfterRenderAsync will also set its state and call UseTraditionalChanged.
-        // For simplicity, relying on the component's own initialization might be enough.
-        var langPref = await JSRuntime.InvokeAsync<string>("localStorage.getItem", "languagePreference");
+        var langPref = await JSRuntime.InvokeAsync<string>("localStorage.getItem", "language");
         if (langPref != null)
         {
             useTraditional = langPref == "traditional";
         }
+    }
+
+    private void NavigateToWelcome()
+    {
+        NavigationManager.NavigateTo("/welcome");
     }
 }
